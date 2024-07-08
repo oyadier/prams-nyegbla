@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<body>
+  {% block content %}
+  <main>
+    <section>
+      <h1>Government</h1>
+      <div>
+        <p>
+          The information relating the course, the posible career opportunities
+          and the course combinations will be written as an article.
+        </p>
+      </div>
+    </section>
+    <section>
+        <div>Course combination for this course</div>
+        <ol>
+            {% for i in course_cmb %}
+            <li>{{ i}}</li>
+            {% endfor %}
+        </ol>
+    </section>
+  </main>
+  {% endblock %}
+</body>
