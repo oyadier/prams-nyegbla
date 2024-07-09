@@ -19,8 +19,21 @@ class User(Base):
     firstName = Column(String(250), nullable=False)
     date_of_birth = Column(String(250), nullable=True)
     created_at = Column(String(50), default=strftime(time_formatter, localtime(current_loccal_time)))
+    employment_type = Column(String(50), name='type', nullable=False)
 
     __table_args__ = (UniqueConstraint('staff_id'),)
 
     def __rep__(self):
         return f"<User(name='{self.firstName}', dob={self.date_of_birth})>"
+    
+    def __to_dict__(self):
+        '''Return a dictionary of the user object'''
+        return {
+            'user_id': self.user_id,
+            'staff_id': self.staff_id,
+            'firstName': self.firstName,
+            'date_of_birth': self.date_of_birth,
+            'type':self.employment_type,
+            'created_at': self.created_at
+        }
+        
