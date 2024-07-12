@@ -5,9 +5,9 @@ from model.engine.storage import isSave
 import sys
 
 user = User()
-if len(sys.argv) < 3:
-    print('Usage: firstname dof')
-    exit
+if len(sys.argv) < 5:
+    print('Usage: staff_Id firstname dof type')
+    exit(0)
 user.staff_id = sys.argv[1]
 user.firstName = sys.argv[2]
 user.date_of_birth = sys.argv[3]

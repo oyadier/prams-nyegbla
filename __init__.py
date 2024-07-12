@@ -5,6 +5,7 @@ def create_app():
     app = Flask(__name__)
     '''Remove strick slash forware'''
     app.url_map.strict_slashes = False
+    
     from .api.v1.user_views import crud_views
     from .views import views
     from .admin_views import admin_views

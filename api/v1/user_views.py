@@ -13,7 +13,7 @@ def a_staff(staff_id=None):
         staff = getUser(staff_id)
     return jsonify(staff)
 
-@crud_views.route('/all-staff')
+@crud_views.route('/all-staff', strict_slashes=False)
 def get_all_staff():
     staff = all_staff()
     return jsonify(staff)

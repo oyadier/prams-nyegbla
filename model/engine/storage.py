@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from ..user import Base, User
 
+
 isSave = False
 USER = 'root'
 DATABASE = 'pramshigh'
@@ -25,8 +26,7 @@ def instertUser(newUser:User):
     except Exception as e:
         session.rollback()
         print(f"Failed to add user: {e}")
-    finally:
-        session.close()
+
 
 def getUser(staff_id=None):
     '''Get all users from the db'''
@@ -42,8 +42,12 @@ def getUser(staff_id=None):
 def all_staff():
     '''Return all the staff in the system'''
     staff = []
-    users = session.query(User).all()
+    users = session.query(User).order_by( User.firstName, User.created_at)
     for teacher in users:
         staff.append(teacher.__to_dict__())
     return staff
+
+
+def close():
+    session.close()
 
