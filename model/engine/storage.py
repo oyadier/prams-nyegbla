@@ -25,6 +25,7 @@ def instertUser(newUser:User):
         print("User added successfully.")
     except Exception as e:
         session.rollback()
+        close()
         print(f"Failed to add user: {e}")
 
 
