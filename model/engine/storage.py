@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from ..user import Base, User
+from ..professional import Professional
 
 
 isSave = False
@@ -20,14 +21,7 @@ session = Session()
 def instertUser(newUser:User):
     '''Create an engine for the db'''
     session.add(newUser)
-    try:
-        session.commit()
-        print("User added successfully.")
-    except Exception as e:
-        session.rollback()
-        close()
-        print(f"Failed to add user: {e}")
-
+    commit()
 
 def getUser(staff_id=None):
     '''Get all users from the db'''
@@ -51,4 +45,17 @@ def all_staff():
 
 def close():
     session.close()
+    
+def commit():
+    try:
+        session.commit()
+        print("User added successfully.")
+    except Exception as e:
+        session.rollback()
+        close()
+        print(f"Failed to add user: {e}")
 
+def insert_prof(prof: Professional):
+    session.add(prof)
+    commit()
+    

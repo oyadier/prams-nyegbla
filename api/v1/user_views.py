@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify
-from ...model.engine.storage import getUser, all_staff
+from ...model.engine.storage import getUser, all_staff, instertUser
+from ...model.user import User
+
 
 crud_views = Blueprint('crud_views',__name__)
 
@@ -20,3 +22,10 @@ def get_all_staff():
     '''Query db for all staff'''
     staff = all_staff()
     return jsonify(staff)
+
+@crud_views.route('/add_user', methods=['POST'])
+def add_user():
+    first_name = requests.form()
+    user = User()
+    
+    
