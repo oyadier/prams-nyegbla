@@ -49,11 +49,11 @@ def close():
 def commit():
     try:
         session.commit()
-        print("User added successfully.")
+        isSave = True
     except Exception as e:
         session.rollback()
-        close()
         print(f"Failed to add user: {e}")
+        close()
 
 def insert_prof(prof: Professional):
     session.add(prof)

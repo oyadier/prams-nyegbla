@@ -1,0 +1,141 @@
+{% extends 'base.html' %} {% block content %}
+<main>
+  <section style="margin-top: 10vh">
+    <div style="margin-right: auto; margin-left: auto; margin-top: 10vh">
+      <form
+        method="post"
+        action="/v1/pramshigh/api/add_user"
+        class="profile-form"
+      >
+        <div style="background-color: lightblue; text-align: center">
+          <p
+            style="
+              font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            "
+          >
+            <u
+              >PERSONAL RECORD FORM OF THE GHANA EDUCATION SERVICE<br />
+              (TEACHING AND NON-TEACHING)</u
+            >
+          </p>
+        </div>
+        <div class="f-center">
+          <div>
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              id="first_name"
+              placeholder="First name"
+              name="first_name"
+            />
+          </div>
+          <div>
+            <label for="surmame">Surname</label>
+            <input
+              type="text"
+              placeholder="Surname"
+              id="surname"
+              name="surname"
+            />
+          </div>
+          <div>
+            <label for="firstName">Other Name</label>
+            <input
+              type="text"
+              id="other"
+              placeholder="Other name"
+              name="other_name"
+            />
+          </div>
+        </div>
+        <div class="f-center">
+          <div>
+            <label for="date_of_birth">Date of Birth</label>
+            <input
+              type="date"
+              placeholder="Date of birth"
+              id="dob"
+              name="dob"
+            />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email" id="email" name="email" />
+          </div>
+          <div>
+            <label for="gender">Select Sex</label>
+            <select name="gender">
+              <option value="not-select">Sex</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div>
+            <label for="password">Reg. Number</label>
+            <input
+              type="text"
+              placeholder="Registration number"
+              id="reg_number"
+              name="reg_number"
+            />
+          </div>
+        </div>
+        <label for="password">SSF No.</label>
+        <input
+          type="text"
+          placeholder="Social Secuirity number"
+          id="ssf"
+          name="ssf"
+        />
+        <label for="Bank">Bank</label>
+        <input
+          type="text"
+          placeholder="Affiliated Bank"
+          id="bank"
+          name="bank"
+        />
+        <label for="branck">Branch</label>
+        <input
+          type="text"
+          placeholder="Bank branch"
+          id="branch"
+          name="branch"
+        />
+
+        <label for="mobile">Mobile</label>
+        <input
+          type="tel"
+          placeholder="Mobile number"
+          id="mobile"
+          name="mobile"
+        />
+        <div class="f-center">
+          <label for="staff-type">Staff Type</label>
+          <select name="employment-type">
+            <option value="teaching">Teaching</option>
+            <option value="non-teaching">Non-Teaching</option>
+          </select>
+          <label for="staff-status"> Staff Status </label>
+          <select for="status">
+            <option value="current">Current</option>
+            <option value="transfered">Transfered</option>
+          </select>
+  
+        </div>
+        <div class="form-submit">
+          <input
+            style="width: 40%"
+            type="submit"
+            title="Sign In"
+            value="Sign In"
+          />
+        </div>
+      
+        <p><a href="#">Forget password?</a></p>
+      </form>
+    </div>
+  </section>
+</main>
+{% endblock %}

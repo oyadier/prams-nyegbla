@@ -2,18 +2,18 @@
 from model.engine.storage import instertUser
 from model.user import User
 from model.engine.storage import isSave
+import requests
 import sys
 
-user = User()
+data = User()
 if len(sys.argv) < 5:
     print('Usage: staff_Id firstname dof type')
     exit(0)
-user.staff_id = sys.argv[1]
-user.firstName = sys.argv[2]
-user.date_of_birth = sys.argv[3]
-user.employment_type = sys.argv[4]
+data.staff_id = sys.argv[1]
+data.firstName = sys.argv[2]
+data.date_of_birth = sys.argv[3]
+data.employment_type = sys.argv[4]
 
-instertUser(newUser=user)
 if isSave:
     print('User added successfully')
 
