@@ -30,11 +30,20 @@ def add_user():
     if request.method == 'POST':
         user = User()
         user.firstName = request.form.get('first_name')
+        user.surname = request.form['surname']
+        user.email = request.form['email']
+        user.gender = request.form['gender']
+        user.mobile = request.form['mobile']
+        user.reg_number = request.form['reg_number']
+        user.ssf_no = request.form['ssf']
+        user.bank = request.form['bank']
         user.staff_id = request.form.get('staff_id')
         user.date_of_birth = request.form.get('dob')
-        user.employment_type = request.form.get('staff_type')
+        user.employment_type = request.form.get('empl_type')
+        user.status = request.form['status']
+
         instertUser(user)
-    return render_template("/departments/ict/students+projects.html")
+    return render_template("/departments/admin/admission.html")
         
     
     

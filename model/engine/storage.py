@@ -21,6 +21,7 @@ session = Session()
 def instertUser(newUser:User):
     '''Create an engine for the db'''
     session.add(newUser)
+    print('User added successfully')
     commit()
 
 def getUser(staff_id=None):

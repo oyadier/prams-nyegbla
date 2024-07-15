@@ -24,6 +24,7 @@
           <div>
             <label for="firstName">First Name</label>
             <input
+              required
               type="text"
               id="first_name"
               placeholder="First name"
@@ -33,6 +34,7 @@
           <div>
             <label for="surmame">Surname</label>
             <input
+              required
               type="text"
               placeholder="Surname"
               id="surname"
@@ -53,6 +55,7 @@
           <div>
             <label for="date_of_birth">Date of Birth</label>
             <input
+              required
               type="date"
               placeholder="Date of birth"
               id="dob"
@@ -62,12 +65,12 @@
 
           <div>
             <label for="email">Email</label>
-            <input type="email" placeholder="Email" id="email" name="email" />
+            <input required type="email" placeholder="Email" id="email" name="email" />
           </div>
           <div>
-            <label for="gender">Select Sex</label>
-            <select name="gender">
-              <option value="not-select">Sex</option>
+            <label for="gender">Sex</label>
+            <select required name="gender">
+              <option value="">--Select Sex--</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
@@ -82,47 +85,66 @@
             />
           </div>
         </div>
-        <label for="password">SSF No.</label>
-        <input
-          type="text"
-          placeholder="Social Secuirity number"
-          id="ssf"
-          name="ssf"
-        />
-        <label for="Bank">Bank</label>
-        <input
-          type="text"
-          placeholder="Affiliated Bank"
-          id="bank"
-          name="bank"
-        />
-        <label for="branck">Branch</label>
-        <input
-          type="text"
-          placeholder="Bank branch"
-          id="branch"
-          name="branch"
-        />
-
-        <label for="mobile">Mobile</label>
-        <input
-          type="tel"
-          placeholder="Mobile number"
-          id="mobile"
-          name="mobile"
-        />
         <div class="f-center">
-          <label for="staff-type">Staff Type</label>
-          <select name="employment-type">
-            <option value="teaching">Teaching</option>
-            <option value="non-teaching">Non-Teaching</option>
-          </select>
-          <label for="staff-status"> Staff Status </label>
-          <select for="status">
-            <option value="current">Current</option>
-            <option value="transfered">Transfered</option>
-          </select>
-  
+          <label for="staff_id">Staff ID</label>
+          <input
+          required
+            type="text"
+            placeholder="Staff ID"
+            id="staff_id"
+            name="staff_id"
+          />
+          <label for="ssf">SSF No.</label>
+          <input
+          
+            type="text"
+            placeholder="Social Secuirity number"
+            id="ssf"
+            name="ssf"
+          />
+          <label for="Bank">Bank</label>
+          <input
+            type="text"
+            placeholder="Affiliated Bank"
+            id="bank"
+            name="bank"
+          />
+
+          <label for="branck">Branch</label>
+          <input
+            type="text"
+            placeholder="Bank branch"
+            id="branch"
+            name="branch"
+          />
+        </div>
+        <div class="f-center">
+          <di
+            ><label for="staff-type">Employment Type</label>
+            <select required name="empl_type">
+              <option value="">--Select Type--</option>
+              <option value="teaching">Teaching</option>
+              <option value="non-teaching">Non-Teaching</option>
+            </select>
+          </di>
+          <div>
+            <label for="staff-status"> Staff Status </label>
+            <select required for="status" name="status">
+              <option value="">--Select Status--</option>
+              <option value="current">Current</option>
+              <option value="transfered">Transfered</option>
+            </select>
+          </div>
+          <div>
+            <label for="mobile">Mobile</label>
+            <input
+              required
+              type="tel"
+              placeholder="Mobile number"
+              id="mobile"
+              name="mobile"
+            />
+          </div>
         </div>
         <div class="form-submit">
           <input
@@ -132,7 +154,7 @@
             value="Sign In"
           />
         </div>
-      
+
         <p><a href="#">Forget password?</a></p>
       </form>
     </div>

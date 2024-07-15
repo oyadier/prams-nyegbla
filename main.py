@@ -5,15 +5,20 @@ from model.engine.storage import isSave
 import requests
 import sys
 
-data = User()
-if len(sys.argv) < 5:
-    print('Usage: staff_Id firstname dof type')
+new_user = User()
+param = len(sys.argv)
+if param < 9:
+    print(f'Usage: firstname surname dob email mobile gender status type. <{param}>')
     exit(0)
-data.staff_id = sys.argv[1]
-data.firstName = sys.argv[2]
-data.date_of_birth = sys.argv[3]
-data.employment_type = sys.argv[4]
-
-if isSave:
-    print('User added successfully')
+new_user.staff_id = sys.argv[1]
+new_user.firstName = sys.argv[2]
+new_user.surname = sys.argv[3]
+new_user.date_of_birth = sys.argv[4]
+new_user.email = sys.argv[5]
+new_user.mobile = sys.argv[6]
+new_user.gender = sys.argv[7]
+new_user.status = sys.argv[8]
+new_user.employment_type = sys.argv[9]
+instertUser(newUser=new_user)
+    
 
