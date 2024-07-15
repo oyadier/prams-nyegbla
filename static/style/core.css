@@ -12764,13 +12764,14 @@ div.desc {
 
 }
 
-#div_back{
+#div_back {
 
   padding: 10vh;
   background-color: gainsboro;
   box-shadow: 0 0 10px var(--bs-green);
 }
-#div_back p{
+
+#div_back p {
   font-size: x-large;
 }
 
@@ -12818,6 +12819,7 @@ div.desc {
   height: 100px;
   border-radius: 80%;
 }
+
 .author img:hover {
   width: 300px;
   height: 200px;
@@ -12896,24 +12898,40 @@ section {
 }
 
 
-.form-label-input {
+.form-label-input2 {
   width: 100%;
 }
-.form-logo{
+
+.form-logo {
   margin-left: 14vh;
   width: 15vh;
   height: 15vh;
 }
 
-#form-submit {
-  margin-left: 30px;
-  margin-right: 20px;
-  margin-top: 20px;
-  width: 80%;
+.form-submit {
+display: flex;
+margin: 30px;
+ justify-content: space-evenly;
+ align-items: center;
 }
 
 input[type="submit"]:hover {
   outline: 1px solid var(--bs-yellow);
   background-color: var(--bs-success);
   color: yellow;
+}
+
+.profile-form {
+  width: auto;
+  box-shadow: 0 0 10px var(--bs-green);
+  outline: 1px solid black;
+  border: 2px solid green;
+  border-radius: 10px;
+}
+
+.f-center {
+  margin: 2vh;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

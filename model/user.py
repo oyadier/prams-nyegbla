@@ -29,7 +29,16 @@ class User(Base):
     user_id: Mapped[str] = mapped_column(String(40), primary_key=True, default=generate_uuid, nullable=False)
     staff_id:Mapped[str_40]
     firstName : Mapped[str_200]
+    surname: Mapped[str_200]
     date_of_birth : Mapped[str_40]
+    email: Mapped[str_40]
+    mobile: Mapped[str_40]
+    gender:Mapped[str_40]
+    reg_number:Mapped[str] = mapped_column(String(40), nullable=True)
+    ssf_no : Mapped[str] = mapped_column(String(50), nullable=True)
+    bank :Mapped[str] = mapped_column(String(200), nullable=True)
+    bank_branch: Mapped[str] = mapped_column(String(200), nullable=True)
+    status = Mapped[str_40]
     created_at : Mapped[str] = mapped_column(String(30), default=strftime(time_formatter, localtime(current_loccal_time)))
     employment_type: Mapped[str] = mapped_column(String(200), name='type', nullable=False)
     profession: Mapped[List["Professional"]] = relationship('Professional', back_populates='user')

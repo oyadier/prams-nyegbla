@@ -1,6 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request, url_for, flash, redirect, render_template
 from ...model.engine.storage import getUser, all_staff, instertUser
 from ...model.user import User
+import requests
 
 
 crud_views = Blueprint('crud_views',__name__)
@@ -23,9 +24,26 @@ def get_all_staff():
     staff = all_staff()
     return jsonify(staff)
 
-@crud_views.route('/add_user', methods=['POST'])
+@crud_views.route('/add_user', methods=['GET', 'POST'])
 def add_user():
-    first_name = requests.form()
-    user = User()
+    
+    if request.method == 'POST':
+        user = User()
+        user.firstName = request.form.get('first_name')
+        user.surname = request.form['surname']
+        user.email = request.form['email']
+        user.gender = request.form['gender']
+        user.mobile = request.form['mobile']
+        user.reg_number = request.form['reg_number']
+        user.ssf_no = request.form['ssf']
+        user.bank = request.form['bank']
+        user.staff_id = request.form.get('staff_id')
+        user.date_of_birth = request.form.get('dob')
+        user.employment_type = request.form.get('empl_type')
+        user.status = request.form['status']
+
+        instertUser(user)
+    return render_template("/departments/admin/admission.html")
+        
     
     

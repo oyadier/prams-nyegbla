@@ -6,15 +6,14 @@
     2. For existing and outgone staff use your staff id and the password that you set.
   </p>
 
-    <div style="margin-right: auto;margin-left: auto; margin-top: 10vh;">
-     <form class="div-form">
-      <img class="form-logo" src="{{url_for('static', filename='asset/images/logo.jpg')}}">
-      <label class="form-label-input" for="user_maiil">Staff ID</label>
-      <input class="form-label-input" type="text" id="user_mail" name="email"><br>
+    <div class="f-center">
+     <form method='post'  action="/v1/pramshigh/api/auth" class="div-form">
+      <label class="form-label-input" for="staffID">Staff ID</label>
+      <input class="form-label-input" placeholder="Staff ID" type="text" id="staff_id" name="staff_id"><br>
       <label class="form-label-input" for="password">Password</label>
-      <input class="form-label-input" type="text" id="user_password" name="password"><br>
+      <input class="form-label-input" placeholder="Password" type="text" id="password" name="password"><br>
       <input id="form-submit" type="submit" title="Sign In" value="Sign In">
-      <p><a href="#">Forget password?</a></p>
+      <p><a href="">Forget password?</a></p>
      </form>
      
     </div>
