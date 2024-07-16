@@ -3,11 +3,16 @@ from .model.engine.storage import getUser
 
 admin_views = Blueprint('admin_views',__name__)
 
-@admin_views.route('/admission')
-def administration():
-   return render_template('departments/admin/admission.html')
+@admin_views.route('/sign_in_staff')
+def sign_in_post():
+   '''An existing user sign in into his profile'''
+   return render_template('departments/admin/sign_in.html')
    
-
+@admin_views.route('/sign_up')
+def sign_up_post():
+   '''Sign Up a new staff by adding his/her staff id into the db'''
+   return render_template('departments/admin/sign_up.html')
+   
 
 @admin_views.route('/languages')
 def languages():

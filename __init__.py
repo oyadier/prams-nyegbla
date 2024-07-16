@@ -1,8 +1,10 @@
+import secrets
 from flask import Flask
 
 def create_app():
     '''entry point for flask app'''
     app = Flask(__name__)
+    app.secret_key = secrets.token_hex(16)
     '''Remove strick slash forware'''
     app.url_map.strict_slashes = False
     

@@ -2,9 +2,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from ..user import Base, User
 from ..professional import Professional
+from ..auth_credential import CredentialAuth
 
-
-isSave = False
 USER = 'root'
 DATABASE = 'pramshigh'
 DEFAULT_PORT = '3306'
@@ -44,19 +43,36 @@ def all_staff():
     return staff
 
 
-def close():
-    session.close()
-    
-def commit():
-    try:
-        session.commit()
-        isSave = True
-    except Exception as e:
-        session.rollback()
-        print(f"Failed to add user: {e}")
-        close()
 
 def insert_prof(prof: Professional):
     session.add(prof)
     commit()
     
+    
+def auth(staff_id: str):
+    user = session.query(User).filter(User.staff_id==staff_id).first()
+    if user is None:
+        return {'None': 'Not user in the database'}
+    return user.__to_dict__()
+
+def credentials(staff_id: str):
+    credent = session.query(CredentialAuth).filter(CredentialAuth.staff_id==staff_id).first()
+    if credent is None:
+        return None
+    return credent.__to_dict__()
+
+def sign_up(credential: CredentialAuth):
+    session.add(credential)
+    session.commit()
+    print('Credential added successufly')
+    session.rollback()
+    session.close()
+   
+    
+def commit():
+    try:
+        session.commit()
+    except Exception as e:
+        session.rollback()
+        print(f"Failed to add user: {e}")
+        session.close()

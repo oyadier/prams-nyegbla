@@ -50,7 +50,6 @@ class User(Base):
     def __to_dict__(self):
         '''Return a dictionary of the user object'''
         return {
-            self.user_id: {
                 'user_id': self.user_id,
                 'staff_id': self.staff_id,
                 'firstName': self.firstName,
@@ -58,8 +57,7 @@ class User(Base):
                 'type': self.employment_type,
                 'created_at': self.created_at
             }
-        }
-        
+
         
 class Professional(Base):
     '''Professional Qualification of staff'''

@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session
 
 views = Blueprint('views', __name__)
 
@@ -30,6 +30,10 @@ def ict():
     return render_template("/departments/ict/why_learning_ict.html", tb_content=tb_content)
     
 # Launch students personal projects in all possible years
-@views.route('/department/ict/student+projects')
+@views.route('/department/ict/student+projects/')
 def student_project_ict():
-    return render_template('/departments/ict/students+projects.html')
+    user = session.get('user')
+    if not user:
+        return "No data found in session", 400
+
+    return render_template('/departments/ict/students+projects.html', user=user)
