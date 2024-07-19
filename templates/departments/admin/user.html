@@ -1,9 +1,16 @@
 {% extends 'base.html' %} {% block content %}
 <main>
+ 
   <section style="margin-top: 10vh">
+    {% with messages = get_flashed_messages(with_categories=true) %} 
+    {% if messages %}
+    <div>{{  messages[0] }}</div>
+    {% endif %} {% endwith %}
+     <p>Welcome {{ data['surname']}}, {{ data['firstName']}}</p>
+     <button >PERSONAL Data</button>
     <div style="margin-right: auto; margin-left: auto; margin-top: 10vh">
       <form
-        method="post"
+        method='post'
         action="/v1/pramshigh/api/add_user"
         class="profile-form"
       >
@@ -93,6 +100,7 @@
             placeholder="Staff ID"
             id="staff_id"
             name="staff_id"
+            value="{{data['staff_id']}}"
           />
           <label for="ssf">SSF No.</label>
           <input
@@ -151,12 +159,18 @@
             style="width: 40%"
             type="submit"
             title="Sign In"
-            value="Sign In"
+            value="Save"
           />
         </div>
 
         <p><a href="#">Forget password?</a></p>
       </form>
+    </div>
+  </section>
+
+  <section>
+    <div style="background-color: blue; text-align: center; color: white;">
+      <p>PREVIEW</p>
     </div>
   </section>
 </main>

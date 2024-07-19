@@ -2,12 +2,10 @@
 ''''A model for the staff professional qualifications '''
 from sqlalchemy import DateTime, String, Integer, Column, Date, ForeignKey
 from typing import List
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from .base import Base
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-class Base(DeclarativeBase):
-    pass
-
-
+       
 class Professional(Base):
     '''Professional Qualification of staff'''
     __tablename__ = 'prof_qualification'
@@ -17,7 +15,7 @@ class Professional(Base):
     from_date = Column(Date, nullable=False)
     to_date = Column(Date, nullable=False)
     cert_award_date = Column(Date, nullable=False)
-    user_fk = Column(String(40), ForeignKey("user.user_id"))
+    user_fk = Column(String(40), ForeignKey("user.user_id"), nullable=False)
 
 
     def __init__(self, course, institution, from_date, to_date, cert_award_date):
@@ -41,4 +39,3 @@ class Professional(Base):
             'to_date': self.to_date,
             'cert_award_date': self.cert_award_date
         }
-        
