@@ -1,9 +1,11 @@
 {% extends 'base.html' %} {% block content %}
+
 <main>
   <section style="margin-top: 10vh">
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <div style="color: red;">{{ messages[0] }}</div>
-    {% endif %} {% endwith %}
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{message}}</div>
+    {% endfor %} {% endif %} {% endwith %}
     <p>
       NOTE:<br />
       1. For new staff who is logging in for the first time, please log in using
@@ -12,9 +14,15 @@
       you set.
     </p>
 
+
     <div class="f-center">
-      <h3 style="margin: auto">Sign In</h3>
-      <form method="post" action="/v1/pramshigh/api/sign_in" class="div-form">
+     <h3 style="margin: auto; font-family:'Lucida Sans';">Sign In</h3> 
+     
+      <form
+        method="post"
+        action="/v1/pramshigh/api/authentication"
+        class="div-form"
+      >
         <img
           class="form-logo"
           src="{{url_for('static', filename='asset/images/logo.jpg')}}"
@@ -46,4 +54,5 @@
     </div>
   </section>
 </main>
+
 {% endblock %}

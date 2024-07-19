@@ -51,6 +51,7 @@ window.addEventListener('DOMContentLoaded', event => {
         console.log("Image index: " + imgSliding.src)
     }
 
+    
 });
 
 

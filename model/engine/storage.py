@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from ..user import Base, User
+from ..user import User
 from ..professional import Professional
+from ..base import Base
 from ..auth_credential import CredentialAuth
-
+'''The database connection. It also create all tables need in the system'''
 USER = 'root'
 DATABASE = 'pramshigh'
 DEFAULT_PORT = '3306'
@@ -20,7 +22,6 @@ session = Session()
 def instertUser(newUser:User):
     '''Create an engine for the db'''
     session.add(newUser)
-    print('User added successfully')
     commit()
 
 def getUser(staff_id=None):
@@ -45,21 +46,33 @@ def all_staff():
 
 
 def insert_prof(prof: Professional):
+    '''Inserting data into the professional qualification table'''
     session.add(prof)
     commit()
     
     
-def auth(staff_id: str):
-    user = session.query(User).filter(User.staff_id==staff_id).first()
-    if user is None:
-        return {'None': 'Not user in the database'}
-    return user.__to_dict__()
+def user_bio_data(staff_id: str):
+    '''Make a query for a staff with a particular staff id'''
+    user = session.query(User).filter(
+        User.staff_id==staff_id).first()
+    if user:
+        return user.__to_dict__()
+    return {'empty':'Not user with that Staff Id'}
 
 def credentials(staff_id: str):
-    credent = session.query(CredentialAuth).filter(CredentialAuth.staff_id==staff_id).first()
-    if credent is None:
-        return None
-    return credent.__to_dict__()
+    '''
+    Make a query to into the CredentialAuth table to
+    check if staff with a specific ID already exist.
+        Arg:
+            staff_id(String): Staff ID of a staff
+        Return:
+            Staff_ID: the staff id of an existed staff
+    '''
+    credent = session.query(CredentialAuth).filter(
+        CredentialAuth.staff_id==staff_id).first()
+    if credent:
+        return credent.__to_dict__()
+    return None
 
 def sign_up(credential: CredentialAuth):
     session.add(credential)
@@ -72,7 +85,8 @@ def sign_up(credential: CredentialAuth):
 def commit():
     try:
         session.commit()
+        print("New user added successufly")
     except Exception as e:
-        session.rollback()
-        print(f"Failed to add user: {e}")
-        session.close()
+        print(f"Failed to add user: {e}") 
+    session.rollback()
+    session.close()

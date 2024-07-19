@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 from model.engine.storage import instertUser
 from model.user import User
-from model.engine.storage import isSave
-import requests
 import sys
 
 new_user = User()
@@ -19,6 +17,7 @@ new_user.mobile = sys.argv[6]
 new_user.gender = sys.argv[7]
 new_user.status = sys.argv[8]
 new_user.employment_type = sys.argv[9]
+new_user.credential_fk = sys.argv[10]
 instertUser(newUser=new_user)
     
 

@@ -1,5 +1,5 @@
-from flask import Blueprint, jsonify, render_template
-from .model.engine.storage import getUser
+from flask import Blueprint, redirect, render_template, session, url_for
+from .model.engine.storage import user_bio_data
 
 admin_views = Blueprint('admin_views',__name__)
 
@@ -24,4 +24,14 @@ def homeecons():
 
 @admin_views.route('/staff/staff-profile')
 def staff_profile():
-   return render_template('departments/admin/staff-profile.html')
+   # A session from sign in page
+    data = session.get('data')
+    if not data:
+       return redirect(url_for('admin_views.sign_in_post'))
+    data = user_bio_data(staff_id=data['staff_id'])
+    
+    return render_template('departments/admin/user.html', data=data)
+
+@admin_views.route('/profile_sign_in')
+def profile_sign_in():
+    return render_template('/departments/ict/students+projects.html')
