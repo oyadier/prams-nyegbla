@@ -49,6 +49,12 @@ class User(Base):
                 'user_id': self.user_id,
                 'staff_id': self.staff_id,
                 'firstName': self.firstName,
+                'surname': self.surname,
+                'email': self.email,
+                'bank': self.bank,
+                'bank_branch': self.bank_branch,
+                'ssf_no': self.ssf_no,
+                'mobile': self.mobile,
                 'date_of_birth': self.date_of_birth,
                 'type': self.employment_type,
                 'created_at': self.created_at

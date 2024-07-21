@@ -73,7 +73,7 @@ def user_login():
         if not check_pwd:
             flash('Please check your password again', category='error')
             return redirect(url_for('admin_views.sign_in_post'))
-        session['data'] = user
+        session['data'] = user_bio_data(staff_id=staff_id)
         return redirect(url_for('admin_views.staff_profile'))
 
  

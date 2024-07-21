@@ -1,19 +1,25 @@
 {% extends 'base.html' %} {% block content %}
 <main>
-  {% with messages = get_flashed_messages(with_categories=true) %} {% if
-  messages %} {% if messages %} {% for category, message in messages %}
-  <div class="alert alert-{{ category }}">{{message}}</div>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+   {% for category, message in messages %}
+  <div class="alert alert-{{ category }}">{{message}}
+  
+  </div> 
+  {% endfor %} {% endif %} {% endwith %}
   <section style="margin-top: 10vh">
-    <h1>Sign Up A New Staff</h1>
+   
+  
     <p>
       NOTE:<br />
       1. An administrator can just add a new staff to the database using only
-      the staff ID of the that new staff 2. The new staff should login using
-      Staff ID for both staff id and pass after which he/she will upload all
+      the staff ID of the that new staff<br>2. The new staff should login using
+      Staff ID for both staff id and password after which he/she will upload all
       his/her professional and academic documents
     </p>
 
     <div class="f-center">
+      <h1 style="margin: auto;">Sign Up A New Staff</h1>
       <form method="post" action="/v1/pramshigh/api/sign_up" class="div-form">
         <img
           class="form-logo"

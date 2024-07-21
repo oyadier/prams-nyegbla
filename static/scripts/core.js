@@ -51,7 +51,23 @@ window.addEventListener('DOMContentLoaded', event => {
         console.log("Image index: " + imgSliding.src)
     }
 
+
+    document.getElementById('first_name').blur()
+
+    
     
 });
 
+  // HIDE AND SHOW PROFILE FORM
+  const profile_form = document.getElementById('profile-form')
+  const profile_btn = document.getElementById('profile-btn')
+  
 
+  profile_btn.addEventListener('click', ()=> {
+      if(profile_form.classList('hideform')){
+          profile_form.remove('hideform');
+          profile_btn.textContent('Robert');
+      }else{
+          profile_form.classList.add('hideform');
+      }
+  })

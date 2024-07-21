@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 '''Defining the base model for user authentication'''
-from sqlalchemy import  Integer, String, UniqueConstraint, Column, ForeignKey, Date
-from sqlalchemy.orm import DeclarativeBase, mapped_column, Mapped, relationship
+from sqlalchemy import  Integer, String
+from sqlalchemy.orm import mapped_column, Mapped, relationship
 from time import time, strftime, localtime
 from typing_extensions import Annotated
+
 from .base import Base
 
 

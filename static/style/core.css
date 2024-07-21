@@ -12836,6 +12836,12 @@ section {
   padding: 5rem;
 }
 
+.section1 {
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+
+}
+
 /* Customized look for icons of the social platform */
 .social {
   display: flex;
@@ -12910,10 +12916,10 @@ section {
 }
 
 .form-submit {
-display: flex;
-margin: 30px;
- justify-content: space-evenly;
- align-items: center;
+  display: flex;
+  margin: 30px;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 input[type="submit"]:hover {
@@ -12922,7 +12928,7 @@ input[type="submit"]:hover {
   color: yellow;
 }
 
-.profile-form {
+.profile-for {
   width: auto;
   box-shadow: 0 0 10px var(--bs-green);
   outline: 1px solid black;
@@ -12930,9 +12936,55 @@ input[type="submit"]:hover {
   border-radius: 10px;
 }
 
+
+/*  For promotion*/
 .f-center {
   margin: 2vh;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+
+/* Customized look for icons of the social platform */
+.profile {
+  display: flex;
+  font-weight: bold;
+  flex-wrap: wrap;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
+}
+
+.profile a:link {
+  color: black;
+  text-decoration: none;
+}
+
+.profile a:visited {
+  background-color: transparent;
+  text-decoration: none;
+  color: white;
+}
+
+.profile a:hover {
+  font-style: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: yellow;
+}
+
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 3px 2px;
+  cursor: pointer;
+}
+
+.hideform {
+  display: none;
 }

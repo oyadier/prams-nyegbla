@@ -28,8 +28,8 @@ def staff_profile():
     data = session.get('data')
     if not data:
        return redirect(url_for('admin_views.sign_in_post'))
-    data = user_bio_data(staff_id=data['staff_id'])
-    
+   #  data = user_bio_data(staff_id=data['staff_id'])
+   
     return render_template('departments/admin/user.html', data=data)
 
 @admin_views.route('/profile_sign_in')

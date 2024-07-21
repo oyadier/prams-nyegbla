@@ -5,6 +5,7 @@ from ..user import User
 from ..professional import Professional
 from ..base import Base
 from ..auth_credential import CredentialAuth
+import os
 '''The database connection. It also create all tables need in the system'''
 USER = 'root'
 DATABASE = 'pramshigh'
