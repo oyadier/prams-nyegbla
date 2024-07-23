@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+from typing import List
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from ..user import User
 from ..professional import Professional
 from ..base import Base
 from ..auth_credential import CredentialAuth
-import os
+
 '''The database connection. It also create all tables need in the system'''
 USER = 'root'
 DATABASE = 'pramshigh'
@@ -20,10 +21,22 @@ Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
+    
+def commit():
+    try:
+        session.commit()
+        print("New user added successufly")
+    except Exception as e:
+        print(f"Failed to add user: {e}") 
+    session.rollback()
+    session.close()
+
 def instertUser(newUser:User):
     '''Create an engine for the db'''
     session.add(newUser)
-    commit()
+    session.commit()
+    session.rollback()
+    session.close()
 
 def getUser(staff_id=None):
     '''Get all users from the db'''
@@ -43,14 +56,6 @@ def all_staff():
     for teacher in users:
         staff.append(teacher.__to_dict__())
     return staff
-
-
-
-def insert_prof(prof: Professional):
-    '''Inserting data into the professional qualification table'''
-    session.add(prof)
-    commit()
-    
     
 def user_bio_data(staff_id: str):
     '''Make a query for a staff with a particular staff id'''
@@ -81,13 +86,20 @@ def sign_up(credential: CredentialAuth):
     print('Credential added successufly')
     session.rollback()
     session.close()
-   
+
+'''This section begins the promotion section'''
+
+def insert_prof(prof: Professional):
+    '''Inserting data into the professional qualification table'''
+    session.add(prof)
+    print('Add prof')
+    commit()
     
-def commit():
-    try:
-        session.commit()
-        print("New user added successufly")
-    except Exception as e:
-        print(f"Failed to add user: {e}") 
-    session.rollback()
-    session.close()
+    
+def get_profs_qualificatons(prof: Professional)-> List['Professional']:
+    profs = []
+    all_prof = session.query(Professional).all()
+    for prof in all_prof:
+        profs.append('professio')
+        
+    return profs

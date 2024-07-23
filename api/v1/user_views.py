@@ -1,10 +1,11 @@
-from typing import Dict
-from flask import Blueprint, jsonify, request, url_for, flash, redirect, session
+from typing import Dict, List
+from flask import Blueprint, jsonify, render_template, request, url_for, flash, redirect, session
 
-from ...model.engine.storage import getUser, all_staff, instertUser, user_bio_data, sign_up, credentials
+from ...model.engine.storage import insert_prof, all_staff, instertUser, user_bio_data,get_profs_qualificatons, sign_up, credentials
 from ...model.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from ...model.auth_credential import CredentialAuth
+from ...model.professional import Professional
 
 
 crud_views = Blueprint('crud_views',__name__)
@@ -36,23 +37,27 @@ def add_user():
         if staffId:
             staff_id = staffId['staff_id']
             data.staff_id = staff_id
-            print(staff_id)
+            print("Session Data is null")
+            print(f'Staff Id: staff_id')
             data.credential_fk = staff_id
         else:
-            data.staff_id = request.form.get('staff_idd')
+            data.staff_id = request.form.get('staff_id')
             data.credential_fk = request.form.get('staff_id')
 
         data.firstName = request.form.get('first_name')
         data.surname = request.form['surname']
+        data.other_name = request.form['other_name']
         data.email = request.form['email']
         data.gender = request.form['gender']
         data.mobile = request.form['mobile']
         data.reg_number = request.form['reg_number']
         data.ssf_no = request.form['ssf']
         data.bank = request.form['bank']
+        data.bank_branch = request.form['bank_branch']
         data.date_of_birth = request.form.get('dob')
         data.employment_type = request.form.get('empl_type')
         data.status = request.form['status']
+        data.ssf_no = request.form['ssf']
         instertUser(data)
         flash('Profile updated', 'info')
     return redirect(url_for('admin_views.staff_profile'))
@@ -97,3 +102,30 @@ def sign_up_post():
             return redirect(url_for('admin_views.sign_in_post'))
         return redirect('admin_views.sign_up_post')
 
+
+'''Professional Qualification Views'''
+@crud_views.route('/add_qualification')
+def add_professional_qualification()-> List:
+    '''Staff professional qualification'''
+    if request.method == 'POST':
+       from_date = request.form['from_date']
+       course = request.form['course']
+       institution = request.form['institution']
+       to_date = request.form['to_date']
+       cert_award_date = request.form['award'] 
+       prof= Professional(course=course,
+                          institution=institution,
+                          from_date=from_date,
+                          to_date=to_date,
+                          cert_award_date=cert_award_date)
+       insert_prof(prof=prof)
+       flash('Professional qualification updated successfuly',
+             category='info')
+       
+@crud_views.route('/get_prof_qualification')
+def get_prof_qualification():
+    '''Retrieve all professional qualification of a staff'''
+    profs = get_profs_qualificatons()
+    for prof in profs:
+        session['prof'] = prof
+        return render_template('Link to the dir', prof=prof)

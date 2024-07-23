@@ -12766,13 +12766,13 @@ div.desc {
 
 #div_back {
 
-  padding: 10vh;
+  padding: 5vh;
   background-color: gainsboro;
   box-shadow: 0 0 10px var(--bs-green);
 }
 
 #div_back p {
-  font-size: x-large;
+  font-family: 'Comic Sam';
 }
 
 #div_back1 {
@@ -12818,12 +12818,6 @@ div.desc {
   width: 100px;
   height: 100px;
   border-radius: 80%;
-}
-
-.author img:hover {
-  width: 300px;
-  height: 200px;
-  border-radius: 60%;
 }
 
 .author div {
@@ -12941,7 +12935,7 @@ input[type="submit"]:hover {
 .f-center {
   margin: 2vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
@@ -12967,20 +12961,20 @@ input[type="submit"]:hover {
 
 .profile a:hover {
   font-style: bold;
-  font-size: 20px;
+  border-color: yellow;
   text-decoration: none;
-  color: yellow;
 }
 
 .button {
   background-color: #04AA6D;
-  border: none;
-  color: white;
+  border-color: var(--bs-yellow);
+  color: yellow;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 12px;
+  shape-outside: 3px;
   margin: 3px 2px;
   cursor: pointer;
 }

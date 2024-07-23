@@ -26,6 +26,7 @@ class User(Base):
     staff_id:Mapped[str_40]
     firstName : Mapped[str_200]
     surname: Mapped[str_200]
+    other_name: Mapped[str] =  mapped_column(String(200), nullable=True)
     date_of_birth : Mapped[str_40]
     email: Mapped[str_40]
     mobile: Mapped[str_40]
@@ -50,6 +51,7 @@ class User(Base):
                 'staff_id': self.staff_id,
                 'firstName': self.firstName,
                 'surname': self.surname,
+                'gender': self.gender,
                 'email': self.email,
                 'bank': self.bank,
                 'bank_branch': self.bank_branch,
@@ -57,7 +59,8 @@ class User(Base):
                 'mobile': self.mobile,
                 'date_of_birth': self.date_of_birth,
                 'type': self.employment_type,
-                'created_at': self.created_at
+                'created_at': self.created_at,
+                'reg_number': self.ssf_no
             }
 
  

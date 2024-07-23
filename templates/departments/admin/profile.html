@@ -1,8 +1,460 @@
-{% extends 'base.html' %}
-{% block content %}
-<section>
-    <main>
+{% extends 'base.html' %} {% block content %}
+<main style="padding: 30px">
+  <!-- The dashboard of the user -->
+  <div class="section1">
+    <div id="div_back" class="f-center author">
+      <!-- Taking user details from session pass on from sign In page -->
+       <button style="background-image: url(/static/asset/images/logo.jpg);"></button>
+       <img src="/static/asset/images/logo.jpg">
+      <p>Welcome {{ data['surname'] }}, {{ data.firstName }}</p>
+      <div class="section1">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %}
+        <div>{{ messages[0] }}</div>
+        {% endif %} {% endwith %}
 
+        <div class="profile">
+          <button class="button" id="profile-btn">Personal Data</button>
+          <a class="button" id="prof-btn">Qualifications</a>
+          <a class="button" id="promote-btn"> Promotion</a>
+          <a href="/v1/pramshigh/api/sign_in_staff" scr class="button"
+            >Logout</a
+          >
+        </div>
+      </div>
+    </div>
+
+
+    <!-- THE FORM RESPONSIBLE FOR USER PERSONAL DATA -->
+      <form
+        method="post"
+        action="/v1/pramshigh/api/add_user"
+        class="profile-for"
+        id="profile-form"
+      >
+      <div >
+        <div class="f-center">
+        <h2 style="margin: auto">PERSONAL DATA</h2>
+      </div>
+        <div style="background-color: lightblue; text-align: center">
+          <p
+            style="
+              font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            "
+          >
+            <u
+              >PERSONAL RECORD FORM OF THE GHANA EDUCATION SERVICE<br />
+              (TEACHING AND NON-TEACHING)</u
+            >
+          </p>
+        </div>
+        <div class="f-center">
+          <div>
+            <label for="firstName">First Name</label>
+            <input
+              required
+              type="text"
+              id="first_name"
+              placeholder="First name"
+              name="first_name"
+              value="{{ data['firstName'] }}"
+            />
+          </div>
+          <div>
+            <label for="surmame">Surname</label>
+            <input
+              required
+              type="text"
+              placeholder="Surname"
+              id="surname"
+              name="surname"
+              value="{{ data.surname }}"
+            />
+          </div>
+          <div>
+            <label for="other">Other Name</label>
+            <input
+              type="text"
+              id="other"
+              placeholder="Other name"
+              name="other_name"
+              value="{{data['other_name']}}"
+            />
+          </div>
+        </div>
+        <div class="f-center">
+          <div>
+            <label for="date_of_birth">Date of Birth</label>
+            <input
+              required
+              type="date"
+              placeholder="Date of birth"
+              id="dob"
+              name="dob"
+              value="{{data.date_of_birth}}"
+            />
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input
+              required
+              type="email"
+              placeholder="Email"
+              id="email"
+              name="email"
+              value="{{data['email']}}"
+            />
+          </div>
+          <div>
+            <label for="gender">Sex</label>
+            <select for="gender" required name="gender">
+              <option value="{{data.gender}}"></option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div>
+            <label for="reg">Reg. Number</label>
+            <input
+              type="text"
+              placeholder="Registration number"
+              id="reg_number"
+              name="reg_number"
+              value="{{data.reg_number}}"
+            />
+          </div>
+        </div>
+        <div class="f-center">
+          <label for="staff_id">Staff ID</label>
+          <input
+            required
+            type="text"
+            placeholder="Staff ID"
+            id="staff_id"
+            name="staff_id"
+            value="{{data.staff_id}}"
+          />
+          <label for="ssf">SSF No.</label>
+          <input
+            type="text"
+            placeholder="Social Secuirity number"
+            id="ssf"
+            name="ssf"
+            value="{{data.ssf_no}}"
+          />
+          <label for="Bank">Bank</label>
+          <input
+            type="text"
+            placeholder="Affiliated Bank"
+            id="bank"
+            name="bank"
+            value="{{data.bank}}"
+          />
+
+          <label for="branc">Branch</label>
+          <input
+            type="text"
+            placeholder="Bank branch"
+            id="bank"
+            name="bank_branch"
+            value="{{data.bank_branch}}"
+          />
+        </div>
+        <div class="f-center">
+          <di
+            ><label for="staff-type">Employment Type</label>
+            <select required name="empl_type">
+              <option value="{{data.type}}"></option>
+              <option value="teaching">Teaching</option>
+              <option value="non-teaching">Non-Teaching</option>
+            </select>
+          </di>
+          <div>
+            <label for="staff-status"> Staff Status </label>
+            <select required for="status" name="status">
+              <option value="{{data['status']}}"></option>
+              <option value="current">Current</option>
+              <option value="transfered">Transfered</option>
+            </select>
+          </div>
+          <div>
+            <label for="mobile">Mobile</label>
+            <input
+              required
+              type="tel"
+              placeholder="Mobile number"
+              id="mobile"
+              name="mobile"
+              value="{{data.mobile}}"
+            />
+          </div>
+        </div>
+        <div class="form-submit">
+          <input
+            style="width: 40%"
+            type="submit"
+            title="Sign In"
+            value="Save"
+          />
+          <input
+            style="width: 40%"
+            type="submit"
+            title="Preview"
+            value="Preview"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- THE STAFF PROFESSIONAL QUALIFICATION -->
+
+  <div style="padding-top: 5vh" >
+   
+    <div
+      class="f-center"
+      style="background-color: grey; text-align: center; color: white"
+    >
+      <form
+       method="post"
+        action="/v1/pramshigh/api/professional-qualification"
+        class="profile-for"
+        id="prof-form"
+        
+      >
+      <div class="f-center">
+        <h3 style="margin: auto">PROFESSIONAL QUALIFICATION</h2>
+        <button style="margin-right: 20vh">Add More</button>
+      </div>
+        <div class="f-center">
+          <div>
+            <label>Course Date</label>
+            <input
+              type="date"
+              for="course_date"
+              name="course_date"
+              id="course_date"
+            />
+          </div>
+          <div>
+            <label>Institution</label>
+            <input
+              type="text"
+              for="Institution"
+              name="institution"
+              placeholder="Institution"
+              id="institution"
+            />
+          </div>
+
+          <div>
+            <label>Course</label>
+            <input
+              type="text"
+              for="course"
+              name="course"
+              placeholder="Course Offered"
+              id="course"
+            />
+          </div>
+
+          <div class="f-center">
+           
+            <div>
+              <label>From Date</label>
+              <input
+                type="date"
+                for="course_date"
+                name="course_date"
+                id="course_date"
+              />
+            </div>
+           <div>
+              <label>Cert. Awarded</label>
+              <input
+                type="text"
+                for="award"
+                name="award"
+                placeholder="Certificate"
+                id="award"
+              
+              />
+            </div>
+
+          </div>
+
+        </div>
+        <hr>
+        <div class="f-center">
+            <div>
+              <label>Course Date</label>
+              <input
+                type="date"
+                for="course_date"
+                name="course_date"
+                id="course_date"
+              />
+            </div>
+            <div>
+              <label>Institution</label>
+              <input
+                type="text"
+                for="Institution"
+                name="institution"
+                placeholder="Institution"
+                id="institution"
+              />
+            </div>
+  
+            <div>
+              <label>Course</label>
+              <input
+                type="text"
+                for="course"
+                name="course"
+                placeholder="Course Offered"
+                id="course"
+              />
+            </div>
+  
+            <div class="f-center">
+             
+              <div>
+                <label>From Date</label>
+                <input
+                  type="date"
+                  for="course_date"
+                  name="course_date"
+                  id="course_date"
+                />
+              </div>
+             <div>
+                <label>Cert. Awarded</label>
+                <input
+                  type="text"
+                  for="award"
+                  name="award"
+                  placeholder="Certificate"
+                  id="award"
+                
+                />
+              </div>
+  
+            </div>
+  
+          </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- THE STAFF PROMOTION FORM -->
+
+  <div style="padding-top: 5vh">
+  
+ 
+      <form 
+      method="post"
+        action="/v1/pramshigh/api/promotion"
+        class="profile-for"
+        id="promotion-form"
+      >
+      <div class="f-center">
+        <h2 style="margin: auto">STAFF PROMOTIONS</h2>
+        <button style="margin-right: 20vh">Add Promotion</button>
+      </div>
+        <div class="f-center">
+          <div>
+            <label>Pro. Date</label>
+            <input
+              type="date"
+              for="date_promoted"
+              name="promotion_date"
+              placeholder="Promotion Date"
+              id="promotion_date"
+            />
+          </div>
+          <div>
+            <label>Sal. Scale</label>
+            <input
+              type="text"
+              for="salary"
+              name="salary_scales"
+              placeholder="Salary Scale"
+              id="salary_scale"
+            />
+          </div>
+          <div>
+            <label>Entry Point</label>
+            <input
+              type="text"
+              for="points"
+              name="entry_point"
+              placeholder="Entry Points"
+              id="promotion"
+            />
+          </div>
+          <div>
+            <label title="The level on which you were promoted to."
+              >Pro. To</label
+            >
+            <input
+              type="text"
+              for="type"
+              name="promotet_to"
+              placeholder="Promotion To"
+              id="type"
+            />
+          </div>
+        </div>
+        <div class="f-center">
+          <div>
+            <label>Pro. Date</label>
+            <input
+              type="date"
+              for="date_promoted"
+              name="pro_data1"
+              placeholder="Promotion Date"
+              id="promotion_date"
+            />
+          </div>
+          <div>
+            <label>Sal. Scale</label>
+            <input
+              type="text"
+              for="salary"
+              name="salary_scl1"
+              placeholder="Salary Scale"
+              id="salary_scale"
+            />
+          </div>
+          <div>
+            <label>Ent. Point</label>
+            <input
+              type="text"
+              for="points"
+              name="entry_point1"
+              placeholder="Entry Points"
+              id="promotion"
+            />
+          </div>
+          <div>
+            <label>Pro. To</label>
+            <input
+              type="text"
+              for="type"
+              name="promotet_to1"
+              placeholder="Promotion To"
+              id="type"
+            />
+          </div>
+        </div>
+      </form>
+  </div>
 </main>
-</section>
+
 {% endblock %}

@@ -52,22 +52,32 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 
-    document.getElementById('first_name').blur()
-
     
     
 });
 
-  // HIDE AND SHOW PROFILE FORM
-  const profile_form = document.getElementById('profile-form')
-  const profile_btn = document.getElementById('profile-btn')
-  
+document.getElementById('email').blur()
 
-  profile_btn.addEventListener('click', ()=> {
-      if(profile_form.classList('hideform')){
-          profile_form.remove('hideform');
-          profile_btn.textContent('Robert');
-      }else{
-          profile_form.classList.add('hideform');
-      }
-  })
+
+  // HIDE AND SHOW ALL STAFF PROFILE FORM
+
+  $(document).ready(function(){
+    $('#profile-form').hide();
+    $('#profile-btn').click(function(){
+        $('#profile-form').toggle('hideform');
+    });
+    });
+
+    $(document).ready(() =>{
+        $('#prof-form').hide();
+        $('#prof-btn').click(() =>{
+            $('#prof-form').toggle('hideform');
+        });
+    });
+
+    $(document).ready(() => {
+        $('#promotion-form').hide();
+        $('#promote-btn').click(() =>{
+            $('#promotion-form').toggle('hideform')
+        })
+    })
