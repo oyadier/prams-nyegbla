@@ -12889,7 +12889,7 @@ section {
 
 .div-form {
   width: 50vh;
-  padding: 10px;
+  padding: 5px;
   margin: auto;
   box-shadow: 0 0 10px var(--bs-green);
   outline: 1px solid black;
@@ -12981,4 +12981,8 @@ input[type="submit"]:hover {
 
 .hideform {
   display: none;
+}
+
+.textInput{
+  width: 300%;
 }

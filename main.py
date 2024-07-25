@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from model.engine.storage import instertUser, insert_prof
 from model.user import User
+from model.util import get_to_timedate
 from model.professional import Professional
 import datetime
 import sys
@@ -25,21 +26,26 @@ import sys
     
 param = len(sys.argv)
 if param < 5:
-    print(f'Usage: from_date course institute cert to_date')
+    print(f'Usage: course institute from_date to-date cert fk')
     exit(0)
 
 course = sys.argv[1]
 institute = sys.argv[2]
 from_date = sys.argv[3]
 to_date = sys.argv[4]
-cert = sys.argv[5]
-fk = sys.argv[6]
+cert_date = sys.argv[5]
+cert = sys.argv[6]
+fk = sys.argv[7]
+cre_date = get_to_timedate()
 prof = Professional(
-    course,
-    institute,
-    from_date,
-    to_date,
-    cert, fk=fk)
+    course=course,
+    institution=institute,
+    from_date=from_date,
+    to_date=to_date,
+    cert_date=cert_date,
+    cert_award=cert, 
+    fk=fk)
+prof.created_at=cre_date
 insert_prof(prof)
     
     

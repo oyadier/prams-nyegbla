@@ -9,6 +9,7 @@ from ...model.professional import Professional
 
 
 crud_views = Blueprint('crud_views',__name__)
+global user_fk
 
 @crud_views.route('/a-staff/<staff_id>')
 def a_staff(staff_id=None):
@@ -36,6 +37,7 @@ def add_user():
         staffId = session.get('user')
         if staffId:
             staff_id = staffId['staff_id']
+        
             data.staff_id = staff_id
             print("Session Data is null")
             print(f'Staff Id: staff_id')
@@ -89,7 +91,7 @@ def sign_up_post():
             staff_id = request.form['staff_id']
             password = request.form['password']
             # check if password already exist on this line
-            
+        
             user =  credentials(staff_id=staff_id)
             if user:
                 flash('User already exits', category='warning')
@@ -104,24 +106,32 @@ def sign_up_post():
 
 
 '''Professional Qualification Views'''
-@crud_views.route('/add_qualification')
-def add_professional_qualification()-> List:
+@crud_views.route('/professional-qualification', methods=['GET','POST'])
+def professional_qualification()-> List:
     '''Staff professional qualification'''
+    
     if request.method == 'POST':
+       
        from_date = request.form['from_date']
        course = request.form['course']
        institution = request.form['institution']
        to_date = request.form['to_date']
-       cert_award_date = request.form['award'] 
+       cert_award = request.form['award']
+       cert_date = request.form['cert_date']
        prof= Professional(course=course,
                           institution=institution,
                           from_date=from_date,
                           to_date=to_date,
-                          cert_award_date=cert_award_date)
+                          cert_date=cert_date,
+                          cert_award=cert_award,
+                          fk=session.get('data')['staff_id']
+                          )
+       
        insert_prof(prof=prof)
        flash('Professional qualification updated successfuly',
              category='info')
-       
+       return redirect(url_for('admin_views.staff_profile'))
+
 @crud_views.route('/get_prof_qualification')
 def get_prof_qualification():
     '''Retrieve all professional qualification of a staff'''

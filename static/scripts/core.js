@@ -10,27 +10,6 @@ console.log
 window.addEventListener('DOMContentLoaded', event => {
 
 
-    // Activate Bootstrap scrollspy on the main nav element
-    // const mainNav = document.body.querySelector('#mainNav');
-    // if (mainNav) {
-    //     new bootstrap.ScrollSpy(document.body, {
-    //         target: '#mainNav',
-    //         rootMargin: '0px 0px -40%',
-    //     });
-    // };
-
-    // Collapse responsive navbar when toggler is visible
-    // const navbarToggler = document.body.querySelector('.navbar-toggler');
-    // const responsiveNavItems = [].slice.call(
-    //     document.querySelectorAll('#navbarResponsive .nav-link')
-    // );
-    // responsiveNavItems.map(function (responsiveNavItem) {
-    //     responsiveNavItem.addEventListener('click', () => {
-    //         if (window.getComputedStyle(navbarToggler).display !== 'none') {
-    //             navbarToggler.click();
-    //         }
-    //     });
-    // });
     //Swapping images on the footer
     const imgContainer = document.querySelector(".slidding-image-container")
     const imgSliding = document.querySelector(".sliding")
@@ -62,7 +41,6 @@ document.getElementById('email').blur()
   // HIDE AND SHOW ALL STAFF PROFILE FORM
 
   $(document).ready(function(){
-    $('#profile-form').hide();
     $('#profile-btn').click(function(){
         $('#profile-form').toggle('hideform');
     });
@@ -81,3 +59,26 @@ document.getElementById('email').blur()
             $('#promotion-form').toggle('hideform')
         })
     })
+
+   
+    $(document).ready(() => {
+        var counter = 0;
+        $('#more_prof').click(() => {
+            var newLabe = $('<label>').attr({
+                'for': 'moreProf',
+                'id': 'more_prof',
+                'name': 'Institution',
+                'placeholder': 'Institution',
+            });
+            var newInput = $('<input>').attr({
+                'type': 'text',
+                'for': 'moreProf',
+                'id': 'more_prof',
+                'name': 'more_prof',
+                'placeholder': 'Enter staff profile',
+            });
+            $('#prof-form').append(newInput).append('<br>');
+        });
+    });
+
+   

@@ -11,24 +11,29 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 class Professional(Base):
     '''Professional Qualification of staff'''
     __tablename__ = 'prof_qualification'
-    pro_id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
-    course = Column(String(200), nullable=False)
-    institution = Column(String(200), nullable=False)
-    from_date = Column(Date, nullable=False)
-    to_date = Column(Date, nullable=False)
-    cert_award_date = Column(String(200), nullable=False)
+    pro_id:Mapped[int] = mapped_column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    course:Mapped[str] = mapped_column(String(200), nullable=False)
+    institution:Mapped[str] = mapped_column(String(200), nullable=False)
+    from_date:Mapped[str] = mapped_column(String(20), nullable=False)
+    to_date:Mapped[str] = mapped_column(String(20), nullable=True)
+    cert_awarded:Mapped[str] = mapped_column(String(200), nullable=True)
+    cert_date:Mapped[str] = mapped_column(String(20), nullable=True)
     created_at : Mapped[str] = mapped_column(String(30), nullable=False)
-    user_fk = Column(String(40), ForeignKey("user.user_id"), nullable=False)
+    user_fk:Mapped[str] = mapped_column(String(40), ForeignKey("user.staff_id"), nullable=False)
 
-    user_fk = Column(String(40), ForeignKey("user.user_id"), nullable=False)
-
-
-    def __init__(self, course:str, institution:str, from_date:str, to_date:str, cert_award_date:str, fk:str):
+    def __init__(self, course:str,
+                 institution:str,
+                 from_date:str,
+                 to_date:str,
+                 cert_date:str,
+                 cert_award:str,
+                 fk:str):
         self.course = course
         self.institution = institution
         self.from_date = from_date
         self.to_date = to_date
-        self.cert_award_date = cert_award_date
+        self.cert_date = cert_date
+        self.cert_awarded = cert_award
         self.user_fk = fk
         self.created_at = get_to_timedate()
 
@@ -44,5 +49,7 @@ class Professional(Base):
             'institution': self.institution,
             'from_date': self.from_date,
             'to_date': self.to_date,
-            'cert_award_date': self.cert_award_date
-        }
+            'cert_award': self.cert_award,
+            'cert_date': self.cert_date,
+            'created_at':self.created_at
+            }
