@@ -1,11 +1,11 @@
 from typing import Dict, List
 from flask import Blueprint, jsonify, render_template, request, url_for, flash, redirect, session
 
-from ...model.engine.storage import insert_prof, all_staff, instertUser, user_bio_data,get_profs_qualificatons, sign_up, credentials
-from ...model.user import User
+from model.engine.storage import insert_prof, all_staff, instertUser, user_bio_data,get_profs_qualificatons, sign_up, credentials
+from model.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
-from ...model.auth_credential import CredentialAuth
-from ...model.professional import Professional
+from model.auth_credential import CredentialAuth
+from model.professional import Professional
 
 
 crud_views = Blueprint('crud_views',__name__)

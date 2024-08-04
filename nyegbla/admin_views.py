@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, render_template, session, url_for
-from .model.engine.storage import user_bio_data
+from model.engine.storage import user_bio_data
 
 admin_views = Blueprint('admin_views',__name__)
 

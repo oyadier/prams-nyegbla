@@ -12703,7 +12703,6 @@ header {
   }
 
   .vertical-line {
-
     border: none;
     height: 1px;
     background-color: rgb(225, 255, 128);
@@ -12713,6 +12712,7 @@ header {
 }
 
 div.gallery {
+  width: 350px;
   margin: 5px;
   border: 1px solid green;
 
@@ -12724,11 +12724,12 @@ div.gallery:hover {
 }
 
 div.gallery img {
-  width: 300px;
+  width: 350px;
   height: 250px;
 }
 
 div.desc {
+
   padding: 2px;
   width: auto;
   text-align: center;
@@ -12766,9 +12767,9 @@ div.desc {
 
 #div_back {
 
-  padding: 5vh;
+  padding: 4vh;
   background-color: gainsboro;
-  box-shadow: 0 0 10px var(--bs-green);
+  box-shadow: 0 0 20px var(--bs-green);
 }
 
 #div_back p {
@@ -12827,11 +12828,11 @@ div.desc {
 
 /* Section dimension for all page. Will be customizing it soon */
 section {
-  padding: 5rem;
+  padding: 10px;
 }
 
 .section1 {
-  padding-top: 2rem;
+  padding-top: 2vh;
   padding-bottom: 0rem;
 
 }
