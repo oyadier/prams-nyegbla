@@ -541,7 +541,7 @@ progress {
 }
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 2.25rem;
   font-weight: 300;
 }
 
@@ -12769,6 +12769,7 @@ div.desc {
 
   padding: 4vh;
   background-color: gainsboro;
+  font-size: x-large;
   box-shadow: 0 0 20px var(--bs-green);
 }
 

@@ -37,3 +37,9 @@ def student_project_ict():
         return "No data found in session", 400
 
     return render_template('/departments/ict/students+projects.html', user=user)
+
+
+@views.route('/events/induction')
+def prefect_induction():
+    
+    return render_template("/events/induction.html")

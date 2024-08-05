@@ -4,16 +4,19 @@
 <body>
   <!-- Header block-->
   {% block header %}
-  <header class="bg-primary">
+  <header
+    class="bg-primary"
+    style="padding-top: 60vh; background-image: url('{{ url_for('static', filename='asset/images/prams_admin.jpg') }}'); background-size: cover; background-position: center"
+  >
     <div class="container px-4 text-center">
       <h1 id="welcome" class="fw-bolder">Welcome to Prampram Senior High</h1>
-      <p class="lead">
+      <p class="lead" style="font-size: large; color: white">
         <i>Pramshigh, Ny3 Gbla!!</i>
       </p>
 
-      <div class="slidding-image-container">
+      <!-- <div class="slidding-image-container">
         <img src="" alt="Images will show here" class="sliding col-lg-8" />
-      </div>
+      </div> -->
     </div>
   </header>
   {% endblock %}
@@ -22,28 +25,38 @@
   {% block content %}
   <main>
     <!-- About section-->
-    <section>
+    <section
+      style="background-image: url('{{ url_for('static', filename='asset/images/induction.jpg') }}'); background-size: cover; background-position: center"
+    >
       <div class="image-container px-4">
         <div class="row gx-4 justify-content-center">
           <h2><u>Our Mission:</u></h2>
           <div class="col-lg-8">
-            <p class="lead">
+            <p class="lead" style="color: white">
               To efficiently and effectively equip our students with
               transformational education within a suitablee environment towards
               achieving high academic and peronal growth; guided by a high
               standard discipline for the global setting.
             </p>
-            <hr>
+            <hr style="padding-bottom: 40vh;" />
             <h2 class="justify-content-center" id="profile-btn">CORE VALUES</h2>
-              <p style="font-family: sans-serif, Helvetica Neue, Lucida Grande, Arial;font-stretch: expanded ; font-size: larger">RESPECT</p>
+            <p
+              style="
+                font-family: sans-serif, Helvetica Neue, Lucida Grande, Arial;
+                font-stretch: expanded;
+                font-size: larger;
+              "
+            >
+              RESPECT
+            </p>
             <div id="div_back" class="ict-vertical-line">
-              <p title="{{core[0]}}">R ----->   Resilience </p>
-              <p title="{{core[1]}}">E ----->   Efficiency</p>
-              <p title="{{core[2]}}">S ----->   Self Discipline</p>
-              <p title="{{core[3]}}">P ----->   Patience</p>
-              <p title="{{core[4]}}">E ----->   Excellence</p>
-              <p title="{{core[5]}}">C ----->   Confidence</p>
-              <p title="{{core[6]}}">T ----->   Teamwork</p>
+              <p title="{{core[0]}}">R -----> Resilience</p>
+              <p title="{{core[1]}}">E -----> Efficiency</p>
+              <p title="{{core[2]}}">S -----> Self Discipline</p>
+              <p title="{{core[3]}}">P -----> Patience</p>
+              <p title="{{core[4]}}">E -----> Excellence</p>
+              <p title="{{core[5]}}">C -----> Confidence</p>
+              <p title="{{core[6]}}">T -----> Teamwork</p>
             </div>
           </div>
         </div>
@@ -68,42 +81,50 @@
       <h1 class="text-decoration-underline text-uppercase">COMPUS UPATES:</h1>
       <div class="image-container">
         <div class="gallery">
-          <a target="_blank" href="{{url_for( 'static', filename='asset/images/new_prefects_2024.jpg') }}">
+          <a
+            target="_blank"
+            href="{{url_for( 'static', filename='asset/images/new_prefects_2024.jpg') }}"
+          >
             <img
               src="{{url_for( 'static', filename='asset/images/new_prefects_2024.jpg') }}"
               alt="New elected prefects-2025/2025"
             />
           </a>
-          <div class="desc">Outgone prefects-2023/2024</div>
+          <div class="desc">Newly elected prefects 2024-2025</div>
         </div>
         <div class="gallery">
           <a target="_blank" href="outgone_prefects.jpg">
             <img
               src="{{url_for( 'static', filename='asset/images/outgone_prefects.jpg') }}"
-              alt="Outgone prefects of pramshigh-2023/2024"
+              alt="Newly elected prefects"
             />
           </a>
-          <div class="desc">Culture display by Drama Team</div>
+          <div class="desc">
+            Outgone student prefects for the year 2023-2024
+          </div>
         </div>
         <div class="gallery">
-          <a target="_blank" href="{{url_for( 'static', filename='asset/images/ict_student_practical.jpg') }}">
+          <a
+            target="_blank"
+            href="{{url_for( 'static', filename='asset/images/ict_student_practical.jpg') }}"
+          >
             <img
               src="{{url_for( 'static', filename='asset/images/ict_student_practical.jpg') }}"
-              alt="Induction of newly elected prefect for 2024-2024 academic year"
+              alt="Students been engaged in practical I.C.T lession"
             />
           </a>
           <div class="desc">One Student, One Computer Practicals.</div>
         </div>
+
         <div class="gallery">
-          <a target="_blank" href="induction.jpg">
+          <a target="_blank" href="{{ url_for('views.prefect_induction') }}">
             <img
               src="{{url_for( 'static', filename='asset/images/induction.jpg') }}"
-              alt=""
+              alt="Inducting of newly elected prefects of Pramprams Senior High School"
             />
           </a>
           <div class="desc">
-            Sir Oyadier delivering practical I.C.T lession in the computer
-            Lab.
+            Madam Evelyn Paitoo, inducted the newly electect prefects 2024-2025
           </div>
         </div>
       </div>
@@ -113,13 +134,15 @@
       <h1 class="text-decoration-underline text-uppercase">Workshops:</h1>
       <div class="image-container">
         <div class="gallery">
-          <a target="_blank" href="img_5terre.jpg">
+          <a target="_blank" href="{{u}}">
             <img
               src="{{url_for( 'static', filename='asset/images/home_econs_exhibition.jpg') }}"
-              alt="Home Econs student exhiting table setting"
+              alt="Home Econs student exhibiting table settings-By Sir Kuashiga"
             />
           </a>
-          <div class="desc">Home Econs student exhiting table settings.</div>
+          <div class="desc">
+            Home Econs student exhibiting table settings-By Sir Kuashiga
+          </div>
         </div>
         <div class="gallery">
           <a target="_blank" href="africa_celebration.html">
@@ -138,13 +161,12 @@
             />
           </a>
           <div class="desc">
-            Sir Oyadier delivering practical I.C.T lession in the computer
-            Lab.
+            Sir Oyadier delivering practical I.C.T lession in the computer Lab.
           </div>
         </div>
       </div>
     </section>
-    <!-- WEEKLY FACE OF PRAMSHIG DUE TO GOOD BEHAVIOR -->
+    <!-- WEEKLY FACE OF PRAMSHIGH DUE TO GOOD BEHAVIOR -->
     <section id="begin">
       <h1 class="text-decoration-underline text-uppercase">
         Face of PramsHigh:
@@ -157,7 +179,9 @@
               alt="Home Econs student exhiting table setting"
             />
           </a>
-          <div class="desc">Home Econs student exhibiting table settings</div>
+          <div class="desc">
+            Home Econs student exhibiting table settings-By Sir Kuashiga
+          </div>
         </div>
         <div class="gallery">
           <a target="_blank" href="africa_celebration.html">
@@ -176,8 +200,7 @@
             />
           </a>
           <div class="desc">
-            Sir Oyadier delivering practical I.C.T lession in the computer
-            Lab.
+            Sir Oyadier delivering practical I.C.T lession in the computer Lab.
           </div>
         </div>
       </div>
