@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, request, session
 views = Blueprint('views', __name__)
 
 
-@views.route("/home/")
+@views.route("/")
 def homepage():
     core = ['The capacity to recover quickly from difficulties or setbacks',
             'The ability to achieve maximum productivity with minimum wasted effort or resources.',

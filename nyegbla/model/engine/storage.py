@@ -13,14 +13,9 @@ DB_USER = os.environ.get('DB_USER')
 DATABASE = os.environ.get('DATABASE_NAME')
 DEFAULT_PORT = os.environ.get('DEFAULT_PORT')
 HOST = os.environ.get('HOST')
-PASSWORD ='Ro0551987'
+PASSWORD ='Ro0551987$%'
 mysql_connection = f'mysql+pymysql://{DB_USER}:{PASSWORD}@{HOST}:{DEFAULT_PORT}/{DATABASE}'
-
-print("DB_USER:", os.environ.get('DB_USER'))
-print("DATABASE:", os.environ.get('DATABASE_NAME'))
-print("DEFAULT_PORT:", os.environ.get('DEFAULT_PORT'))
-print("HOST:", os.environ.get('HOST'))
-print("PASSWORD:", os.environ.get('DB_PASSWORD'))
+print("pramshigh-edu.com is up running")
 engine = create_engine(mysql_connection)
 Base.metadata.create_all(engine)
 

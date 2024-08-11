@@ -98,7 +98,7 @@ def sign_up_post():
                 return redirect(url_for('admin_views.sign_in_post'))
             user_auth = CredentialAuth()
             user_auth.staff_id = staff_id
-            user_auth.password = generate_password_hash(password, method='sha256')
+            user_auth.password = generate_password_hash(password, method='pbkdf2:sha256')
             sign_up(credential=user_auth)
             flash('New staff registered successufly', category='info')
             return redirect(url_for('admin_views.sign_in_post'))

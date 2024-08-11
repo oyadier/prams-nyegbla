@@ -7,35 +7,33 @@
 // Scripts
 // 
 console.log
-window.addEventListener('DOMContentLoaded', event => {
+// window.addEventListener('DOMContentLoaded', event => {
 
 
-    //Swapping images on the footer
-    const imgContainer = document.querySelector(".slidding-image-container")
-    const imgSliding = document.querySelector(".sliding")
-    const imageDir = "/static/asset/sliding/";
-    const imgList = ['1.jpg', '2.jpg', '3.jpg'];
-    let imageIndex = 0;
-    if (imgSliding) {
-        imgSliding.src = imageDir + imgList[imageIndex];
-    } else {
-        console.error("Could not find element with class 'sliding'");
-    }
-    imgContainer.addEventListener('click', slideImages)
-    setInterval(slideImages, 4000);
+//     //Swapping images on the footer
+//     const imgContainer = document.querySelector(".slidding-image-container")
+//     const imgSliding = document.querySelector(".sliding")
+//     const imageDir = "/static/asset/sliding/";
+//     const imgList = ['1.jpg', '2.jpg', '3.jpg'];
+//     let imageIndex = 0;
+//     if (imgSliding) {
+//         imgSliding.src = imageDir + imgList[imageIndex];
+//     } else {
+//         console.error("Could not find element with class 'sliding'");
+//     }
+//     imgContainer.addEventListener('click', slideImages)
+//     setInterval(slideImages, 4000);
 
-    function slideImages() {
-        imageIndex = (imageIndex + 1) % imgList.length
-        imgSliding.src = imageDir + imgList[imageIndex]
-        console.log("Image index: " + imgSliding.src)
-    }
+//     function slideImages() {
+//         imageIndex = (imageIndex + 1) % imgList.length
+//         imgSliding.src = imageDir + imgList[imageIndex]
+//         console.log("Image index: " + imgSliding.src)
+//     }
 
 
     
     
-});
-
-document.getElementById('email').blur()
+// });
 
 
   // HIDE AND SHOW ALL STAFF PROFILE FORM
@@ -64,11 +62,10 @@ document.getElementById('email').blur()
     $(document).ready(() => {
         var counter = 0;
         $('#more_prof').click(() => {
-            var newLabe = $('<label>').attr({
+            var newLabel = $('<label>').attr({
                 'for': 'moreProf',
                 'id': 'more_prof',
                 'name': 'Institution',
-                'placeholder': 'Institution',
             });
             var newInput = $('<input>').attr({
                 'type': 'text',
@@ -77,7 +74,7 @@ document.getElementById('email').blur()
                 'name': 'more_prof',
                 'placeholder': 'Enter staff profile',
             });
-            $('#prof-form').append(newInput).append('<br>');
+            $('#prof-form').append(newLabel).append(newInput).append('<br>');
         });
     });
 
