@@ -1,7 +1,7 @@
 from typing import Dict, List
 from flask import Blueprint, jsonify, render_template, request, url_for, flash, redirect, session
 
-from model.engine.storage import insert_prof, all_staff, instertUser, user_bio_data,get_profs_qualificatons, sign_up, credentials
+from model.engine.storage import insert_prof, all_staff, instertUser,user_bio_data,get_profs_qualificatons, sign_up, credentials, sign_out
 from model.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from model.auth_credential import CredentialAuth
@@ -61,7 +61,7 @@ def add_user():
         data.status = request.form['status']
         data.ssf_no = request.form['ssf']
         instertUser(data)
-        flash('Profile updated', 'info')
+        flash('Profile updated', category='info')
     return redirect(url_for('admin_views.staff_profile'))
 
 
@@ -73,13 +73,12 @@ def user_login():
         password = request.form['password']
         user =  credentials(staff_id=staff_id)
         if not user:
-            flash("User does not exit", category='error')
-            return redirect(url_for('admin_views.sign_in_post'))
+            flash('User does not exists', category='info')
+
 
         check_pwd = check_password_hash(pwhash=user['password'], password=password)
         if not check_pwd:
-            flash('Please check your password again', category='error')
-            return redirect(url_for('admin_views.sign_in_post'))
+            flash('Please check your password again', category='info')
         session['data'] = user_bio_data(staff_id=staff_id)
         return redirect(url_for('admin_views.staff_profile'))
 
@@ -138,4 +137,10 @@ def get_prof_qualification():
     profs = get_profs_qualificatons()
     for prof in profs:
         session['prof'] = prof
-        return render_template('Link to the dir', prof=prof)
+        return render_template('Link to the professional form', prof=prof)
+    
+@crud_views.route('/sign_out')
+def user_sign_out():
+    sign_out()
+    flash('User signed out', category='info')
+    return redirect(url_for('departments/admin/sign_in.html'))

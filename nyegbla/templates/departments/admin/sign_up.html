@@ -3,7 +3,8 @@
   {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
    {% for category, message in messages %}
-  <div class="alert alert-{{ category }}">{{message}}
+  <div class="alert alert-{{ category }}">
+    {{message}}
   
   </div> 
   {% endfor %} {% endif %} {% endwith %}
@@ -17,7 +18,6 @@
       Staff ID for both staff id and password after which he/she will upload all
       his/her professional and academic documents
     </p>
-
     <div class="f-center">
       <h1 style="margin: auto;">Sign Up A New Staff</h1>
       <form method="post" action="/v1/pramshigh/api/sign_up" class="div-form">

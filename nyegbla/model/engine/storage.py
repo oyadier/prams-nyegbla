@@ -23,10 +23,12 @@ Base.metadata.create_all(engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
+
     
 def commit():
     try:
         session.commit()
+        session.expire_on_commit(True)
         print("New user added successufly")
     except Exception as e:
         print(f"Failed to add user: {e}") 
@@ -36,9 +38,8 @@ def commit():
 def instertUser(newUser:User):
     '''Create an engine for the db'''
     session.add(newUser)
-    session.commit()
-    session.rollback()
-    session.close()
+    commit()
+  
 
 def getUser(staff_id=None):
     '''Get all users from the db'''
@@ -84,10 +85,9 @@ def credentials(staff_id: str):
 
 def sign_up(credential: CredentialAuth):
     session.add(credential)
-    session.commit()
+    commit()
     print('Credential added successufly')
-    session.rollback()
-    session.close()
+    
 
 '''This section begins the promotion section'''
 
@@ -105,3 +105,7 @@ def get_profs_qualificatons(prof: Professional)-> List['Professional']:
         profs.append('professio')
         
     return profs
+
+
+def sign_out():
+    session.clear()

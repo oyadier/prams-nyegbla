@@ -30,9 +30,6 @@ console.log
 //         console.log("Image index: " + imgSliding.src)
 //     }
 
-
-    
-    
 // });
 
 
@@ -58,7 +55,7 @@ console.log
         })
     })
 
-   
+   // ADDING MORE STAFF QUALIFICATION FORM
     $(document).ready(() => {
         var counter = 0;
         $('#more_prof').click(() => {
@@ -78,4 +75,24 @@ console.log
         });
     });
 
-   
+
+    //LOADING PROFILE IMAGE AT PROFILE FORM IN USER DASHBOARD
+    document.getElementById('pickImageBtn').addEventListener('click', function() {
+        document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.getElementById('imageDisplay');
+                img.src = e.target.result;
+                img.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+
+    //LOADING PROFILE IMAGE AT PROFILE FORM IN USER DASHBOARD

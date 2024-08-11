@@ -1,29 +1,32 @@
 {% extends 'base.html' %} {% block content %}
-<main style="padding: 30px">
+<main >
   <!-- The dashboard of the user -->
   <div class="section1">
     <div id="div_back" class="f-center author">
       <!-- Taking user details from session pass on from sign In page -->
-      <button
-        style="background-image: url(/static/asset/images/logo.jpg)"
-      ></button>
-      <img src="/static/asset/images/logo.jpg" />
+  
+      <div class ='profile'>
+      
+    <input type="file" id="fileInput" style="display: none;" accept="image/*">
+    <img id="imageDisplay" alt="Profile Picture">
+    <button id="pickImageBtn">Load Picture</button>
+      </div>
       <p>Welcome {{ data['surname'] }}, {{ data.firstName }}</p>
       <div class="section1">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if
         messages %}
-        <div>{{ messages[0] }}</div>
+        <div class="alert alert-{{ category }}"> {{ messages[0] }}</div>
         {% endif %} {% endwith %}
 
-        <div class="profile">
+
+        
           <button class="button" id="profile-btn">Personal Data</button>
           <a class="button" id="prof-btn">Qualifications</a>
           <a class="button" id="promote-btn"> Promotion</a>
-          <a href="/v1/pramshigh/api/sign_in_staff" scr class="button"
-            >Logout</a
-          >
-        </div>
+          <a  href="{{ url_for('crud_views.user_sign_out') }}" class="button"
+            >Logout</a>
+       
       </div>
     </div>
 
@@ -204,8 +207,8 @@
     </form>
   </div>
 
-  <!-- THE STAFF PROFESSIONAL QUALIFICATION -->
 
+  <!-- THE STAFF PROFESSIONAL QUALIFICATION -->
   <div style="padding-top: 5vh">
     <div
       class="f-center"
@@ -296,8 +299,8 @@
     </div>
   </div>
 
-  <!-- THE STAFF PROMOTION FORM -->
 
+  <!-- THE STAFF PROMOTION FORM -->
   <div style="padding-top: 5vh">
     <form
       method="post"
@@ -397,6 +400,7 @@
       </div>
     </form>
   </div>
+  
 </main>
 
 {% endblock %}

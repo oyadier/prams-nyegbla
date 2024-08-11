@@ -12770,9 +12770,13 @@ div.desc {
   padding: 4vh;
   background-color: gainsboro;
   font-size: x-large;
-  box-shadow: 0 0 20px var(--bs-green);
+  box-shadow: 0 0 20px var(--bs-yellow);
 }
-
+#div_back:hover{
+  background-color: gainsboro;
+  font-size: x-large;
+  box-shadow: 0 0 40px var(--bs-green);
+}
 #div_back p {
   font-family: 'Comic Sam';
 }
@@ -12890,7 +12894,7 @@ section {
 /*Forms styling*/
 
 .div-form {
-  width: 50vh;
+  max-width: 30vh;
   padding: 5px;
   margin: auto;
   box-shadow: 0 0 10px var(--bs-green);
@@ -12943,11 +12947,10 @@ input[type="submit"]:hover {
 
 /* Customized look for icons of the social platform */
 .profile {
+  padding-top: 10vh;
   display: flex;
   font-weight: bold;
   flex-wrap: wrap;
-  padding-top: 5vh;
-  padding-bottom: 3vh;
 }
 
 .profile a:link {
