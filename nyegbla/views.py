@@ -43,3 +43,7 @@ def student_project_ict():
 def prefect_induction():
     
     return render_template("/events/induction.html")
+
+@views.route('/events/drugless-club-embarked-on-an-excursion')
+def drugless_excursion():
+    return render_template('/clubs/drugless/drugless-club-embarked-on-an-excursion.html')

@@ -77,6 +77,7 @@ console.log
 
 
     //LOADING PROFILE IMAGE AT PROFILE FORM IN USER DASHBOARD
+  
     document.getElementById('pickImageBtn').addEventListener('click', function() {
         document.getElementById('fileInput').click();
     });
@@ -94,5 +95,14 @@ console.log
         }
     });
 
-
+    $(document).ready(() => {
+        const $pro_form = $("#profile-form");
+        var $save_upt = $('#save_upt');
+        const $contain_name = $('#first_name');
+    
+        if ($contain_name.text().trim() !== '') {
+            $save_upt.text("Update");
+          // $pro_form.method = 'put'
+        }
+    });
     //LOADING PROFILE IMAGE AT PROFILE FORM IN USER DASHBOARD

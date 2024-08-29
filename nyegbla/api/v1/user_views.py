@@ -1,7 +1,7 @@
 from typing import Dict, List
 from flask import Blueprint, jsonify, render_template, request, url_for, flash, redirect, session
 
-from model.engine.storage import insert_prof, all_staff, instertUser,user_bio_data,get_profs_qualificatons, sign_up, credentials, sign_out
+from model.engine.storage import insert_prof, all_staff, instertUser,user_bio_data,get_profs_qualificatons, sign_up, credentials
 from model.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from model.auth_credential import CredentialAuth
@@ -21,65 +21,70 @@ def a_staff(staff_id=None):
     '''
     if staff_id:
         staff = user_bio_data(staff_id)
-    return jsonify(staff)
+    return jsonify(staff), 200
 
 @crud_views.route('/all-staff', strict_slashes=False)
 def get_all_staff():
     '''Query db for all staff'''
     staff = all_staff()
-    return jsonify(staff)
+    return jsonify(staff), 202
 
-@crud_views.route('/add_user', methods=['GET', 'POST'])
+@crud_views.route('/add_user', methods=['GET', 'POST', 'PUT'])
 def add_user():
+    
     '''Add new user's bio data to school database'''
-    if request.method == 'POST':     
-        data = User()
-        staffId = session.get('user')
-        if staffId:
-            staff_id = staffId['staff_id']
-        
-            data.staff_id = staff_id
-            print("Session Data is null")
-            print(f'Staff Id: staff_id')
-            data.credential_fk = staff_id
-        else:
-            data.staff_id = request.form.get('staff_id')
-            data.credential_fk = request.form.get('staff_id')
-
-        data.firstName = request.form.get('first_name')
-        data.surname = request.form['surname']
-        data.other_name = request.form['other_name']
-        data.email = request.form['email']
-        data.gender = request.form['gender']
-        data.mobile = request.form['mobile']
-        data.reg_number = request.form['reg_number']
-        data.ssf_no = request.form['ssf']
-        data.bank = request.form['bank']
-        data.bank_branch = request.form['bank_branch']
-        data.date_of_birth = request.form.get('dob')
-        data.employment_type = request.form.get('empl_type')
-        data.status = request.form['status']
-        data.ssf_no = request.form['ssf']
+    data = User()
+    staff_id = session.get('user_id')
+    if staff_id:
+              
+        data.staff_id = staff_id
+        data.credential_fk = staff_id
+    else:
+        data.staff_id = request.form.get('staff_id')
+        data.credential_fk = request.form.get('staff_id')   
+    data.firstName = request.form.get('first_name')
+    data.surname = request.form['surname']
+    data.other_name = request.form['other_name']
+    data.email = request.form['email']
+    data.gender = request.form['gender']
+    data.mobile = request.form['mobile']
+    data.reg_number = request.form['reg_number']
+    data.ssf_no = request.form['ssf']
+    data.bank = request.form['bank']
+    data.bank_branch = request.form['bank_branch']
+    data.date_of_birth = request.form.get('dob')
+    data.employment_type = request.form.get('empl_type')
+    data.status = request.form['status']
+    if request.method == 'POST':
         instertUser(data)
         flash('Profile updated', category='info')
+        return redirect(url_for('admin_views.staff_profile'))
+      
+    elif request.method == 'PUT':
+            print("Make a put request")
     return redirect(url_for('admin_views.staff_profile'))
+
+        
 
 
 @crud_views.route('/authentication', methods=['POST'])
 def user_login():
-    # user_auth = CredentialAuth()
+
+    # User authentication
     if request.method == 'POST':
         staff_id = request.form['staff_id']
         password = request.form['password']
-        user =  credentials(staff_id=staff_id)
-        if not user:
+        user_credentials =  credentials(staff_id=staff_id)
+        if not user_credentials or user_credentials is None:
             flash('User does not exists', category='info')
-
-
-        check_pwd = check_password_hash(pwhash=user['password'], password=password)
+            return redirect(url_for('admin_views.sign_in_post'))
+        check_pwd = check_password_hash(pwhash=user_credentials['password'], password=password)
         if not check_pwd:
             flash('Please check your password again', category='info')
-        session['data'] = user_bio_data(staff_id=staff_id)
+            return redirect(url_for('admin_views.sign_in_post'))
+        session['user'] = user_bio_data(staff_id=staff_id)
+        session['user_id'] = staff_id
+
         return redirect(url_for('admin_views.staff_profile'))
 
  
@@ -141,6 +146,6 @@ def get_prof_qualification():
     
 @crud_views.route('/sign_out')
 def user_sign_out():
-    sign_out()
+    session.clear()
     flash('User signed out', category='info')
-    return redirect(url_for('departments/admin/sign_in.html'))
+    return redirect(url_for('admin_views.sign_in_post'))

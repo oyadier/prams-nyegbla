@@ -138,7 +138,8 @@
           placeholder="Staff ID"
           id="staff_id"
           name="staff_id"
-          value="{{data.staff_id}}"
+          value="{{userId}}"
+          disabled
         />
         <label for="ssf">SSF No.</label>
         <input
@@ -196,7 +197,7 @@
         </div>
       </div>
       <div class="form-submit">
-        <input style="width: 40%" type="submit" title="Sign In" value="Save" />
+        <input style="width: 40%" id='save_upt' type="submit" title="Sign In" value="Save" />
         <input
           style="width: 40%"
           type="submit"

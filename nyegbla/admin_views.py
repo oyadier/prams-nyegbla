@@ -25,12 +25,14 @@ def homeecons():
 @admin_views.route('/staff/staff-profile')
 def staff_profile():
    # A session from sign in page
-    data = session.get('data')
+    data = session.get('user')
+    staff_id = session.get('user_id')
+    
     if not data:
        return redirect(url_for('admin_views.sign_in_post'))
-   #  data = user_bio_data(staff_id=data['staff_id'])
-   
-    return render_template('departments/admin/profile.html', data=data)
+  #  data = user_bio_data(staff_id=data['staff_id'])
+    print(staff_id)  
+    return render_template('departments/admin/profile.html', data=data, userId=staff_id)
 
 @admin_views.route('/profile_sign_in')
 def profile_sign_in():

@@ -7,13 +7,15 @@ from ..professional import Professional
 from ..base import Base
 from ..auth_credential import CredentialAuth
 import os
+from dotenv import load_dotenv
 
 '''The database connection. It also create all tables need in the system'''
+load_dotenv('.env')
 DB_USER = os.environ.get('DB_USER')
 DATABASE = os.environ.get('DATABASE_NAME')
 DEFAULT_PORT = os.environ.get('DEFAULT_PORT')
 HOST = os.environ.get('HOST')
-PASSWORD ='Ro0551987$%'
+PASSWORD = os.environ.get('DB_PASSWORD')
 mysql_connection = f'mysql+pymysql://{DB_USER}:{PASSWORD}@{HOST}:{DEFAULT_PORT}/{DATABASE}'
 print("pramshigh-edu.com is up running")
 engine = create_engine(mysql_connection)
@@ -39,7 +41,7 @@ def instertUser(newUser:User):
     '''Create an engine for the db'''
     session.add(newUser)
     commit()
-  
+
 
 def getUser(staff_id=None):
     '''Get all users from the db'''
@@ -102,10 +104,15 @@ def get_profs_qualificatons(prof: Professional)-> List['Professional']:
     profs = []
     all_prof = session.query(Professional).all()
     for prof in all_prof:
-        profs.append('professio')
+        profs.append(prof)
         
     return profs
 
-
-def sign_out():
-    session.clear()
+def update_user(user: User):
+    user = User()
+    for key in user:
+        if hasattr(user, key):
+            setattr(user, key, user[key])
+    session.commit()
+        
+    
