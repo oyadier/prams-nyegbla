@@ -47,3 +47,7 @@ def prefect_induction():
 @views.route('/events/drugless-club-embarked-on-an-excursion')
 def drugless_excursion():
     return render_template('/clubs/drugless/drugless-club-embarked-on-an-excursion.html')
+
+@views.route('/events/drugless-excursion-gallery')
+def drugless_excursion_gallery():
+    return render_template('/clubs/drugless/drugless-club-embarked-on-an-excursion-gallery.html')
