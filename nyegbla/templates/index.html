@@ -13,7 +13,6 @@
       <p class="lead" style="font-size: large; color: white">
         <i >Pramshigh, Ny3 Gbla!!</i>
       </p>
-
       <!-- <div class="slidding-image-container">
         <img src="" alt="Images will show here" class="sliding col-lg-8" />
       </div> -->
@@ -24,6 +23,20 @@
   <!-- Main Content of the Website -->
   {% block content %}
   <main>
+    <section class="bg-light mission" id="services">
+      <div class="row gx-4 justify-content-center">
+        <h2><u>Our Mission:</u></h2>
+        <div class="col-lg-8">
+            <p class="lead" >
+              To efficiently and effectively equip our students with
+              transformational education within a suitablee environment towards
+              achieving high academic and peronal growth; guided by a high
+              standard discipline for the global setting.
+            </p>
+        
+        </div>
+      </div>
+    </section>
     <!-- About section-->
     <section
       style="background-image: url('{{ url_for('static', filename='asset/images/induction.jpg') }}'); background-size: cover; background-position: center"
@@ -33,10 +46,7 @@
           <h2><u>Our Mission:</u></h2>
           <div class="col-lg-8">
             <p class="lead" style="color: white">
-              To efficiently and effectively equip our students with
-              transformational education within a suitablee environment towards
-              achieving high academic and peronal growth; guided by a high
-              standard discipline for the global setting.
+             
             </p>
             <hr style="padding-bottom: 40vh;" />
             <h2 class="justify-content-center" id="profile-btn">CORE VALUES</h2>
@@ -68,7 +78,7 @@
         <h2 class="vision-hd">:Our Vission</h2>
         <div class="row gx-4 justify-content-center">
           
-            <p class="lead" style="font-size: 10vh">
+            <p class="lead">
               A prefered institution for a holistic education.
             </p>
         
@@ -82,7 +92,7 @@
       <div class="image-container">
         <div class="gallery">
           <a
-            target="_blank"
+          target="_self"
             href="{{url_for( 'static', filename='asset/images/new_prefects_2024.jpg') }}"
           >
             <img
@@ -105,7 +115,7 @@
           <div class="desc">Drugless Club Empbarked on an educative excursion</div>
         </div>
         <div class="gallery">
-          <a target="_blank" href="outgone_prefects.jpg">
+          <a target="_self" href="outgone_prefects.jpg">
             <img
               src="{{url_for( 'static', filename='asset/images/outgone_prefects.jpg') }}"
               alt="Newly elected prefects"
@@ -117,7 +127,7 @@
         </div>
         <div class="gallery">
           <a
-            target="_blank"
+            target="_self"
             href="{{url_for( 'static', filename='asset/images/ict_student_practical.jpg') }}"
           >
             <img
@@ -129,7 +139,7 @@
         </div>
 
         <div class="gallery">
-          <a target="_blank" href="{{ url_for('views.prefect_induction') }}">
+          <a target="_self" href="{{ url_for('views.prefect_induction') }}">
             <img
               src="{{url_for( 'static', filename='asset/images/induction.jpg') }}"
               alt="Inducting of newly elected prefects of Pramprams Senior High School"

@@ -14,8 +14,8 @@ def create_app():
     from admin_views import admin_views
     from course import course
    
-    app.register_blueprint(views, url_prefix="/pramshigh")
-    app.register_blueprint(course, url_prefix="/pramshigh/courses")
-    app.register_blueprint(admin_views, url_prefix="/pramshigh/admin")
-    app.register_blueprint(crud_views, url_prefix="/v1/pramshigh/api")
+    app.register_blueprint(views, url_prefix="/")
+    app.register_blueprint(course, url_prefix="/courses")
+    app.register_blueprint(admin_views, url_prefix="/admin")
+    app.register_blueprint(crud_views, url_prefix="/v1/api")
     return app

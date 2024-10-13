@@ -67,7 +67,7 @@ def add_user():
         
 
 
-@crud_views.route('/authentication', methods=['POST'])
+@crud_views.route('/auth/login', methods=['POST'])
 def user_login():
 
     # User authentication

@@ -4,6 +4,7 @@ views = Blueprint('views', __name__)
 
 
 @views.route("/")
+@views.route("/home/")
 def homepage():
     core = ['The capacity to recover quickly from difficulties or setbacks',
             'The ability to achieve maximum productivity with minimum wasted effort or resources.',
