@@ -2,10 +2,9 @@
 from typing import List
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from ..user import User
 from ..professional import Professional
+from ..user import User
 from ..base import Base
-from ..auth_credential import CredentialAuth
 import os
 from dotenv import load_dotenv
 
@@ -42,6 +41,22 @@ def instertUser(newUser:User):
     session.add(newUser)
     commit()
 
+def updateUser(newUser:User):
+    '''Create an engine for the db'''
+    print("User Data: ", newUser)
+    session.query(User).filter(User.user_id == newUser['user_id']).update({'firstName':newUser['firstName'],
+                                                                           'surname':newUser['surname'],
+                                                                           'other_name':newUser['other_name'],
+                                                                           'email':newUser['email'],
+                                                                           'gender':newUser['gender'],
+                                                                           'mobile':newUser['mobile'],
+                                                                           'ssf_no':newUser['ssf_no'],
+                                                                           'bank':newUser['bank'],
+                                                                           'bank_branch':newUser['bank_branch'],
+                                                                           'type':newUser['type'],
+                                                                           'date_of_birth':newUser['date_of_birth']})                                                                  
+    commit()
+  
 
 def getUser(staff_id=None):
     '''Get all users from the db'''
@@ -68,27 +83,29 @@ def user_bio_data(staff_id: str):
         User.staff_id==staff_id).first()
     if user:
         return user.__to_dict__()
-    return {'empty':'Not user with that Staff Id'}
+    return {}
 
-def credentials(staff_id: str):
+def userExists(staff_id: str):
     '''
-    Make a query to into the CredentialAuth table to
+    Make a query to into the User table to
     check if staff with a specific ID already exist.
         Arg:
             staff_id(String): Staff ID of a staff
         Return:
             Staff_ID: the staff id of an existed staff
     '''
-    credent = session.query(CredentialAuth).filter(
-        CredentialAuth.staff_id==staff_id).first()
+    credent = session.query(User).filter(
+        User.staff_id==staff_id).first()
     if credent:
         return credent.__to_dict__()
     return None
 
-def sign_up(credential: CredentialAuth):
-    session.add(credential)
+
+def sign_ups(user: User):
+    session.add(user)
     commit()
-    print('Credential added successufly')
+    
+    print('New user added successufly')
     
 
 '''This section begins the promotion section'''

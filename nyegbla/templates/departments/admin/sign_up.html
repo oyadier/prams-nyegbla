@@ -9,8 +9,7 @@
   </div> 
   {% endfor %} {% endif %} {% endwith %}
   <section style="margin-top: 10vh">
-   
-  
+
     <p>
       NOTE:<br />
       1. An administrator can just add a new staff to the database using only
@@ -25,6 +24,22 @@
           class="form-logo"
           src="{{url_for('static', filename='asset/images/logo.jpg')}}"
         />
+        <label class="form-label-input2" for="name">First Name</label>
+        <input
+          class="form-label-input2"
+          placeholder="First Name"
+          type="text"
+          id="first_name"
+          name="first_name"
+        /><br />
+        <label class="form-label-input2" for="name">Surname</label>
+        <input
+          class="form-label-input2"
+          placeholder="Surname"
+          type="text"
+          id="surname"
+          name="surname"
+        /><br />
         <label class="form-label-input2" for="staffID">Staff ID</label>
         <input
           class="form-label-input2"
@@ -40,14 +55,21 @@
           type="text"
           id="password"
           name="password"
-        /><br />
+        /><br/>
+        <label class="form-label-input2" for="password">Confirm Password</label>
         <input
           class="form-label-input2"
+          placeholder="Confirm Password"
+          type="text"
+          id="con_password"
+          name="confirm_password"
+        /><br/>
+        <input
+          class="form-label-input2 form-text"
           type="submit"
           title="Sign In"
           value="Sign In"
         />
-        <p><a href="">Sign In</a></p>
         <p><a href="">Forget password?</a></p>
       </form>
     </div>

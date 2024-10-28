@@ -7,36 +7,36 @@
 // Scripts
 // 
 console.log
-// window.addEventListener('DOMContentLoaded', event => {
+ window.addEventListener('DOMContentLoaded', event => {
 
 
-//     //Swapping images on the footer
-//     const imgContainer = document.querySelector(".slidding-image-container")
-//     const imgSliding = document.querySelector(".sliding")
-//     const imageDir = "/static/asset/sliding/";
-//     const imgList = ['1.jpg', '2.jpg', '3.jpg'];
-//     let imageIndex = 0;
-//     if (imgSliding) {
-//         imgSliding.src = imageDir + imgList[imageIndex];
-//     } else {
-//         console.error("Could not find element with class 'sliding'");
-//     }
-//     imgContainer.addEventListener('click', slideImages)
-//     setInterval(slideImages, 4000);
+    //Swapping images on the footer
+    const imgContainer = document.querySelector(".gala-div")
+    const imgSliding = document.querySelector(".sele")
+    const imageDir = "/static/asset/sliding/";
+    const imgList = ['1.jpg', '2.jpg', '3.jpg'];
+    let imageIndex = 0;
+    if (imgSliding) {
+        imgSliding.src = imageDir + imgList[imageIndex];
+    } else {
+        console.error("Could not find element with class 'sliding'");
+    }
+    imgContainer.addEventListener('click', slideImages)
 
-//     function slideImages() {
-//         imageIndex = (imageIndex + 1) % imgList.length
-//         imgSliding.src = imageDir + imgList[imageIndex]
-//         console.log("Image index: " + imgSliding.src)
-//     }
 
-// });
+    function slideImages() {
+        imageIndex = (imageIndex + 1) % imgList.length
+        imgSliding.src = imageDir + imgList[imageIndex]
+        console.log("Image index: " + imgSliding.src)
+    }
+
+});
 
 
   // HIDE AND SHOW ALL STAFF PROFILE FORM
 
   $(document).ready(function(){
-    $('#profile-btn').click(function(){
+    $('#profile-btn').click(() =>{
         $('#profile-form').toggle('hideform');
     });
     });
@@ -106,3 +106,27 @@ console.log
         }
     });
     //LOADING PROFILE IMAGE AT PROFILE FORM IN USER DASHBOARD
+
+
+
+    function submitForm(method) {
+        const form = document.getElementById('profile-form');
+        const actionUrl = '/v1/pramshigh/api/add_user' // Update with your endpoint
+    
+        const fetchOptions = {
+            method: method,
+            body: new URLSearchParams(new FormData(form))
+        };
+    
+        fetch(actionUrl, fetchOptions)
+            .then(response => {
+                // Handle the response
+                return response.json()// Assuming the server responds with JSON
+            })
+            .then(data => {
+                console.log(data); // Handle the data received
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }

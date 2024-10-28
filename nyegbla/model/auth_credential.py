@@ -11,7 +11,7 @@ from .base import Base
 time_formatter = '%Y/%m/%d %H:%M:%S'
 current_loccal_time = time()
 
-class CredentialAuth(Base):
+class User(Base):
     __tablename__= 'credentials'
     auth_id:Mapped[int] = mapped_column(Integer, primary_key=True, unique=True, autoincrement=True)
     staff_id:Mapped[str] = mapped_column(String(200), nullable=False, unique=True)

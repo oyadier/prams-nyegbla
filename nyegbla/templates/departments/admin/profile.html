@@ -13,13 +13,12 @@
       </div>
       <p>Welcome {{ data['surname'] }}, {{ data.firstName }}</p>
       <div class="section1">
+    
         {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if
-        messages %}
-        <div class="alert alert-{{ category }}"> {{ messages[0] }}</div>
-        {% endif %} {% endwith %}
-
-
+        {% if messages %} 
+        {% for category, message in messages %}
+       <div class="alert alert-{{ category }}">{{ message }}</div>
+       {% endfor %} {% endif %} {% endwith %}
         
           <button class="button" id="profile-btn">Personal Data</button>
           <a class="button" id="prof-btn">Qualifications</a>
@@ -33,7 +32,7 @@
     <!-- THE FORM RESPONSIBLE FOR USER PERSONAL DATA -->
     <form
       method="post"
-      action="/v1/pramshigh/api/add_user"
+      action="/v1/api/add_user"
       class="profile-for"
       id="profile-form"
     >
@@ -54,6 +53,7 @@
         </p>
       </div>
       <div class="f-center">
+        <input  type="hidden" name="_method" value="PUT"></input>
         <div>
           <label for="firstName">First Name</label>
           <input
@@ -62,7 +62,7 @@
             id="first_name"
             placeholder="First name"
             name="first_name"
-            value="{{ data['firstName'] }}"
+            value="{{ data.firstName}}"
           />
         </div>
         <div>
@@ -94,7 +94,7 @@
             required
             type="date"
             placeholder="Date of birth"
-            id="dob"
+            id="date_of_birth"
             name="dob"
             value="{{data.date_of_birth}}"
           />
@@ -108,10 +108,11 @@
             placeholder="Email"
             id="email"
             name="email"
-            value="{{data['email']}}"
+            value="{{data.email}}"
           />
         </div>
         <div>
+          
           <label for="gender">Sex</label>
           <select for="gender" required name="gender">
             <option value="{{data.gender}}"></option>
@@ -162,16 +163,16 @@
         <input
           type="text"
           placeholder="Bank branch"
-          id="bank"
+          id="bank_branch"
           name="bank_branch"
           value="{{data.bank_branch}}"
         />
       </div>
       <div class="f-center">
         <di
-          ><label for="staff-type">Employment Type</label>
-          <select required name="empl_type">
-            <option value="{{data.type}}"></option>
+          ><label for="staff_type">Employment Type</label>
+          <select required name="staff_type" for="staff_type">
+            <option value="{{data.staff_type}}"></option>
             <option value="teaching">Teaching</option>
             <option value="non-teaching">Non-Teaching</option>
           </select>
@@ -198,12 +199,7 @@
       </div>
       <div class="form-submit">
         <input style="width: 40%" id='save_upt' type="submit" title="Sign In" value="Save" />
-        <input
-          style="width: 40%"
-          type="submit"
-          title="Preview"
-          value="Preview"
-        />
+        
       </div>
     </form>
   </div>
@@ -350,10 +346,10 @@
           >
           <input
             type="text"
-            for="type"
+            for="p_type"
             name="promotet_to"
             placeholder="Promotion To"
-            id="type"
+            id="p_type"
           />
         </div>
       </div>
@@ -392,10 +388,10 @@
           <label>Pro. To</label>
           <input
             type="text"
-            for="type"
+            for="type_p"
             name="promotet_to1"
             placeholder="Promotion To"
-            id="type"
+            id="type_p"
           />
         </div>
       </div>

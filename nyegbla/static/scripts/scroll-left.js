@@ -37,11 +37,11 @@ $(document).ready(function () {
 $(document).ready(() => {
     const $pro_form = $("#profile-form");
     var $save_upt = $('#save_upt');
-    const $contain_name = $('#first_name');
+    const contain_name = $('#first_name');
 
-    if ($contain_name.val().trim() !== '') {
+    if (contain_name.val().trim() !== '') {
         $save_upt.text("Update");
-      // $pro_form.method = 'put'
+      $pro_form.method = 'put'
     }
 });
 
@@ -51,5 +51,11 @@ $(document).ready(function () {
     image.src = "/static/images/nyegbla.jpg";
 });
 
+$(document).ready(() => {
+    $("#update").click(() => {
+        alert("Hello Update")
+      //  submitForm('PUT');
+    })
+})
 
 //Logging Out a user

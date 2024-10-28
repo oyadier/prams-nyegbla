@@ -10,7 +10,7 @@
   >
     <div class="container px-4 text-center">
       <h1 id="welcome" class="fw-bolder">Welcome to Prampram Senior High</h1>
-      <p class="lead" style="font-size: large; color: white">
+      <p style="font-size: large; color: white">
         <i >Pramshigh, Ny3 Gbla!!</i>
       </p>
       <!-- <div class="slidding-image-container">
@@ -23,7 +23,7 @@
   <!-- Main Content of the Website -->
   {% block content %}
   <main>
-    <section class="bg-light mission" id="services">
+    <section class="bg-light mission" id="services" >
       <div class="row gx-4 justify-content-center">
         <h2><u>Our Mission:</u></h2>
         <div class="col-lg-8">
@@ -43,13 +43,12 @@
     >
       <div class="image-container px-4">
         <div class="row gx-4 justify-content-center">
-          <h2><u>Our Mission:</u></h2>
+          <h2><u>CORE VALUES:</u></h2>
           <div class="col-lg-8">
             <p class="lead" style="color: white">
              
             </p>
             <hr style="padding-bottom: 40vh;" />
-            <h2 class="justify-content-center" id="profile-btn">CORE VALUES</h2>
             <p
               style="
                 font-family: sans-serif, Helvetica Neue, Lucida Grande, Arial;
@@ -103,8 +102,7 @@
           <div class="desc">Newly elected prefects 2024-2025</div>
         </div>
         <div class="gallery">
-          <a
-            target="_blank"
+          <a target='_parent'
             href="{{url_for('views.drugless_excursion') }}"
           >
             <img
@@ -115,7 +113,7 @@
           <div class="desc">Drugless Club Empbarked on an educative excursion</div>
         </div>
         <div class="gallery">
-          <a target="_self" href="outgone_prefects.jpg">
+          <a target="_self" href="outgone_prefects.jpg"> 
             <img
               src="{{url_for( 'static', filename='asset/images/outgone_prefects.jpg') }}"
               alt="Newly elected prefects"
