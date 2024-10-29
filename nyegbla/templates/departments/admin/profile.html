@@ -11,7 +11,7 @@
     <img id="imageDisplay" alt="Profile Picture">
     <button id="pickImageBtn">Load Picture</button>
       </div>
-      <p>Welcome {{ data['surname'] }}, {{ data.firstName }}</p>
+      <p>Welcome {{ data['surname'] }}, {{ data.first_name }}</p>
       <div class="section1">
     
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -32,7 +32,7 @@
     <!-- THE FORM RESPONSIBLE FOR USER PERSONAL DATA -->
     <form
       method="post"
-      action="/v1/api/add_user"
+      action="/v1/api/update_user"
       class="profile-for"
       id="profile-form"
     >
@@ -62,7 +62,7 @@
             id="first_name"
             placeholder="First name"
             name="first_name"
-            value="{{ data.firstName}}"
+            value="{{ data.first_name}}"
           />
         </div>
         <div>
@@ -139,7 +139,7 @@
           placeholder="Staff ID"
           id="staff_id"
           name="staff_id"
-          value="{{userId}}"
+          value="{{data['staff_id']}}"
           disabled
         />
         <label for="ssf">SSF No.</label>
@@ -170,9 +170,9 @@
       </div>
       <div class="f-center">
         <di
-          ><label for="staff_type">Employment Type</label>
-          <select required name="staff_type" for="staff_type">
-            <option value="{{data.staff_type}}"></option>
+          ><label for="category">Employment Type</label>
+          <select required name="category" for="category">
+            <option value="{{data.category}}"></option>
             <option value="teaching">Teaching</option>
             <option value="non-teaching">Non-Teaching</option>
           </select>
@@ -198,7 +198,7 @@
         </div>
       </div>
       <div class="form-submit">
-        <input style="width: 40%" id='save_upt' type="submit" title="Sign In" value="Save" />
+        <input style="width: 40%" id='save_upt' type="submit" title="Update" value="Update" />
         
       </div>
     </form>

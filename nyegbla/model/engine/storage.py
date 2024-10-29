@@ -7,6 +7,7 @@ from ..user import User
 from ..base import Base
 import os
 from dotenv import load_dotenv
+from flask import jsonify
 
 '''The database connection. It also create all tables need in the system'''
 load_dotenv('.env')
@@ -30,7 +31,6 @@ def commit():
     try:
         session.commit()
         session.expire_on_commit(True)
-        print("New user added successufly")
     except Exception as e:
         print(f"Failed to add user: {e}") 
     session.rollback()
@@ -44,18 +44,9 @@ def instertUser(newUser:User):
 def updateUser(newUser:User):
     '''Create an engine for the db'''
     print("User Data: ", newUser)
-    session.query(User).filter(User.user_id == newUser['user_id']).update({'firstName':newUser['firstName'],
-                                                                           'surname':newUser['surname'],
-                                                                           'other_name':newUser['other_name'],
-                                                                           'email':newUser['email'],
-                                                                           'gender':newUser['gender'],
-                                                                           'mobile':newUser['mobile'],
-                                                                           'ssf_no':newUser['ssf_no'],
-                                                                           'bank':newUser['bank'],
-                                                                           'bank_branch':newUser['bank_branch'],
-                                                                           'type':newUser['type'],
-                                                                           'date_of_birth':newUser['date_of_birth']})                                                                  
+    rows = session.query(User).filter(User.user_id == newUser['user_id']).update(newUser)                                                                
     commit()
+    return rows
   
 
 def getUser(staff_id=None):
@@ -77,35 +68,19 @@ def all_staff():
         staff.append(teacher.__to_dict__())
     return staff
     
-def user_bio_data(staff_id: str):
+def staff_profile(staff_id: str):
     '''Make a query for a staff with a particular staff id'''
     user = session.query(User).filter(
         User.staff_id==staff_id).first()
     if user:
-        return user.__to_dict__()
-    return {}
-
-def userExists(staff_id: str):
-    '''
-    Make a query to into the User table to
-    check if staff with a specific ID already exist.
-        Arg:
-            staff_id(String): Staff ID of a staff
-        Return:
-            Staff_ID: the staff id of an existed staff
-    '''
-    credent = session.query(User).filter(
-        User.staff_id==staff_id).first()
-    if credent:
-        return credent.__to_dict__()
-    return None
+        return jsonify(user.__to_dict__()), 200
+    return jsonify({}), 400
 
 
-def sign_ups(user: User):
+
+def sign_up(user: User):
     session.add(user)
     commit()
-    
-    print('New user added successufly')
     
 
 '''This section begins the promotion section'''

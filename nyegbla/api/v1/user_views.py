@@ -1,10 +1,11 @@
 from typing import List
 from flask import Blueprint, jsonify, render_template, request, url_for, flash, redirect, session
 
-from model.engine.storage import insert_prof, all_staff, instertUser,user_bio_data, get_profs_qualificatons, sign_ups, userExists
+from model.engine.storage import insert_prof, all_staff, updateUser,staff_profile, get_profs_qualificatons, sign_up, staff_profile
 from model.user import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from model.professional import Professional
+from model.util import get_to_timedate
 
 
 crud_views = Blueprint('crud_views',__name__)
@@ -19,7 +20,7 @@ def a_staff(staff_id=None):
             A staff at the index
     '''
     if staff_id:
-        staff = user_bio_data(staff_id)
+        staff = staff_profile(staff_id)
     return jsonify(staff), 200
 
 @crud_views.route('/all-staff', strict_slashes=False)
@@ -28,73 +29,38 @@ def get_all_staff():
     staff = all_staff()
     return jsonify(staff), 202
 
-# @crud_views.route('/add_user', methods=['POST'])
-# def add_user():
-    
-#     '''Add new user's bio data to school database'''
-#     user = session.get('user')
-
-#     if user:
-#         user['firstName'] = request.form.get('first_name')
-#         user['surname'] = request.form.get('surname')
-#         user['other_name'] = request.form['other_name']
-#         user['email'] = request.form['email']
-#         user['gender'] = request.form['gender']
-#         user['mobile'] = request.form['mobile']
-#         user['ssf_no'] = request.form['ssf']
-#         user['bank'] = request.form['bank']
-#         user['bank_branch']= request.form['bank_branch']
-#         user['date_of_birth'] = request.form.get('dob')
-#         user['staff_type'] = request.form.get('staff_type')
-#         print(f"New Update data: {user}")
-#     if request.method == 'POST':
-#             try:
-#                 instertUser(user)
-#                 flash('Profile updated', category='info')
-#                 return redirect (url_for('admin_views.staff_profile'))
-#             except Exception as e:
-#                 flash(f"Failed to update: {str(e)}", category='error')
-                
-#     return redirect(url_for('admin_views.staff_profile'))
-
 
 # '''TODO: WORKING ON UPDATE OF STAFF PROFILE'''
-# @crud_views.route('user/update-profile', methods=['PUT'])      
-# def update_profile():
+@crud_views.route('/update_user', methods=['POST'])
+def update_user():
     
-#     '''Add new user's bio data to school database'''
-#     data = User()
-#     staff_id = session.get('user')
-#     print(staff_id)
-#     if staff_id:
-              
-#         data.staff_id = staff_id
-#         data.credential_fk = staff_id
-#     else:
-#         data.staff_id = request.form.get('staff_id')
-#         data.credential_fk = request.form.get('staff_id')   
-#     data.firstName = request.form.get('+first_name')
-#     data.surname = request.form['surname']
-#     data.other_name = request.form['other_name']            
-#     data.email = request.form['email']
-#     data.gender = request.form['gender']
-#     data.mobile = request.form['mobile']
-#     data.reg_number = request.form['reg_number']
-#     data.ssf_no = request.form['ssf']
-#     data.bank = request.form['bank']
-#     data.bank_branch = request.form['bank_branch']
-#     data.date_of_birth = request.form.get('dob')
-#     data.employment_type = request.form.get('empl_type')
-#     data.status = request.form['status']
-#     if request.method == 'PUT':
-#         try:
-#             updateUser(data)
-#             flash('Profile updated', category='info')
-#         except:
-#             raise flash('Profile not updated', category='info')
-#     return redirect(url_for('admin_views.staff_profile'))
-
-      
+    '''Add new user's bio data to school database'''
+    user = session.get('user')
+    if user:
+        user['first_name'] = request.form.get('first_name')
+        user['surname'] = request.form.get('surname')
+        user['other_name'] = request.form['other_name']
+        user['email'] = request.form['email']
+        user['gender'] = request.form['gender']
+        user['mobile'] = request.form['mobile']
+        user['ssf_no'] = request.form['ssf']
+        user['bank'] = request.form['bank']
+        user['bank_branch']= request.form['bank_branch']
+        user['date_of_birth'] = request.form.get('dob')
+        user['status']= request.form['status']
+        user['reg_number']= request.form['reg_number']
+        user['category'] = request.form.get('category')
+        user['updated_at'] = get_to_timedate()
+    if request.form.get('_method') == 'PUT':
+        
+        try:
+           response_code = updateUser(user)
+           if response_code > 0:
+                flash('Profile updated', category='info')
+        except Exception as e:
+                flash(f"Failed to update: {str(e)}", category='error')
+                
+    return redirect(url_for('admin_views.staff_profile'))
 
 
 @crud_views.route('/auth/login', methods=['POST'])
@@ -104,16 +70,18 @@ def user_login():
     if request.method == 'POST':
         staff_id = request.form['staff_id']
         password = request.form['password']
-        user_credentials =  userExists(staff_id=staff_id)
-        if not user_credentials or user_credentials is None:
+        response, status_code =  staff_profile(staff_id=staff_id)
+        user = response.get_json()
+        
+        if status_code != 200:
             flash('User does not exists', category='info')
             return redirect(url_for('admin_views.sign_in_post'))
-        check_pwd = check_password_hash(pwhash=user_credentials['password'], password=password)
+        check_pwd = check_password_hash(pwhash=user['password'], password=password)
+       
         if not check_pwd:
             flash('Please check your password again', category='info')
             return redirect(url_for('admin_views.sign_in_post'))
-        session['user'] = user_bio_data(staff_id=staff_id)
-        session['staff_id'] = staff_id
+        session['user'] = user
 
         return redirect(url_for('admin_views.staff_profile'))
 
@@ -124,29 +92,33 @@ def sign_up_post():
     '''Add new staff to the school database'''
     if request.method == 'POST':
         first_name = request.form['first_name']
-        others = request.form['surname']
+        surname = request.form['surname']
         staff_id = request.form['staff_id']
         password = request.form['password']
         conf_password = request.form['confirm_password']
         
-        # if password != conf_password:
-        #     flash("Password not match", category='info')
-        #     return redirect('admin_views.sign_up_post')
-        # check if password already exist on this line
+        if password.strip() != conf_password.strip():
+            flash('Password and Confirm password did not match', category='info')
+            return redirect(url_for('admin_views.sign_up_post'))
+        #check if password already exist on this line
     
-        user =  userExists(staff_id=staff_id)
-        if user:
+        response, status_code =  staff_profile(staff_id=staff_id)
+        user = response.get_json()
+        print(f"{user}")
+        print(f"{status_code}")
+        if status_code == 200:
             flash('User already exits', category='warning')
             return redirect(url_for('admin_views.sign_in_post'))
         user = User()
         user.staff_id = staff_id
-        password = generate_password_hash(password, method='pbkdf2:sha256')[10:30]
+        password = generate_password_hash(password, method='pbkdf2:sha256')
         user.password = password
-        
-        sign_ups(user=user)
+        user.first_name = first_name
+        user.surname = surname
+        sign_up(user=user)
         flash('New staff registered successufly', category='info')
         return redirect(url_for('admin_views.sign_in_post'))
-    return redirect('admin_views.sign_up_post')
+    return redirect(url_for('admin_views.sign_in_post'))
 
 
 '''Professional Qualification Views'''

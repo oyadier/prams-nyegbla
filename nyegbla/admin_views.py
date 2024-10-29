@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, render_template, session, url_for
-from model.engine.storage import user_bio_data
+from model.engine.storage import staff_profile
 
 admin_views = Blueprint('admin_views',__name__)
 
@@ -7,6 +7,7 @@ admin_views = Blueprint('admin_views',__name__)
 def sign_in_post():
    '''An existing user sign in into his profile'''
    return render_template('departments/admin/sign_in.html')
+
 @admin_views.route('/online-admission')
 def online_admission():
    return render_template('departments/admin/online-admission.html')
@@ -29,11 +30,9 @@ def homeecons():
 def staff_profile():
    # A session from sign in page
     data = session.get('user')
-   
-    staff_id = session.get('staff_id')
     
-    if staff_id or not data:
-       return render_template('departments/admin/profile.html', data=data, userId=staff_id)
+    if data:
+       return render_template('departments/admin/profile.html', data=data)
 
 @admin_views.route('/profile-sign-in')
 def profile_sign_in():
