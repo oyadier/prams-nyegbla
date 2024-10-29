@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+<body>
+  {% block content %}
+
+  <main>
+    <section id="div_back" class="image-container">
+      <div class="ict-vertical-line">
+        <h3><u>Table of Content:</u></h3>
+        <ol>
+          {% for key, value in tb_content.items() %}
+
+          <li>
+            <a href="{{url_for('views.ict', _anchor= key )}}">{{ value }}</a>
+          </li>
+          {% endfor %}
+        </ol>
+      </div>
+      <div>
+        <img
+          src="{{url_for('static', filename='asset/images/ICT_STUDENT.jpg') }}"
+          alt="ICT student working"
+        />
+      </div>
+    </section>
+    <section style="margin-left: 5vh; margin-right: 5vh">
+      <div id="introduction">
+        {{ page }}
+        <h3><u>Introduction:</u></h3>
+        <p>
+          ICT stands for Information and Communication Technology. It's a broad
+          term that encompasses any technology used to create, store, exchange,
+          and use information in various forms, such as text, audio, and video.
+          Simply put, ICT is all about using computers and other digital devices
+          to communicate, gather, and manage information.
+        </p>
+      </div>
+      <div id="whatIs">
+        <h3><u>What is ICT?:</u></h3>
+
+        <p>
+          ICT includes a wide range of technologies, from basic devices like
+          smartphones and computers to more advanced systems like networks and
+          the internet. It involves everything from sending an email to
+          designing complex software programs. In today's digital world, ICT
+          plays a crucial role in almost every aspect of our lives, from
+          education and healthcare to business and entertainment.
+        </p>
+      </div>
+      <div id="importance">
+        <h3><u>How Important is ICT?:</u></h3>
+        <p>
+          Learning ICT is incredibly important for several reasons. Firstly, it
+          equips you with essential skills that are highly valued in the modern
+          job market. Almost every industry now relies on technology in some
+          form, so having a good grasp of ICT opens up a wide range of career
+          opportunities. Secondly, ICT enhances your ability to learn,
+          communicate, and collaborate effectively. With ICT skills, you can
+          access vast amounts of information online, connect with people from
+          around the world, and work on projects remotely. Lastly, ICT is
+          essential for personal development and empowerment. It gives you the
+          tools to express yourself creatively, solve problems, and make
+          informed decisions in today's digital society.
+        </p>
+      </div>
+      <div id="career">
+        <h3><u>Career Opportunities:</u></h3>
+        <p>
+          There's a wealth of career opportunities available to those with ICT
+          skills. You could pursue a career as a software developer, creating
+          applications and programs for computers and mobile devices. Or you
+          might become a cybersecurity analyst, helping to protect organizations
+          from cyber threats. Other options include web development, IT support,
+          data analysis, and digital marketing. With the rapid pace of
+          technological advancement, new job roles in ICT are constantly
+          emerging, offering plenty of opportunities for growth and advancement.
+        </p>
+        <p class="page_anchor">
+          PramsHigh is so interested in making sure that students do students do
+          not just engaged in theoritical lesson by rather do practical work.
+          Students are always challenged to do
+          <a
+            href="{{url_for('views.student_project_ict')}}"
+            title="Projects that were idealised, and created by student which were well monitored and coached by the skillful ICT teachers."
+            ><b>student projects</b></a
+          >
+          before writing thier WAEC. We believe that elective ICT should make
+          these students ready to work in every IT related field.
+        </p>
+      </div>
+
+      <div id="conclusion">
+        <h3><u>Conclusion:</u></h3>
+        <p>
+          In conclusion, learning ICT is essential in today's digital age. It
+          provides you with valuable skills for both your personal and
+          professional life, opening up a world of opportunities. Whether you're
+          interested in pursuing a career in technology or simply want to be
+          more proficient in using digital tools, ICT education is a worthwhile
+          investment in your future success. So don't hesitate to dive into the
+          world of ICT and start exploring all the exciting possibilities it has
+          to offer!
+        </p>
+      </div>
+    </section>
+
+    <section id="div_back" class="author ict-vertical-line">
+      <div class="author">
+        <img src="{{url_for('static', filename='asset/images/edi.jpg') }}">
+      </div>
+      <div class="author">
+        <address class="page_anchor">
+          <p><b>Author:</b></p>
+          <p>Mr. Oyadier Robert Mensah</p>
+          <p>Tell: <a href="tel:+233242663981">+233242663981</a></p>
+          <p>PQ: BSc in ITE</p>
+          <p>Rank: PS</p>
+        </address>
+        <div class="div_back1"></div>
+          <p> Ads</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  {% endblock %}
+</body>
