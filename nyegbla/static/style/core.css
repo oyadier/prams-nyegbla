@@ -12585,7 +12585,7 @@ fieldset:disabled .btn {
   }
 
   .fs-4 {
-    font-size: 1.5rem !important;
+    font-size: 1.2rem !important;
   }
 }
 
@@ -12839,7 +12839,10 @@ div.desc {
   height: 100px;
   border-radius: 80%;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 .author div {
   margin-right: 10px;
   margin-left: 20px

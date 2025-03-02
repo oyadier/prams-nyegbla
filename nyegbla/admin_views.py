@@ -37,3 +37,7 @@ def staff_profile():
 @admin_views.route('/profile-sign-in')
 def profile_sign_in():
     return render_template('/departments/ict/students+projects.html')
+ 
+@admin_views.route('/about_us')
+def about_us():
+    return render_template('/about_us.html')

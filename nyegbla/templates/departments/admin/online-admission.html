@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<main style="padding-botton:15vh">
+<main>
   {% with messages = get_flashed_messages(with_categories=true) %}
   {% if messages %}
    {% for category, message in messages %}
@@ -8,12 +8,12 @@
 
   </div> 
   {% endfor %} {% endif %} {% endwith %}
-  <section class='col-lg-8 text-center pt-6'>
-    <div class="text-center">
-      <h1 >Welcome to Prampram Senior High School</h1>
-      <p class='lead'>
+  <section style="margin-top: 20vh">
+    <div>
+      <h1>Welcome to Prampram Senior High School</h1>
+      <p style="font-size:1.5rem">
         You have made a good choice for
-        coming this far and congratulations for succesfully
+        coming to this far and congratulations for succesfully
         completing your Basic Education Certification Examinations. <b> To apply
         for online admission please click on this link 
         <button style="width: 300px; height: 70px">

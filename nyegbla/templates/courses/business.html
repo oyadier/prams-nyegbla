@@ -1,16 +1,69 @@
+
 {% extends 'base.html' %}
+
 <body>
-  {% block content %}
-  <main>
-    <section>
-      <h1>Business</h1>
+{% block head %}
+<title> Course Overview | Business</title>
+{% endblock %}
+{% block content %}
+<main>
+
+
+  <div class='col-lg-8  mt-5'>
+
+    <div class='offset-lg-4 fs-4'> 
+        <div class='shadow-lg' ><h3>Business Course Overview</h3></div>
+  
+        <img class="post-gallery"
+          src="{{url_for('static', filename='/asset/images/handover/hnd-over.jpg') }}"
+       
+          alt="School Prefect Deliverying spe"
+        />
+        <br><br>
+ <p>Business is a dynamic subject that teaches the principles of managing, operating, and making strategic decisions for companies. 
+  It covers a wide range of topics, including Marketing, Finance, Human Resources, Entrepreneurship, and Economics. 
+  The subject introduces students to the various functions of business organizations and the way they interact in the marketplace. 
+  Key areas of study include how businesses create value, manage resources, and respond to changing economic conditions. </p>
+
+        <p> In Marketing, students learn about consumer behavior, branding, advertising, and market research. Finance covers budgeting, accounting, investment strategies, and financial management. 
+          Human Resources involves understanding employee management, recruitment, and creating effective company cultures. 
+          Entrepreneurship teaches you the basics of starting your own business, including how to pitch ideas, manage risks, and innovate.</p>
+     
+      
+      <img class="post-gallery"
+      src="{{url_for('static', filename='/asset/images/handover/sttaff_studentt.jpg') }}"
+      alt="Drugless Club at parliament of Ghana"
+    />
+    
+
+       
+
+      <br> <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/handover/induction.jpg') }}"
+          alt="Form 1 Student at HPM Praises"
+        />
+      <p class='fst-italic fw-bold'> You missed the eventt? View some beautiful <a target='_blank' href="{{url_for('views.drugless_excursion_gallery')}}">pictures.</a> </p>
+
+   <p> --------------------------------------------------------------------------------------------------------------------</p>
+
+    <p class='fst-italic'>	Writers </p>
+    <img class="post-gallery"
+
+    src="{{url_for('static', filename='asset/images/hpm/authors.jpg') }}"
+    alt="Authors of the HPM HIV event"
+  />
+
+      
       <div>
-        <h3>
-          The information relating to Business, the posible career opportunities
-          and the course combinations will be written as an article right here.
-        </h2>
-      </div>
-    </section>
-  </main>
-  {% endblock %}
+ </div>
+ <div class="container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/5dPKGtKZ-dg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe>
+</div>
+        
+</main>
+</section>
+
+{% endblock %}
+
 </body>

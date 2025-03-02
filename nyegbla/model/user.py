@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''Defining the base model for all users'''
-from sqlalchemy import String, UniqueConstraint
+from sqlalchemy import String, UniqueConstraint, Integer
 from sqlalchemy.orm import mapped_column, Mapped
 from time import time, strftime, localtime
 from typing_extensions import Annotated
@@ -13,7 +13,7 @@ time_formatter = '%Y/%m/%d %H:%M:%S'
 current_loccal_time = time()
 
 str_40 = Annotated[str, mapped_column(String(40), nullable=False)]
-str_100 = Annotated[str, mapped_column(String(100), nullable=True)]
+str_100 = Annotated[str, mapped_column(String(200), nullable=True)]
 
 
 class User(Base):
@@ -22,10 +22,10 @@ class User(Base):
     __tablename__ = 'user'
     '''Defining the user model and why is the Unique=True not working for staff_di?'''
     user_id: Mapped[str] = mapped_column(String(40), primary_key=True, default=generate_uuid, nullable=False)
-    staff_id:Mapped[str_40]
+    staff_id:Mapped[int] = mapped_column(Integer, nullable=False)
     first_name : Mapped[str_40]
     other_name: Mapped[str_100]
-    password: Mapped[str_40]
+    password: Mapped[str_100]
     surname: Mapped[str_40]
     other_name: Mapped[str_100]
     date_of_birth : Mapped[str_100]

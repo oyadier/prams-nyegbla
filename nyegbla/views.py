@@ -52,3 +52,14 @@ def drugless_excursion():
 @views.route('/events/drugless-excursion-gallery')
 def drugless_excursion_gallery():
     return render_template('/clubs/drugless/drugless-club-embarked-on-an-excursion-gallery.html')
+
+@views.route('/events/school-prefect-speech')
+def prefect_speech():
+    
+    return render_template("/events/prefect_speech.html")
+
+
+@views.route('/events/high-praise-ministry')
+def high_praise_ministry():
+    
+    return render_template("/src/external_programs/high_praise_ministry.html")
