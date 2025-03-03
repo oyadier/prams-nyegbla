@@ -63,3 +63,4 @@ def prefect_speech():
 def high_praise_ministry():
     
     return render_template("/src/external_programs/high_praise_ministry.html")
+

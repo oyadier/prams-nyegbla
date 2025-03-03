@@ -33,6 +33,17 @@ def homeEconsOne():
 @course.route('/business')
 def business():
     return render_template('courses/business.html')
+
+@course.route("/subject/general_science")
+def general_science():
+    tb_content = {'description':'Course Description.', 
+                  'whatYou': 'What You Will Learn.',
+                  'skills': 'Key Skills You Will Develop',
+                  'why':'Why Take This Course',
+                  'career':'Career Opportunities in Science',
+                  'combination': 'Subject Combination',
+                  'conclusion':'Conclusion'}
+    return render_template("/courses/general-science.html", tb_content=tb_content)
 @course.route('/general-science')
 def  generalScience():
     return render_template('courses/general-science.html')

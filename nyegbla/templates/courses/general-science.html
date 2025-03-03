@@ -1,16 +1,245 @@
+
 {% extends 'base.html' %}
+
 <body>
-  {% block content %}
-  <main>
-    <section>
-      <h1>General Science</h1>
-      <div>
-        <h3>
-          The information relating to General Science, the possible career opportunities
-          and the course combinations in terms of subjects to be study will be written as an article.
-        </h2>
+{% block head %}
+<title>Overview | General Science</title>
+{% endblock %}
+{% block content %}
+
+<main> 
+   
+  <div class='col-lg-8  mt-5'>
+   <div>
+      <h3><u>Table of Content:</u></h3>
+      <ol class="list-group">
+        {% for key, value in tb_content.items() %}
+    
+        <li>
+          <a href="{{url_for('course.general_science', _anchor= key )}}">{{ value }}</a>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    
+    <div  class='offset-lg-4 fs-4' > 
+        <div id="description" class='shadow-lg' ><h3>Genral Science: Course Overview</h3>
+          <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/handover/indudction.jpg') }}"
+          alt="Form One Science Students"
+         />
+        
+        </div>
+        <p>General Science is an exciting and comprehensive course designed to introduce you to the foundational principles that govern the natural world.
+           As a first year student, you'll explore various scientific disciplines, including biology, chemistry, physics, and earth sciences. This course is ideal for students who are curious about how things work, from the microscopic world of atoms and cells to the vastness of space.
+           <br> <br>
+            General Science encourages a hands-on approach to learning, where you will not only acquire theoretical knowledge but also develop practical skills through experiments, investigations, and problem-solving activities.
+          Throughout the course, you'll learn to think critically and scientifically, asking important questions, making observations, and designing experiments to test hypotheses. You'll also gain the skills to analyze data, interpret results, and communicate your findings effectively. In addition to acquiring fundamental scientific knowledge, this course will help you understand the relevance of science in everyday life, from technology and healthcare to environmental issues and global challenges. Whether you're interested in pursuing a career in science or simply want to better understand the world around you, General Science provides the tools you need to succeed. </p>
+      
       </div>
-    </section>
-  </main>
-  {% endblock %}
+    
+      <div  class='offset-lg-4 fs-4'> 
+        <div id="whatYou" class='shadow-lg'><h3>What You Will Learn</h3>
+          <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/handover/indudction.jpg') }}"
+          alt="Form One Science Students"
+        />
+      </div>
+        
+        <p>
+          <b>• Biology:</b> Dive into the study of living organisms and their environments. You'll explore topics like cell structure and function, the principles of genetics, human anatomy, and how organisms interact within ecosystems. Understanding biology is crucial for fields like medicine, environmental science, and biotechnology.
+          <br>
+          <b>• Chemistry:</b> Study the properties of matter and the reactions that occur between different substances. You'll investigate atomic structure, chemical bonding, the periodic table, and the behavior of gases and liquids. Chemistry plays a vital role in areas such as pharmaceuticals, agriculture, and industrial processes.
+          <br>
+
+          <b>• Physics:</b> Explore the laws of nature that govern motion, energy, and forces. You'll study concepts such as Newton's Laws, the principles of thermodynamics, waves and optics, electricity and magnetism, and the behavior of light. Physics is fundamental to understanding how machines work, how the universe functions, and how modern technologies, from smartphones to space exploration, are developed.
+          <br>
+       
+      </div>
+        
+      <div  class='offset-lg-4 fs-4'> 
+          <div id="skills" class='shadow-lg'>
+            <h3> Key Skills You Will Develop</h3>
+            <img class="post-gallery"
+
+            src="{{url_for('static', filename='asset/images/handover/indudction.jpg') }}"
+            alt="Form One Science Students"
+          />
+          </div>
+     <p>
+      <b>• Critical Thinking:</b> Learn to approach problems logically and systematically. You'll practice making predictions, testing hypotheses, and analyzing results to reach well-supported conclusions.
+      <br>
+      <br>
+      <b>• Scientific Inquiry:</b> Understand how to ask meaningful scientific questions, design experiments, and collect data. You’ll also learn to evaluate evidence and draw conclusions based on your findings.
+      <br>
+      <br>
+      <b>• Collaboration and Communication:</b> Work effectively in groups to solve problems and conduct experiments. You'll also practice presenting your ideas and findings clearly through reports, presentations, and discussions.
+      <br>
+      <br>
+      <b>• Problem-Solving:</b> Apply scientific knowledge to real-world issues. From understanding the impact of pollution to designing a sustainable energy system, you'll learn how to use science to solve global challenges.
+      <br>
+      <br>
+      <b>• Hands-On Lab Experience:</b> Participate in practical, hands-on experiments that reinforce theoretical concepts and provide valuable lab skills that are essential for any science-related career.
+    </p>
+   </div>
+<div class='offset-lg-4 fs-4'>
+  <div id= 'why' class="shadow-lg"> 
+  <h3>Why Take This Course</h3>
+  </div>
+  <p>General Science is not only about learning facts; it's about learning to think like a scientist. The skills you develop will help you approach any problem with a logical and analytical mindset, 
+    which is valuable in any career path. The knowledge gained in this course will help you understand how the world works, from the food you eat to the technology you use. Whether you plan to pursue a career in health, 
+    engineering, environmental science, or any other field, the foundation built in General Science will set you up for success.</p>
+</div>
+
+<div class='offset-lg-4 fs-4'>
+  <div id= 'career' class="shadow-lg"> 
+  <h3>Career Opportunities in Science</h3>
+  </div>
+<p> A background in General Science opens the door to a wide range of exciting and impactful careers. Whether you're interested in pursuing higher education or entering the workforce right after school, a science education is a strong foundation for many professions.
+  <br> <br> Here are just a few career paths where your knowledge of General Science can be put to great use:
+  <p><b>1. Medical and Health Careers:</b>
+    ◦ Doctor: Diagnose and treat patients, providing care for a variety of health conditions. (Requires further study in medical school) 
+    ◦ Nurse: Work closely with doctors to provide care, educate patients, and assist in medical procedures. 
+    ◦ Pharmacist: Advise on the safe use of medications, work in hospitals, or run your own pharmacy. 
+    ◦ Medical Researcher: Investigate diseases, test new treatments, and develop life-saving medical technologies. 
+    ◦ Biotechnologist: Work on the development of new medical treatments, including genetic therapies and disease-resistant crops.
+  </p>
+
+  <p><b>2. Engineering and Technology:</b>
+    ◦ Mechanical Engineer: Design and build machines, engines, and other mechanical systems. 
+    ◦ Environmental Engineer: Work to improve environmental quality by solving problems like pollution and waste management. 
+    ◦ Electrical Engineer: Design and develop electrical systems, from household wiring to large-scale power grids. 
+    ◦ Computer Scientist: Develop software, applications, and systems to solve problems and enhance technology. 
+    ◦ Robotics Technician: Design, build, and maintain robots used in industries such as manufacturing and healthcare.
+  </p>
+
+  <p><b>3. Environmental and Earth Sciences:</b>
+    ◦ Geologist: Study the Earth’s structure, natural disasters, and its resources. Work to understand and predict geological events like earthquakes and volcanic eruptions. 
+    ◦ Climate Scientist: Study the Earth's climate system and contribute to efforts to combat climate change. 
+    ◦ Environmental Consultant: Advise businesses and governments on how to reduce their environmental impact and improve sustainability. 
+    ◦ Wildlife Biologist: Study animals and their habitats to promote conservation efforts and biodiversity. 
+    ◦ Conservationist: Work with communities and organizations to protect natural resources and wildlife. 
+  </p>
+
+  <p><b>4. Research and Academia:</b>
+    ◦ Scientific Researcher: Conduct experiments and studies in fields such as biology, chemistry, physics, or earth science. Work in laboratories, universities, or research institutions. 
+    ◦ Science Educator: Teach science in schools or universities, helping the next generation of students develop a love for science. 
+    ◦ Laboratory Technician: Assist in scientific research and experiments, handling equipment, preparing samples, and analyzing results. 
+  </p>
+
+  <p><b>5. Science and Technology Management:</b>
+    ◦ Product Manager: In tech companies, manage the development of new products, ensuring they meet scientific and technological standards. 
+    ◦ Science Policy Analyst: Analyze and influence science-related policies at the governmental or international level. 
+    ◦ Forensic Scientist: Work in criminal justice, applying science to solve crimes by analyzing physical evidence. 
+  </p>
+
+  <p><b>6. Agriculture and Food Science:</b>
+    ◦ Agronomist: Study and improve farming techniques, working to increase crop yields and food sustainability. 
+    ◦ Food Safety Inspector: Ensure that food products are safe and comply with health regulations. 
+    ◦ Horticulturist: Study the science of plants and manage their growth for commercial, agricultural, or environmental purposes. 
+    ◦ Agricultural Engineer: Design equipment and systems to improve the efficiency of farms and food production.
+  </p>
+
+  <p><b>7. Other Emerging Fields:</b>
+    ◦ Genetic Counselor: Work with patients to assess and manage genetic risks related to diseases and conditions. 
+    ◦ Data Scientist: Use scientific methods and algorithms to analyze complex data, especially in fields like genetics, pharmaceuticals, or environmental science. 
+    ◦ Pharmaceutical Scientist: Develop and test new drugs to treat diseases and improve healthcare. 
+    ◦ Renewable Energy Specialist: Work to develop and implement sustainable energy solutions, such as solar or wind power.
+  </p>
+</div>
+
+   <div class='offset-lg-4 fs-4'> 
+    <div id="combination" class='shadow-lg'><h3>Subject Combinations</h3>
+ 
+
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Subjects</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+      </div>    <td>English Language</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Core Mathematics</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Integrated Science</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Social Studies</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Additional Mathematics</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        
+        <td>Computer Science/td</td>
+        <td>Geography</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Physics</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Chemistry</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Biology</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td> Business Accounting</td>
+        <td>Art & Design Studio or Food & Nutrition</td>
+
+      </tr>
+    </tbody>
+     </table>
+    </div>    <p> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>((())))<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<</p>
+
+  </div>
+
+ 
+
+   <div  class='offset-lg-4 fs-4'> 
+      <div id="conclusion" class='shadow-lg' ><h3>Conclusion</h3></div>
+    
+
+        <p>The General Science course is an exciting opportunity to explore the world through the lens of science. 
+      The knowledge and skills you gain will not only help you succeed academically but also set you on the path toward a wide range of careers in medicine, technology, environmental science, research, and more. 
+      Science is everywhere, and by taking this course, you are opening the door to countless possibilities, whether you want to work in a laboratory, save the planet, or develop the next groundbreaking technology. 
+      Let your curiosity lead the way, and discover a world of opportunities through General Science!
+    </p> 
+
+     <p class='fst-italic small'>	Updated: 01/02/2025</p>
+
+  </div>
+
+</main>   
+</section>
+
+{% endblock %}
+
 </body>

@@ -8002,6 +8002,14 @@ fieldset:disabled .btn {
 .overflow-scroll {
   overflow: scroll !important;
 }
+.no-horizontal-scroll {
+  overflow-x: hidden; /* Prevents horizontal scroll */
+  overflow-y: auto;   /* Allows vertical scroll */
+}
+.no-scroll-section {
+  height: 100vh; /* Ensures full viewport height */
+  overflow: hidden; /* Disables scrolling */
+}
 
 .d-inline {
   display: inline !important;
