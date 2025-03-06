@@ -6,41 +6,16 @@
 //
 // Scripts
 // 
-console.log
- window.addEventListener('DOMContentLoaded', event => {
-
-
-    //Swapping images on the footer
-    const imgContainer = document.querySelector(".gala-div")
-    const imgSliding = document.querySelector(".sele")
-    const imageDir = "/static/asset/sliding/";
-    const imgList = ['1.jpg', '2.jpg', '3.jpg','4.jpg','5.jpg','6.jpg'];
-    let imageIndex = 0;
-    if (imgSliding) {
-        imgSliding.src = imageDir + imgList[imageIndex];
-    } else {
-        console.error("Could not find element with class 'sliding'");
-    }
-    imgContainer.addEventListener('click', slideImages)
-
-
-    function slideImages() {
-        imageIndex = (imageIndex + 1) % imgList.length
-        imgSliding.src = imageDir + imgList[imageIndex]
-        console.log("Image index: " + imgSliding.src)
-    }
-
-});
-
+//Change home background image automatically
 console.log
  window.addEventListener('DOMContentLoaded', event => {
 
 
     //Swapping images on the footer
     const imgContainer = document.querySelector("#drugless")
-    const imgSliding = document.querySelector(".sele")
-    const imageDir = "/static/asset/images/hpm/";
-    const imgList = ['form_one.jpg', 'level100_at_praise.jpg', 'praise_leader.jpg','praises.jpg'];
+    const imgSliding = document.querySelector(".sele")  
+    const imageDir = "/static/asset/images/drugless/";
+    const imgList = ['at-kwame-nkrumah-center.jpg', 'at-parliament-hourse-1.jpg', 'at-parliament-hourse.jpg','IMG-20240809-WA0088.jpg'];
     let imageIndex = 0;
     if (imgSliding) {
         imgSliding.src = imageDir + imgList[imageIndex];
@@ -58,7 +33,98 @@ console.log
 
 });
 
-o  // HIDE AND SHOW ALL STAFF PROFILE FORM
+// Drugless program galery  
+console.log
+ window.addEventListener('DOMContentLoaded', event => {
+
+
+    //Swapping images on the footer
+    const imgContainer = document.querySelector("#drugless")
+    const imgSliding = document.querySelector(".sele")  
+    const imageDir = "/static/asset/images/drugless/";
+    const imgList = ['at-kwame-nkrumah-center.jpg', 'at-parliament-hourse-1.jpg', 'at-parliament-hourse.jpg','IMG-20240809-WA0088.jpg'];
+    let imageIndex = 0;
+    if (imgSliding) {
+        imgSliding.src = imageDir + imgList[imageIndex];
+    } else {
+        console.error("Could not find element with class 'sliding'");
+    }
+    imgContainer.addEventListener('click', slideImages)
+
+
+    function slideImages() {
+        imageIndex = (imageIndex + 1) % imgList.length
+        imgSliding.src = imageDir + imgList[imageIndex]
+        console.log("Image index: " + imgSliding.src)
+    }
+
+});
+
+
+//HIV program galery
+
+console.log
+ window.addEventListener('DOMContentLoaded', event => {
+    
+    //Swapping images on the footer
+    const imgContainer = document.querySelector('#background')                     
+    const imageDir = "/static/asset/images/home_back/";
+    const imgList = ['prams_admin.jpg', 'campus.jpg','form_two.jpg'];
+    let imageIndex = 0;
+    if (imgContainer) {
+        imgContainer.style.backgroundImage = 'url(' + imageDir + imgList[imageIndex]+ ')';
+        imgContainer.style.backgroundPosition = '100% center';  // Start the background image off-screen to the right
+        imgContainer.style.transition = 'background-position 1s ease-out';
+    } else {
+        console.error("Could not find element with class 'sliding'");
+    }
+
+    setInterval(slideImages, 4000)
+
+    function slideImages() {
+        imageIndex = (imageIndex + 1) % imgList.length
+        imgContainer.style.backgroundImage = 'url(' + imageDir + imgList[imageIndex]+ ')';
+        imgContainer.style.backgroundPosition = '100% center';
+
+        // Trigger a reflow to ensure the transition works after changing the background image
+        imgContainer.offsetHeight;  // Trigger a reflow
+
+        // After a brief delay (to allow for the reflow), animate the image to the center
+        setTimeout(() => {
+            imgContainer.style.backgroundPosition = '0% center';
+        }, 10);
+    }
+
+});
+
+//Prefect Speech
+console.log
+ window.addEventListener('DOMContentLoaded', event => {
+
+
+    //Swapping images on the footer
+    const imgContainer = document.querySelector("#handover")    
+    const imgSliding = document.querySelector(".sele")
+    const imageDir = "/static/asset/images/handover/";
+    const imgList = ['hnd-over.jpg', 'induction.jpg', 'sspeech.jpg','sttaff_studentt.jpg'];
+    let imageIndex = 0;
+    if (imgSliding) {
+        imgSliding.src = imageDir + imgList[imageIndex];
+    } else {
+        console.error("Could not find element with class 'sliding'");
+    }
+    imgContainer.addEventListener('click', slideImages)
+
+
+    function slideImages() {
+        imageIndex = (imageIndex + 1) % imgList.length
+        imgSliding.src = imageDir + imgList[imageIndex]
+        console.log("Image index: " + imgSliding.src)
+    }
+
+});
+
+ // HIDE AND SHOW ALL STAFF PROFILE FORM
 
   $(document).ready(function(){
     $('#profile-btn').click(() =>{

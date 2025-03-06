@@ -1,29 +1,236 @@
+
 {% extends 'base.html' %}
+
 <body>
-  {% block content %}
-  <main>
-    <section>
-      <h1>Home Economics Option 1</h1>
-      <div>
-        <h3>
-          The information relating the course, the possible career opportunities
-          and the course combinations will be written as an article.
-        </h2>
+{% block head %}
+<title>Overview | General Science</title>
+{% endblock %}
+{% block content %}
+
+<main> 
+   
+  <div class='col-lg-8  mt-5'>
+   <div>
+      <h3><u>Table of Content:</u></h3>
+   
+    </div>
+    
+    <div  class='offset-lg-4 fs-4' > 
+        <div id="description" class='shadow-lg' ><h3>Home Economics: Course Overview</h3>
+          <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/sc1.jpg') }}"
+          alt="Form One Science Students"
+          width="500"
+     height="300"  
+         />
+        
+        </div>
+        <p>Welcome to the exciting world of Home Economics (Food) at Prampram Senior High! 
+          In this dynamic and hands-on course, you will explore various fascinating areas, from the science of food and nutrition to the basics of managing your daily life efficiently. 
+          By the end of the course, you will not only understand what goes into a healthy, balanced lifestyle, but you will also have practical skills that you can carry with you for the rest of your life.
+           <br> <br>
+           This course will spark your passion for food, health, and management, guiding you to discover the ways in which food impacts not only our bodies but our lives, our communities, and our future careers. 
+           Get ready to be inspired, learn new skills, and open doors to a world of exciting opportunities in the food and health industry.</p>
+      
       </div>
-    </section>
-    <section>
-      <div>
-        <table border="1">
-          <caption>Home Economic Option 1 Courses</caption>
-        <thead>
-          <th>
-          <tr>Subject Code</tr>
-          <tr>Subject Name</tr>
-          </th>
-        </thead>
+    
+      <div  class='offset-lg-4 fs-4'> 
+        <div id="whatYou" class='shadow-lg'><h3>Course Structure & Subjects</h3>
+          
+      </div>
+        
+        <p>
+          <b>• Biology of Food:</b> The Science Behind What You Eat
+          In this section, you will uncover the wonders of food at the microscopic level. Learn about the nutrients in food, how they work within your body, and why they are so essential for growth, energy, and maintaining health. 
+          You will explore the different types of food groups, including proteins, carbohydrates, fats, vitamins, and minerals. How does your body digest and absorb these nutrients?
+           What happens when you don't get enough of them? You will find answers to these questions and more, understanding the biology behind the foods you eat every day.
+          <br>
+          <b> • Food and Nutrition</b> What Should You Eat for a Healthier Life?
+          The Food and Nutrition module will teach you how to make balanced meals based on your age, activity level, and health goals. You will explore the key principles of nutrition, including energy balance, portion sizes, and the importance of a variety of foods in your diet. 
+          This section will also focus on how food affects your mood, energy, and long-term health. By the end of the module, you will be able to create nutritious, well-balanced meals and snacks, identify nutrient deficiencies, and understand how to make food choices that promote a healthier lifestyle.
+          <br>
+
+          <b>• Management in Living:</b> Smart Choices for an Organized Life
+          Managing your home life effectively is essential to living stress-free and achieving your goals. This subject will introduce you to the principles of time management, resource allocation, and budgeting, all of which are vital in the kitchen and in life. 
+          You will learn how to plan meals, create shopping lists, manage your household budget, and make sure you have the time and resources to prepare nutritious meals without feeling overwhelmed.
+           This part of the course also focuses on how to manage your health, environment, and personal life in a balanced way.
+          <br>
+          <b> • Practical Skills in Cooking and Food Preparation:</b> 
+          What’s a food course without practical cooking experience? In this section, you will develop essential cooking skills that will serve you for a lifetime.
+           From preparing simple meals to more complex dishes, you will learn how to cook with various cooking techniques, understand the principles of food safety, and develop the ability to create delicious, nutritious meals using locally available ingredients. 
+           Whether you are baking, boiling, frying, or steaming, this hands-on experience will help you become a more confident cook.
+      </div>
+        
+      <div  class='offset-lg-4 fs-4'> 
+          <div id="skills" class='shadow-lg'>
+            <h3> Why Study Home Economics (Food)?</h3>
+            <img class="post-gallery"
+
+            src="{{url_for('static', filename='asset/images/handover/indudction.jpg') }}"
+            alt="Form One Science Students"
+          />
+          </div>
+          <p>This course is more than just learning how to cook – it's about developing skills that will serve you both personally and professionally.
+             You will gain knowledge about how the food you consume impacts your body, how to manage your time and resources, and how to build the foundations of a business that could change the world. 
+            The skills you learn in this course will also prepare you for the future, whether you are managing your household, making better food choices, or pursuing a career in the food industry. </p>
+     <p>
+      <b>• Critical Thinking:</b> Learn to approach problems logically and systematically. You'll practice making predictions, testing hypotheses, and analyzing results to reach well-supported conclusions.
+      <br>
+      <br>
+      <b>• Scientific Inquiry:</b> Understand how to ask meaningful scientific questions, design experiments, and collect data. You’ll also learn to evaluate evidence and draw conclusions based on your findings.
+      <br>
+      <br>
+      <b>• Collaboration and Communication:</b> Work effectively in groups to solve problems and conduct experiments. You'll also practice presenting your ideas and findings clearly through reports, presentations, and discussions.
+      <br>
+      <br>
+      <b>• Problem-Solving:</b> Apply scientific knowledge to real-world issues. From understanding the impact of pollution to designing a sustainable energy system, you'll learn how to use science to solve global challenges.
+      <br>
+      <br>
+      <b>• Hands-On Lab Experience:</b> Participate in practical, hands-on experiments that reinforce theoretical concepts and provide valuable lab skills that are essential for any science-related career.
+    </p>
+   </div>
+<div class='offset-lg-4 fs-4'>
+  <div id= 'why' class="shadow-lg"> 
+  <h3>Life Skills You'll Gain</h3>
+  </div>
+  <p><ul>
+    <li>Master essential cooking techniques and meal planning strategies</li>
+      <li>Understand how to choose and prepare nutritious meals</li>
+        <li>Learn how to manage your time and finances effectively</li>
+          <li>Gain the ability to turn a passion for food into a business opportunity</li>
+            <li>Develop awareness about the role of food in health, culture, and society</li>
+  </ul></p>
+</div>
+
+<div class='offset-lg-4 fs-4'>
+  <div id= 'career' class="shadow-lg"> 
+  <h3>Possible Career Opportunities</h3>
+  </div>
+  <p> This course can be a stepping stone to various exciting careers, whether in the kitchen, the healthcare field, or even business management. 
+    <br>Here are some career opportunities that await:</p>
+  <br> 
+  <p><b>1. Nutritionist/Dietitian:</b>
+    Use your knowledge of food and health to guide people in making better dietary choices, helping them achieve a healthier lifestyle.
+  </p>
+
+  <p><b></b>
+   2. Culinary Arts Professional (Chef, Pastry Chef): Turn your passion for cooking into a career by working in restaurants, hotels, or catering companies.
+  </p>
+
+  <p><b>3. Public Health Consultant:</b>
+    Use your knowledge of food and nutrition to promote healthy eating and wellness programs in communities, schools, or workplaces.
+  </p>
+
+  <p><b>4. Food Blogger/Influencer:</b>
+    Share your passion for food with the world, create content, and inspire others by reviewing recipes, food products, and cooking techniques.
+  </p>
+
+  <p><b>5. Hospitality Industry Professional:</b>
+    Work in hotels, resorts, or event management, focusing on food service and customer experience.
+  </p>
+
+</div>
+
+   <div class='offset-lg-4 fs-4'> 
+    <div id="combination" class='shadow-lg'><h3>Subject Combinations</h3>
+ 
+
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Subjects</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      
+        <b><th colspan='3'>Core Subjects</th></b>
+     
+      </tr>
+      <tr>
+        <td>1</td>
+      </div>    <td>English Language</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Core Mathematics</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Integrated Science</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Social Studies</td>
+        <td>N/A</td>
+      </tr>
+      <tr>
+      
+        <b><th colspan='3'>Elective Subject</th></b>
+     
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Management in living</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        
+        <td>Art & Design foundation</td>    
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Business Management</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Biology</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td> Food & Nutrition</td>
+        <td>******</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td> Physical Education & Health</td>
+        <td>******</td>
+      </tr>
+    </tbody>
      </table>
-      </div>
-    </section>
-  </main>
-  {% endblock %}
+    </div>    <p> >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>((())))<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<</p>
+
+  </div>
+
+ 
+
+   <div  class='offset-lg-4 fs-4'> 
+      <div id="conclusion" class='shadow-lg' ><h3>Conclusion</h3></div>
+    
+
+        <p>At Prampram Senior High, we believe in preparing our students for a successful future by providing them with the tools, knowledge, and inspiration to pursue their passions.
+            This course is designed not only to develop your skills in food preparation but also to give you the confidence to explore careers in health, business, nutrition, and more.
+
+            Are you ready to cook, create, and make a difference in your life and the lives of others? Come along with us on this delicious and life-changing adventure!
+    </p> 
+
+     <p class='fst-italic small'>	Updated: 01/02/2025</p>
+
+  </div>
+
+</main>   
+</section>
+
+{% endblock %}
+
 </body>

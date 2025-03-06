@@ -39,28 +39,35 @@ def student_project_ict():
 
     return render_template('/departments/ict/students+projects.html', user=user)
 
-
-@views.route('/events/induction')
-def prefect_induction():
-    
-    return render_template("/events/induction.html")
+# Drugless Club Events
 
 @views.route('/events/drugless-club-embarked-on-an-excursion')
 def drugless_excursion():
     return render_template('/clubs/drugless/drugless-club-embarked-on-an-excursion.html')
 
-@views.route('/events/drugless-excursion-gallery')
+@views.route('/events/drugless-club-excursion-gallery')
 def drugless_excursion_gallery():
     return render_template('/clubs/drugless/drugless-club-embarked-on-an-excursion-gallery.html')
+
+# School Prefect Events 
+
+@views.route('/events/speech-gallery')
+def prefect_speech_gallery():
+    return render_template('/events/prefect_gallery.html')
 
 @views.route('/events/school-prefect-speech')
 def prefect_speech():
     
     return render_template("/events/prefect_speech.html")
 
-
+# High Praise Ministry Events   
 @views.route('/events/high-praise-ministry')
 def high_praise_ministry():
     
     return render_template("/src/external_programs/high_praise_ministry.html")
+
+@views.route('/events/high-praise-ministry-galler')
+def high_praise_gallery():
+    
+    return render_template("/src/external_programs/high-praise_ministry_gallery.html")
 

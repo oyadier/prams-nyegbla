@@ -370,7 +370,9 @@ caption {
   color: #6c757d;
   text-align: left;
 }
-
+#background{
+margin-top: 5vh; /* Adjust as necessary for the header's content */
+}
 th {
   text-align: inherit;
   text-align: -webkit-match-parent;
@@ -382,9 +384,14 @@ tfoot,
 tr,
 td,
 th {
+  
   border-color: inherit;
   border-style: solid;
   border-width: 0;
+}
+th{
+  text-align: center;
+  vertical-align: middle;
 }
 
 label {
@@ -13015,7 +13022,8 @@ input[type="submit"]:hover {
 
 /*Class for posts relating to compus event*/
 .post-gallery {
-  width: 100%;
+  width:auto;
+  height:auto;
   justify-content: center;
   align-items: center;
   border: 1px solid green;
