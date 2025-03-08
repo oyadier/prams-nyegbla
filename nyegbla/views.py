@@ -71,3 +71,9 @@ def high_praise_gallery():
     
     return render_template("/src/external_programs/high-praise_ministry_gallery.html")
 
+
+# SRC Celebration
+@views.route('src/student-represetative-council-celebration')
+def src_celebration():
+    return render_template('/src/internal_programs/src_celebration.html')
+

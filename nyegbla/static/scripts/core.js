@@ -39,10 +39,10 @@ console.log
 
 
     //Swapping images on the footer
-    const imgContainer = document.querySelector("#drugless")
+    const imgContainer = document.querySelector("#hpm")
     const imgSliding = document.querySelector(".sele")  
-    const imageDir = "/static/asset/images/drugless/";
-    const imgList = ['at-kwame-nkrumah-center.jpg', 'at-parliament-hourse-1.jpg', 'at-parliament-hourse.jpg','IMG-20240809-WA0088.jpg'];
+    const imageDir = "/static/asset/images/hpm/";
+    const imgList = ['form_one.jpg', 'level100_at_praise.jpg', 'praise_leader.jpg','praises.jpg'];
     let imageIndex = 0;
     if (imgSliding) {
         imgSliding.src = imageDir + imgList[imageIndex];

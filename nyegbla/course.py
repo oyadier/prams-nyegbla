@@ -26,7 +26,7 @@ def crs():
 def homeEconsTwo():
     return render_template('courses/home-economics-option-two.html')
 
-@course.route('/home-econs-one')
+@course.route('/home-econs-option-one')
 def homeEconsOne():
     return render_template('courses/home-economics-option-one.html')
 

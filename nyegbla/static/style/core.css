@@ -12739,20 +12739,22 @@ header {
 div.gallery {
   width: 350px;
   margin: 5px;
+  border-radius: 10px;
   border: 1px solid green;
 
 }
 
 
 div.gallery img {
-  width: 350px;
-  height: 250px;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
 }
 
 div.gallery img:hover {
-  width: 350px;
-  height: 250px;
-  border: 2px solid green;
+  width: 450px;
+  height:300px;
+  border: 2px solid yellow;
 }
 
 div.desc {
@@ -12791,10 +12793,10 @@ div.desc {
   text-shadow: #009933;
 
 }
-
+/* Author id to format the author DIv */
 #div_back {
 
-  padding: 4vh;
+  padding: 1vh;
   background-color: gainsboro;
   font-size: small;
   box-shadow: 0 0 20px var(--bs-yellow);
@@ -12815,7 +12817,7 @@ div.desc {
 
 .ict-vertical-line {
   border-left: 6px solid rgb(255, 255, 128);
-  min-height: 200px;
+  min-height:200px;
 }
 
 /* Page anchor styless */
@@ -12846,7 +12848,7 @@ div.desc {
   align-items: center;
   flex-wrap: wrap;
   padding: auto;
-  height: 60%;
+  height: 40%;
 }
 
 .author img {
@@ -13026,7 +13028,8 @@ input[type="submit"]:hover {
   height:auto;
   justify-content: center;
   align-items: center;
-  border: 1px solid green;
+  border: 2px solid green;
+  border-radius: 20px;
 }
 .post-gallery-1 {
   width: 100%;
