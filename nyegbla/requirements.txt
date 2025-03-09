@@ -1,2 +1,4 @@
 pip install flask gunicorn sqlalchemy python-dotenv pymysql
 sudo apt install mysql-server
+
+sudo apt install gunicorn

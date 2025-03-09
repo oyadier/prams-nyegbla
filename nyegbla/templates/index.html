@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 <!-- The Body of the page which will contain every tag -->
-<body>
-  <!-- Header block-->
-  {% block header %}
+{% block head %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173430360094892"
+     crossorigin="anonymous"></script>
   <header id="background"
 
     style="padding-top:60vh; background-image: url('{{ url_for('static', filename='asset/images/home_back/prams_admin.jpg') }}'); background-size: cover; background-position: center">
@@ -18,6 +18,8 @@
     </div>
   </header>
   {% endblock %}
+<body>
+  <!-- Header block-->
 
   <!-- Main Content of the Website -->
   {% block content %}
@@ -78,6 +80,7 @@
       </div>
     </section>
     <section >
+      <h1 class='justify-content-center'>Upcoming Events</h1>
       <div class="container px-4 text-center image-container px-4">
          <img
               src="{{url_for( 'static', filename='asset/images/src/celebration_banner.png')}}"
@@ -88,7 +91,7 @@
     </section>
     <!-- CAMPUS EVENT SECTIONS -->
     <section class='justify-content-center'>
-      <h1 class='justify-content-center'>CAMPUS UPATES</h1>
+      <h1 class='justify-content-center'>Campus Updates</h1>
       <div class="image-container">
         <div class="gallery">
           <a
@@ -147,7 +150,7 @@
             />
           </a>
           <div class="desc">
-            Why Studing Home Economics (Food Option)
+            Why Studying Home Economics (Food Option)
           </div>
         </div>
       

@@ -4,7 +4,7 @@ from flask import Blueprint, render_template
 course = Blueprint('course',__name__)
 
 
-@course.route('/vitual-art-option-one')
+@course.route('/vitual-art-graphic-course-overview')
 def vitualArtOne():
     return render_template('courses/vitual-art-one.html')
 
@@ -22,11 +22,11 @@ def crs():
     return render_template('courses/christian-religious-studies.html')
 
 
-@course.route('/couses/home-econs-two')
+@course.route('/couses/home-econs-two-clothing')
 def homeEconsTwo():
     return render_template('courses/home-economics-option-two.html')
 
-@course.route('/home-econs-option-one')
+@course.route('/home-econs-option-one-food')
 def homeEconsOne():
     return render_template('courses/home-economics-option-one.html')
 

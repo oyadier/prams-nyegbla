@@ -1,16 +1,130 @@
+
 {% extends 'base.html' %}
+{% block head %}
+<title>Course Overview || Visiual Art (Clothing)</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173430360094892"
+     crossorigin="anonymous"></script>
+{% endblock %}
 <body>
-  {% block content %}
-  <main>
-    <section>
-      <h1>Vitual Art Option 1</h1>
-      <div>
-        <h3>
-          The information relating to the Vitual Art option one (1) course, the possible career opportunities
-          and the course combinations will be written as an article.
-        </h2>
+
+{% block content %}
+
+<main> 
+   
+  <div class='col-lg-8  mt-5'>
+   <div>
+     
+    </div>
+    
+    <div  class='offset-lg-4 fs-4' > 
+        <div id="description" class='shadow-lg' ><h3>Visiual Art (Clothing): Course Overview</h3>
+          <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/sc1.jg') }}"
+          alt="Student Sweing practically"
+          width="500"
+         height="300"  
+         />
+        </div>
+        <br>
+        <p>Are you passionate about creativity? Do you have an eye for design and want to bring your artistic visions to life?
+           At <a href="{{url_for('admin_views.about_us')}}"> Prampram Senior High School (PSH)</a>, we offer an incredible opportunity for students like you to explore the world of Visual Art (Graphics), a field that blends artistic expression with technology. 
+          If you are looking for a school that not only nurtures your artistic talent but also prepares you for a successful career in the graphic design industry, PSH is the perfect place for you.</p>
+
+          <p>Our Visual Art (Graphics) course is designed for students who want to harness their creativity and turn it into practical skills that are highly sought after in the job market. 
+          Whether you're interested in digital design, advertising, animation, or even web development, this course provides the foundation and hands-on experience to help you thrive in the world of visual arts. </p>
+      
       </div>
-    </section>
-  </main>
-  {% endblock %}
+    
+      <div  class='offset-lg-4 fs-4'> 
+        <div id="whatYou" class='shadow-lg'><h3>Why Choose PSH for Your Visual Art (Graphics) Studies?</h3>
+          <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/ls.png') }}"
+          alt="Form One Science Students"
+          width="500" 
+          height = "100"
+        />
+      </div>
+        
+        <p>
+          <ol>
+          <li><b>A Curriculum Focused on Practical Learning:</b> At PSH, we understand that the best way to learn art is by doing it. 
+            Our Visual Art (Graphics) course is centered around practical work, where students engage in real-life projects, creating a portfolio that showcases their skills. 
+            We don’t just focus on theory; we prioritize the development of your technical skills and creative thinking, ensuring that you are ready for the workforce as soon as you graduate. 
+            From designing logos to creating digital illustrations and multimedia content, your experience at PSH will be both comprehensive and hands-on.
+          </li><br>
+       
+        <li><b>Experienced and Passionate Teaching Staff:</b> PSH is proud to have a teaching staff with years of professional experience in the visual arts and graphic design field. 
+        Our instructors are not only highly qualified but also deeply passionate about art and design. They are dedicated to fostering your creativity and guiding you through every stage of your learning process. 
+        You will receive personalized attention, feedback, and mentorship from teachers who understand the demands of the industry and who will equip you with the knowledge and skills needed to excel.</li>
+            </ol> 
+        </p>
+          <br>
+       
+      </div>
+        
+      <div  class='offset-lg-4 fs-4'> 
+          <div id="skills" class='shadow-lg'>
+            <h3> Key Skills You Will Develop</h3>
+            <img class="post-gallery"
+
+            src="{{url_for('static', filename='asset/images/handover/indudction.jpg') }}"
+            alt="Form One Science Students"
+          />
+          </div>
+
+     <p>
+      <ul>
+      <b><li>Visual Communication and Branding:</li></b> Learn how to communicate ideas visually and create memorable brands. 
+      This includes everything from designing logos to creating marketing materials for businesses.
+      <br>
+      <b><li>Develop Graphic Design Skills:</li></b> Learn to use software tools like Adobe Photoshop, Illustrator, and other industry-standard programs to create digital designs, logos, posters, brochures, and more.
+      <br>
+      <b><li> Master Drawing & Illustration:</li></b> Enhance your drawing skills and learn how to communicate ideas through sketches and illustrations, both traditional and digital. 
+    </ul>
+       </p>
+   </div>
+
+<div class='offset-lg-4 fs-4'>
+      <div id="skills" class='shadow-lg'>
+       <h3>Career Opportunities</h3>
+        <img class="post-gallery"
+
+        src="{{url_for('static', filename='asset/images/handover/indution.jpg') }}"
+        alt="Fashion Students"
+      />
+      </div>
+      <br>
+
+  <p>The skills you acquire in the Visual Arts (Graphics) course can open the door to a wide range of career opportunities, including: </p>
+
+  <p> 
+    <ul>
+    <li><b>Graphic Designer:</b> Create logos, advertisements, packaging, and branding materials for businesses and companies.</li>
+    
+ <li><b> Web Designer:</b> Design and develop websites, user interfaces, and digital content for online platforms.</li>
+ <li><b> Digital Illustrator:</b> Work on projects such as book illustrations, animations, video game art, and more.</li>
+<li><b>Multimedia Artist:</b> Work in film, television, animation, or other industries requiring visual storytelling.</li>
+  <li><b>Art Educator or Curator:</b> Share your knowledge with others through teaching or curating art exhibitions.</li>
+ 
+
+</div>
+   <div  class='offset-lg-4 fs-4'> 
+      <div class='shadow-lg' ><h3>Conclusion</h3>
+      </div>
+    
+      <p>
+        If you are ready to explore the world of graphic design and visual arts, Prampram Senior High (PSH) offers the perfect environment for your growth.
+        With the right blend of practical experience, skilled teachers, and modern facilities, you’ll not only build your artistic talents but also develop a range of skills that will benefit you in any career you choose to pursue. 
+        Join us, and let’s embark on this creative journey together!
+
+        Make the right choice – choose PSH for a future in the world of Visual Arts!
+      </p> 
+  </div>
+</main>   
+</section>
+
+{% endblock %}
+
 </body>

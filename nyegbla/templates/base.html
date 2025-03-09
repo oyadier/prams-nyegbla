@@ -3,8 +3,12 @@
 <html>
   <head>
     {% block head %} {% endblock %}
+    <!--Google AdSense-->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173430360094892"
+     crossorigin="anonymous"></script>
+
     <meta charset="utf-8" />
-    <meta name="refresh" content="300"/>
+    <meta name="refresh" content="20"/>
   
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <meta name="description" content=""/>
@@ -118,15 +122,15 @@
 
               <li><a class="dropdown-item" href="{{url_for('course.general_science')}}">General Science</a></li>
                  <li>
-                  <a class="dropdown-item" href="{{url_for('course.homeEconsOne')}}">Home Econs Option 1</a>
+                  <a class="dropdown-item" href="{{url_for('course.homeEconsOne')}}">Home Economics (Food)</a>
                 </li>
-                <!--  <li>
-                  <a class="dropdown-item" href="{{url_for('course.homeEconsTwo')}}">Home Econs option 2</a>
-                </li>
-                <li><hr class="dropdown-divider" /></li>
+              <li>
+                  <a class="dropdown-item" href="{{url_for('course.homeEconsTwo')}}">Home Economics (Clothing)</a>
+                 </li>
+               <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="{{url_for('course.vitualArtOne')}}">Vitual Art Option 1</a>
-                </li>
+                  <a class="dropdown-item" href="{{url_for('course.vitualArtOne')}}">Vitual Art (Graphic)</a>
+                 <!--   </li>
                 <li>
                   <a class="dropdown-item" href="{{url_for('course.vitualArtTwo')}}">Vitual Art Option 2</a>
                 </li>
@@ -138,7 +142,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="{{url_for('admin_views.online_admission')}}">Admission</a>
+              <a class="nav-link" href="{{url_for('admin_views.online_admission')}}">Admission</a>
             </li>
             <li>
             <a class="nav-link" href="{{ url_for('admin_views.sign_in_post' ) }}">Staff</a>
