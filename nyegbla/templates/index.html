@@ -6,8 +6,14 @@
   async
   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173430360094892"
   crossorigin="anonymous"
-></script>
-<header
+>
+</script>
+
+{% endblock %}
+<body>
+  <!-- Header block-->
+  {% block header %}
+  <header
   id="background"
   style="padding-top:60vh; background-image: url('{{ url_for('static', filename='asset/images/home_back/prams_admin.jpg') }}'); background-size: cover; background-position: center"
 >
@@ -21,10 +27,7 @@
       </div> -->
   </div>
 </header>
-{% endblock %}
-<body>
-  <!-- Header block-->
-
+{% endblock%}
   <!-- Main Content of the Website -->
   {% block content %}
   <main>
@@ -69,9 +72,9 @@
     <!-- Services section-->
     <section class="bg-light mission" id="services">
       <div class="container px-4">
-        <h2 class="vision-hd">:Our Vission</h2>
-        <div class="row gx-4 justify-content-center">
-          <p class="lead">A prefered institution for a holistic education.</p>
+        <h2  class="vision-hd">:Our Vission</h2>
+        <div class="row gx- text-end">
+          <p id='mission' class="lead">A prefered institution for a holistic education.</p>
         </div>
       </div>
     </section>
@@ -182,41 +185,11 @@
       </div>
     </section>-->
     <!-- WEEKLY FACE OF PRAMSHIGH DUE TO GOOD BEHAVIOR -->
-    <section id="begin">
-      <h1 class="text-decoration-underline text-uppercase">
-        <!--Face of PramsHigh:-->
-      </h1>
-    </section>
 
-    <section>
-      <h3>Location:</h3>
-      <div class="embed-map-responsive">
-        <div class="embed-map-container">
-          <iframe
-            class="embed-map-frame"
-            frameborder="0"
-            scrolling="no"
-            marginheight="0"
-            marginwidth="0"
-            src="https://maps.google.com/maps?width=300&height=200&hl=en&q=Prampram%20Senior%20High%20School&t=&z=17&ie=UTF8&iwloc=B&output=embed"
-          >
-          </iframe>
-          <a
-            href="https://sprunkiretake.net"
-            style="
-              font-size: 2px !important;
-              color: gray !important;
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              z-index: 1;
-              max-height: 1px;
-              overflow: hidden;
-            "
-            >sprunki retake</a
-          >
-        </div>
-      </div>
+
+    <section class="justify-content-center">
+      <h1 class="justify-content-center">Location:</h1>
+      <div class="embed-map-responsive"><div class="embed-map-container"><iframe class="embed-map-frame" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=500&height=400&hl=en&q=Prampram%20Senior%20High%20School&t=&z=17&ie=UTF8&iwloc=B&output=embed"></iframe><a href="https://sprunkiretake.net" style="font-size:2px!important;color:gray!important;position:absolute;bottom:0;left:0;z-index:1;max-height:1px;overflow:hidden">sprunki retake</a></div></div>
     </section>
   </main>
   {% endblock %}

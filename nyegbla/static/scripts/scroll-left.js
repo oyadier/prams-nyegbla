@@ -19,6 +19,9 @@ $(document).ready(function () {
     $('#welcome').css('animation', 'scrollLeft 10s linear infinite');
 });
 
+$(document).ready(function () { 
+    $('#mission').css('animation', 'scrollLeft 15s ease-in-out infinite');
+});     
 
 
 // Fade away the flask flash message after 4 seconds
