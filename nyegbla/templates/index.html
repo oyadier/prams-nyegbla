@@ -2,40 +2,42 @@
 
 <!-- The Body of the page which will contain every tag -->
 {% block head %}
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173430360094892"
-     crossorigin="anonymous"></script>
-  <header id="background"
-
-    style="padding-top:60vh; background-image: url('{{ url_for('static', filename='asset/images/home_back/prams_admin.jpg') }}'); background-size: cover; background-position: center">
-    <div class="container px-4 text-center">
-      <h1 class="fw-bolder">Welcome to Prampram Senior High</h1>
-      <p style="font-size: large; color: white">
-        <i >Pramshigh, Ny3 Gbla!!</i>
-      </p>
-      <!-- <div class="slidding-image-container">
+<script
+  async
+  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173430360094892"
+  crossorigin="anonymous"
+></script>
+<header
+  id="background"
+  style="padding-top:60vh; background-image: url('{{ url_for('static', filename='asset/images/home_back/prams_admin.jpg') }}'); background-size: cover; background-position: center"
+>
+  <div class="container px-4 text-center">
+    <h1 class="fw-bolder">Welcome to Prampram Senior High</h1>
+    <p style="font-size: large; color: white">
+      <i>Pramshigh, Ny3 Gbla!!</i>
+    </p>
+    <!-- <div class="slidding-image-container">
         <img src="" alt="Images will show here" class="sliding col-lg-8" />
       </div> -->
-    </div>
-  </header>
-  {% endblock %}
+  </div>
+</header>
+{% endblock %}
 <body>
   <!-- Header block-->
 
   <!-- Main Content of the Website -->
   {% block content %}
   <main>
-    
-    <section class="bg-light mission" id="services" >
+    <section class="bg-light mission" id="services">
       <div class="row gx-4 justify-content-center">
         <h2><u>Our Mission:</u></h2>
         <div class="col-lg-8 lead fw-bolder">
-            <p id="welcome" >
-              To efficiently and effectively equip our students with
-              transformational education within a suitablee environment towards
-              achieving high academic and peronal growth; guided by a high
-              standard discipline for the global setting.
-            </p>
-        
+          <p id="welcome">
+            To efficiently and effectively equip our students with
+            transformational education within a suitablee environment towards
+            achieving high academic and peronal growth; guided by a high
+            standard discipline for the global setting.
+          </p>
         </div>
       </div>
     </section>
@@ -47,20 +49,18 @@
         <div class="row gx-4 justify-content-center">
           <h2><u>CORE VALUES:</u></h2>
           <div class="col-lg-8">
-            <p class="lead" style="color: white">
-             
-            </p>
-            <hr style="padding-bottom: 40vh;" />
-          
+            <p class="lead" style="color: white"></p>
+            <hr style="padding-bottom: 40vh" />
+
             <div id="div_back" class="ict-vertical-line">
-              <h1> CORE VALUES</h1>
-              <p title="{{core[0]}}">R ======>  Resilience</p>
-              <p title="{{core[1]}}">E ======>  Efficiency</p>
-              <p title="{{core[2]}}">S ======>  Self Discipline</p>
-              <p title="{{core[3]}}">P ======>  Patience</p>
-              <p title="{{core[4]}}">E ======>  Excellence</p>
-              <p title="{{core[5]}}">C ======>  Confidence</p>
-              <p title="{{core[6]}}">T ======>  Teamwork</p>
+              <h1>CORE VALUES</h1>
+              <p title="{{core[0]}}">R ======> Resilience</p>
+              <p title="{{core[1]}}">E ======> Efficiency</p>
+              <p title="{{core[2]}}">S ======> Self Discipline</p>
+              <p title="{{core[3]}}">P ======> Patience</p>
+              <p title="{{core[4]}}">E ======> Excellence</p>
+              <p title="{{core[5]}}">C ======> Confidence</p>
+              <p title="{{core[6]}}">T ======> Teamwork</p>
             </div>
           </div>
         </div>
@@ -71,52 +71,45 @@
       <div class="container px-4">
         <h2 class="vision-hd">:Our Vission</h2>
         <div class="row gx-4 justify-content-center">
-          
-            <p class="lead">
-              A prefered institution for a holistic education.
-            </p>
-        
+          <p class="lead">A prefered institution for a holistic education.</p>
         </div>
       </div>
     </section>
-    <section >
-      <h1 class='justify-content-center'>Upcoming Events</h1>
+    <section>
+      <h1 class="justify-content-center">Upcoming Events</h1>
       <div class="container px-4 text-center image-container px-4">
-         <img
-              src="{{url_for( 'static', filename='asset/images/src/celebration_banner.png')}}"
-              alt="SRC CELEBRATION"
-            />
+        <img
+          src="{{url_for( 'static', filename='asset/images/src/celebration_banner.png')}}"
+          alt="SRC CELEBRATION"
+        />
       </div>
-     
     </section>
     <!-- CAMPUS EVENT SECTIONS -->
-    <section class='justify-content-center'>
-      <h1 class='justify-content-center'>Campus Updates</h1>
+    <section class="justify-content-center">
+      <h1 class="justify-content-center">Campus Updates</h1>
       <div class="image-container">
         <div class="gallery">
-          <a
-          target="_self"
-            href="{{ url_for('views.prefect_speech') }}"
-          >
+          <a target="_self" href="{{ url_for('views.prefect_speech') }}">
             <img
               src="{{url_for( 'static', filename='asset/images/new_prefects_2024.jpg') }}"
               alt="New elected prefects-2024/2025"
             />
           </a>
-          <div class="desc">The speech of the newly elected school prefect, 2024/2025</div>
+          <div class="desc">
+            The speech of the newly elected school prefect, 2024/2025
+          </div>
         </div>
         <div class="gallery">
-          <a target='_parent'
-            href="{{url_for('views.drugless_excursion') }}"
-          >
+          <a target="_parent" href="{{url_for('views.drugless_excursion') }}">
             <img
               src="{{url_for( 'static', filename='asset/images/drugless/at-kwame-nkrumah-center.jpg') }}"
               alt="Drugless Club Empbarked on an educative excursion"
             />
           </a>
-          <div class="desc">Drugless Club Embarked on an educative excursion</div>
+          <div class="desc">
+            Drugless Club Embarked on an educative excursion
+          </div>
         </div>
-        
 
         <div class="gallery">
           <a target="_self" href="{{ url_for('views.high_praise_ministry') }}">
@@ -138,9 +131,7 @@
               alt="RRS CELEBRATION 2025"
             />
           </a>
-          <div class="desc">
-            2025 SRC Week Celebraion
-          </div>
+          <div class="desc">2025 SRC Week Celebraion</div>
         </div>
         <div class="gallery">
           <a target="_self" href="{{ url_for('course.homeEconsOne') }}">
@@ -149,11 +140,8 @@
               alt="Why Studing Home Economics (Food)"
             />
           </a>
-          <div class="desc">
-            Why Studying Home Economics (Food Option)
-          </div>
+          <div class="desc">Why Studying Home Economics (Food Option)</div>
         </div>
-      
       </div>
     </section>
     <!-- Contact section-->
@@ -198,7 +186,37 @@
       <h1 class="text-decoration-underline text-uppercase">
         <!--Face of PramsHigh:-->
       </h1>
-      
+    </section>
+
+    <section>
+      <h3>Location:</h3>
+      <div class="embed-map-responsive">
+        <div class="embed-map-container">
+          <iframe
+            class="embed-map-frame"
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src="https://maps.google.com/maps?width=300&height=200&hl=en&q=Prampram%20Senior%20High%20School&t=&z=17&ie=UTF8&iwloc=B&output=embed"
+          >
+          </iframe>
+          <a
+            href="https://sprunkiretake.net"
+            style="
+              font-size: 2px !important;
+              color: gray !important;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              max-height: 1px;
+              overflow: hidden;
+            "
+            >sprunki retake</a
+          >
+        </div>
+      </div>
     </section>
   </main>
   {% endblock %}
