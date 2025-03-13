@@ -1,0 +1,103 @@
+
+{% extends 'base.html' %}
+
+<body>
+{% block head %}
+<title></title>
+{% endblock %}
+{% block content %}
+
+<main> 
+   
+  <div class='col-lg-8  mt-5'>
+   <div>
+      <h3><u>Table of Content:</u></h3>
+      <ol class="list-group">
+        {% for key, value in tb_content.items() %}
+    
+        <li>
+          <a href="{{url_for('course.general_science', _anchor= key )}}">{{ value }}</a>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    
+    <div  class='offset-lg-4 fs-4' > 
+        <div id="description" class='shadow-lg' ><h3>Genral Science: Course Overview</h3>
+          <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/sc1.jpg') }}"
+          alt="Form One Science Students"
+          width="500"
+     height="300"  
+         />
+        
+        </div>
+        <p> </p>
+      
+      </div>
+    
+      <div  class='offset-lg-4 fs-4'> 
+        <div id="whatYou" class='shadow-lg'><h3>What You Will Learn</h3>
+          <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/skills.png') }}"
+          alt="Form One Science Students"
+          width="500" 
+          height = "100"
+        />
+      </div>
+        
+        <p>
+        </p>
+          <br>
+       
+      </div>
+        
+      <div  class='offset-lg-4 fs-4'> 
+          <div id="skills" class='shadow-lg'>
+            <h3> Key Skills You Will Develop</h3>
+            <img class="post-gallery"
+
+            src="{{url_for('static', filename='asset/images/handover/indudction.jpg') }}"
+            alt="Form One Science Students"
+          />
+          </div>
+     <p>
+      <b>• Critical Thinking:</b> </p>
+   </div>
+<div class='offset-lg-4 fs-4'>
+  <div id= 'why' class="shadow-lg"> 
+  <h3>Why Take This Course</h3>
+  </div>
+  <p></p>
+</div>
+
+<div class='offset-lg-4 fs-4'>
+  <div id= 'career' class="shadow-lg"> 
+  <h3>Career Opportunities in Science</h3>
+  </div>
+<p> 
+  <p><b>1. Medical and Health Careers:</b>
+    
+  </p>
+
+  <p><b></b>
+    </p>
+
+  <p><b>3. Environmental and Earth Sciences:</b>
+    
+  </p>
+
+  <p> </p> 
+
+     <p class='fst-italic small'>	Updated: 01/02/2025</p>
+
+  </div>
+
+</main>   
+</section>
+
+{% endblock %}
+
+</body>

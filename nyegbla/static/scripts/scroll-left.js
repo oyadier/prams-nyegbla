@@ -20,6 +20,10 @@ $(document).ready(function () {
 });
 
 
+$(document).ready(function () { 
+    $('#mission').css('animation', 'scrollLeft 15s ease-in-out infinite');
+});
+
 
 // Fade away the flask flash message after 4 seconds
 $(document).ready(function () {
@@ -57,5 +61,26 @@ $(document).ready(() => {
       //  submitForm('PUT');
     })
 })
+
+$(document).ready(() => {
+    $('#signup_form').submit((e) => {
+        // Prevent the form from submitting immediately
+        e.preventDefault();
+
+        // Check if any of the required fields are empty
+        if ($('#first_name').val().trim() === '' || 
+            $('#surname').val().trim() === '' || 
+            $('#staff_id').val().trim() === '' || 
+            $('#password').val().trim() === '') {
+            
+            alert("Please fill in all required fields.");
+        } else {
+            // If all fields are filled, you can proceed with the form submission
+            // Optionally submit the form here, e.g., via AJAX or by removing the e.preventDefault()
+            $('#signup_form').off('submit').submit(); // This will allow the form to submit
+        }
+    });
+});
+
 
 //Logging Out a user

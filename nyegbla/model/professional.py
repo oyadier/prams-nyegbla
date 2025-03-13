@@ -10,7 +10,8 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
        
 class Professional(Base):
     '''Professional Qualification of staff'''
-    __tablename__ = 'prof_qualification'
+
+    __tablename__ = 'professional'
     pro_id:Mapped[int] = mapped_column(Integer, primary_key=True, nullable=False, autoincrement=True)
     course:Mapped[str] = mapped_column(String(200), nullable=False)
     institution:Mapped[str] = mapped_column(String(200), nullable=False)
@@ -19,7 +20,8 @@ class Professional(Base):
     cert_awarded:Mapped[str] = mapped_column(String(200), nullable=True)
     cert_date:Mapped[str] = mapped_column(String(20), nullable=True)
     created_at : Mapped[str] = mapped_column(String(30), nullable=False)
-    user_fk:Mapped[str] = mapped_column(String(40), ForeignKey("user.staff_id"), nullable=False)
+    user_fk:Mapped[int] = mapped_column(Integer, ForeignKey("user.staff_id"), nullable=False)
+
 
     def __init__(self, course:str,
                  institution:str,

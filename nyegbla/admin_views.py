@@ -18,9 +18,9 @@ def sign_up_post():
    return render_template('departments/admin/sign_up.html')
    
 
-@admin_views.route('/languages')
+@admin_views.route('/departments/languages/in-perspective')
 def languages():
-   return render_template('departments/languages/why+study+language.html')
+   return render_template('departments/languages/general_overview.html')
 
 @admin_views.route('/home-economics')
 def homeecons():
@@ -37,3 +37,8 @@ def staff_profile():
 @admin_views.route('/profile-sign-in')
 def profile_sign_in():
     return render_template('/departments/ict/students+projects.html')
+ 
+@admin_views.route('/about_us')
+def about_us():
+    return render_template('/about_us.html')
+

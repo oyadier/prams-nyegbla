@@ -17,59 +17,72 @@
     </p>
     <div class="f-center">
       <h1 style="margin: auto;">Sign Up A New Staff</h1>
-      <form method="post" action="/v1/api/sign_up" class="div-form">
+      <form method="post" action="/v1/api/sign_up" class="div-form" id="signup_form">
         <img
           class="form-logo"
           src="{{url_for('static', filename='asset/images/logo.jpg')}}"
         />
-        <label class="form-label-input2" for="name">First Name</label>
+        <label class="form-label-input2" for="name">First Name <span style="color: red;">*</label>
+
         <input
           class="form-label-input2"
           placeholder="First Name"
           type="text"
           id="first_name"
           name="first_name"
+          required
         /><br />
-        <label class="form-label-input2" for="name">Surname</label>
+        <label class="form-label-input2" for="name">Surname <span style="color: red;">*</label>
         <input
           class="form-label-input2"
           placeholder="Surname"
           type="text"
           id="surname"
           name="surname"
+          required
         /><br />
-        <label class="form-label-input2" for="staffID">Staff ID</label>
+        <label class="form-label-input2" for="staffID">Staff ID <span style="color: red;">*</label>
         <input
           class="form-label-input2"
           placeholder="Staff ID"
           type="text"
           id="staff_id"
           name="staff_id"
+          required
         /><br />
-        <label class="form-label-input2" for="password">Password</label>
+        <label class="form-label-input2" required for="password">Password <span name='mandatory' style="color: red;">*</label>
         <input
           class="form-label-input2"
           placeholder="Password"
           type="text"
           id="password"
           name="password"
+          required
+
         /><br/>
-        <label class="form-label-input2" for="password">Confirm Password</label>
+        <label class="form-label-input2" for="password">Confirm Password <span style="color: red;">*</span></label>
         <input
           class="form-label-input2"
           placeholder="Confirm Password"
           type="text"
-          id="con_password"
+
+          id="confirm_password"
+
           name="confirm_password"
         /><br/>
         <input
           class="form-label-input2 form-text"
           type="submit"
-          title="Sign In"
+
+          id='sign_up'
+          name='sign_up'
+          title="Sign Up"
           value="Sign Up"
+          required
         />
         <p><a href="">Forget password?</a></p>
       </form>
+      <button class="form-label-input2 form-text" id='edit' name='edit'>Edit</button>
     </div>
   </section>
 </main>

@@ -1,0 +1,69 @@
+
+{% extends 'base.html' %}
+
+<body>
+{% block head %}
+<title> </title>
+{% endblock %}
+{% block content %}
+<main>
+
+
+  <div class='col-lg-8  mt-5'>
+
+    <div class='offset-lg-4 fs-4'> 
+        <div class='shadow-lg' ><h3> Headings Goes Here</h3>
+        
+        </div>
+  
+        <img class="post-gallery"
+          src="{{url_for('static', filename='/asset/images/handover/hnd-over.jpg') }}"
+       
+          alt="School Prefect Deliverying spe"
+        />
+ 
+    
+      <img class="post-gallery"
+          src="{{url_for('static', filename='/asset/images/handover/sspeech.jpg') }}"
+          alt="Drugless Club at parliament of Ghana"
+        />
+   
+     
+      
+      <img class="post-gallery"
+      src="{{url_for('static', filename='/asset/images/handover/sttaff_studentt.jpg') }}"
+      alt="Drugless Club at parliament of Ghana"
+    />
+    
+
+       
+
+      <br> <img class="post-gallery"
+
+          src="{{url_for('static', filename='asset/images/handover/induction.jpg') }}"
+          alt="Form 1 Student at HPM Praises"
+        />
+      <p class='fst-italic fw-bold'> You missed the eventt? View some beautiful <a target='_blank' href="{{url_for('views.drugless_excursion_gallery')}}">pictures.</a> </p>
+
+   <p> --------------------------------------------------------------------------------------------------------------------</p>
+
+    <p class='fst-italic'>	Writers </p>
+    <img class="post-gallery"
+
+    src="{{url_for('static', filename='asset/images/hpm/authors.jpg') }}"
+    alt="Authors of the HPM HIV event"
+  />
+
+      
+      <div>
+ </div>
+ <div class="container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/5dPKGtKZ-dg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></iframe>
+  </div>
+        
+</main>
+</section>
+
+{% endblock %}
+
+</body>

@@ -2,13 +2,22 @@
 <!-- This is the foundation of all the html markups. It will be inherited in flask application. -->
 <html>
   <head>
-    {% block head %} {% endblock %}
+    <!--Google AdSense-->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6173430360094892"
+      crossorigin="anonymous"
+    ></script>
+
     <meta charset="utf-8" />
-    <meta name="refresh" content="300"/>
-  
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+    <meta name="refresh" content="20" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
     <title>Prampram Senior High School. {% block title %}{% endblock %}</title>
     <link
       rel="icon"
@@ -28,21 +37,22 @@
     ></script>
   </head>
 
-  <body id="page-top">
+  <body class="bg-transparent" id="page-top">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       {% block nav %}{% endblock %}
       <div class="container px-4">
-        <a img href="#begin">
+        <a img href="{{url_for('views.homepage')}}">
           <img
             class="logo-format"
             src="{{url_for('static', filename='asset/images/logo.jpg')}}"
+            href="{{url_for('views.homepage')}}"
             alt="Pramshigh School chrest"
         /></a>
         <a
           class="navbar-brand "
           href="{{url_for('views.homepage')}}"
           title="Ny3 Gbla!!"
-          >PramshighEdu</a
+          ><i>PramshighEdu</i></a
         >
         <button
           class="navbar-toggler"
@@ -50,7 +60,7 @@
           data-bs-toggle="collapse"
           data-bs-target="#navbarResponsive"
           aria-controls="navbarResponsive"
-          aria-expanded="false"
+          aria-expanded="true"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
@@ -60,43 +70,35 @@
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('views.homepage') }}">Home</a>
             </li>
-            <li class="nav_item dropdown">
+            <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 id="navbarDropdown"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
-                href="#"
+                aria-expanded="true"
                 >Departments</a
               >
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdown"
               >
-                <li><p>Academics</p></li>
-                <li class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="{{url_for('admin_views.languages')}}">Languages</a></li>
+                <!-- COURSE COMBINATION GOES HERE-->
                 <li>
-                  <a class="dropdown-item" href="{{url_for('views.ict') }}"
-                    >ICT</a>
-                </li>
+                  <a class="dropdown-item" href="{{url_for('admin_views.languages') }}"
+                    >Languages</a
+                  ></l>
                 <li>
-                  <a class="dropdown-item" href="{{url_for('views.ict') }}"
-                    >Mathematics/Science</a
-                  >
+
+                 <a class="dropdown-item" href="{{url_for('admin_views.sign_in_post') }}"
+                  >Administration</a>
                 </li>
-                <li><a class="dropdown-item" href="{{url_for('admin_views.homeecons')}}">Home Economics</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="{{url_for('admin_views.sign_in_post')}}">Administration</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Students Rep. Council</a>
-                </li>
+                <li><hr class="dropdown-divider"/></li>
+                
               </ul>
             </li>
+           
 
             <li class="nav-item dropdown">
               <a
@@ -105,25 +107,51 @@
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
+                aria-expanded="true"
                 >Courses</a
               >
               <ul
                 class="dropdown-menu dropdown-menu-end"
                 aria-labelledby="navbarDropdown"
               >
-                <li><a class="dropdown-item" href="{{url_for('course.generalScience')}}">Science</a></li>
-                <li><a class="dropdown-item" href="{{url_for('course.business')}}">Business</a></li>
+                <!-- COURSE COMBINATION GOES HERE-->
                 <li>
-                  <a class="dropdown-item" href="{{url_for('course.homeEconsOne')}}">Home Econs Option 1</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="{{url_for('course.homeEconsTwo')}}">Home Econs option 2</a>
+                  <a class="dropdown-item" href="{{url_for('course.business')}}"
+                    >Business</a
+                  >
                 </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="{{url_for('course.vitualArtOne')}}">Vitual Art Option 1</a>
+                  <a
+                    class="dropdown-item"
+                    href="{{url_for('course.general_science')}}"
+                    >General Science</a
+                  >
                 </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="{{url_for('course.homeEconsOne')}}"
+                    >Home Economics (Food)</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="{{url_for('course.homeEconsTwo')}}"
+                    >Home Economics (Clothing)</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="{{url_for('course.vitualArtOne')}}"
+                    >Vitual Art (Graphic)</a
+                  >
+                  <!--   </li>
                 <li>
                   <a class="dropdown-item" href="{{url_for('course.vitualArtTwo')}}">Vitual Art Option 2</a>
                 </li>
@@ -131,18 +159,29 @@
                 <li>
                   <a class="dropdown-item" href="{{url_for('course.crs')}}">Christian Religious Service</a
                   >
+                </li>-->
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="{{url_for('admin_views.online_admission')}}">Admission</a>
+              <a
+                class="nav-link"
+                href="{{url_for('admin_views.online_admission')}}"
+                >Admission</a
+              >
             </li>
-            <a class="nav-link" href="{{ url_for('admin_views.sign_in_post' ) }}">Staff</a>
-            <li class="nav-item">
-              <a class="nav-link" href="">Contact Us</a>
+            <li>
+              <a
+                class="nav-link"
+                href="{{ url_for('admin_views.sign_in_post' ) }}"
+                >Staff</a
+              >
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="">About Us</a>
+              <a class="nav-link" href="{{url_for('admin_views.about_us')}}"
+                >About Us</a
+              >
             </li>
           </ul>
         </div>
@@ -156,15 +195,29 @@
           <h1 class="m-0 text-center text-black">Contact Us</h1>
           <address class="m-0 text-left text-white">
             <p>Prampram Senior High</p>
-            <p>P.O. BOX 34</p>
+            <p>P.O. BOX 30</p>
             <p>Computer Lab.</p>
-            <p>Ningo-Prampram District</p>
-            <p>mobile: <a class='footer-anchor' href="tel:+233242663981">(+233)-242-663-981</a></p>
+            <p>Ningo-Prampram Municipal</p>
+            <p>
+              mobile:
+              <a class="footer-anchor" href="tel:+233242663981"
+                >(+233)-242-663-981</a
+              >
+            </p>
           </address>
         </div>
 
         <div class="item vertical-line"></div>
+
         <div class="item">
+          <h1 class="m-0 text-center">Students</h1>
+          <ul class="footer-menu">
+            <a href="">SRC</a
+            ><br />
+          </ul>
+        </div>
+
+        <!-- <div class="item">
           <h1 class="m-0 text-center text-black">Entertainments</h1>
           <ul class="footer-menu">
             <a href="">Sports</a
@@ -175,19 +228,10 @@
           </ul>
         </div>
 
-        <div class="item vertical-line"></div>
-        <div class="item">
-          <h1 class="m-0 text-center">Students</h1>
-          <ul class="footer-menu">
-            <a href="">SRC</a><br>
-            <a href="">Alumni</a><br>
-            <a href="">Caplaincy</a>
-          </ul>
-        </div>
+        
       </div>
 
       <h4 class="text-center"><b>Follow Me</b></h4>
-      <!-- Social medial block -->
       <div class="social justify-content-center">
         <a href="https://www.x.com">
           <i class="fa-brands fa-twitter fa-fade fa-2x"></i>
@@ -203,15 +247,28 @@
         <a href="https://whatsapp.web.com">
           <i class="fa-brands fa-whatsapp fa-beat fa-2x"></i>
         </a>
+      </div> -->
       </div>
-      <p class="text-center">Vesion: 1.1.0 || Copy right (2024)  || Design & Implement by:<a style="color:yellow; text-decoration: none; text-style: bold"href="#" > Oyatech</a></p>
-     
+      <br />
+      <p class="text-center">
+        Vesion: 1.1.0 || (C)Copy right (2025) || Design & Implement by Oyatech<a
+          style="color: yellow; text-decoration: none; text-style: bold"
+          href="#"
+        >
+        </a>
+      </p>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js", default></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+      ,
+      default
+    ></script>
+
     <!-- Core theme JS-->
     <script src="{{ url_for('static', filename='scripts/core.js') }}"></script>
     <script src="{{ url_for('static', filename='scripts/scroll-left.js') }}"></script>
-
   </body>
 </html>

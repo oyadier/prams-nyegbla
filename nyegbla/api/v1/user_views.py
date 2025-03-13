@@ -88,24 +88,24 @@ def user_login():
  
 @crud_views.route('/sign_up', methods=['GET','POST'])
 def sign_up_post():
+
+    first_name = request.form['first_name']
+    surname = request.form['surname']
+    staff_id = request.form['staff_id']
+    password = request.form['password']
+    conf_password = request.form['confirm_password']
     
+    if password.strip() != conf_password.strip():
+        flash('Password does not match', category='warning')
+        return redirect(url_for('admin_views.sign_up_post'))
     '''Add new staff to the school database'''
     if request.method == 'POST':
-        first_name = request.form['first_name']
-        surname = request.form['surname']
-        staff_id = request.form['staff_id']
-        password = request.form['password']
-        conf_password = request.form['confirm_password']
         
-        if password.strip() != conf_password.strip():
-            flash('Password and Confirm password did not match', category='info')
-            return redirect(url_for('admin_views.sign_up_post'))
         #check if password already exist on this line
     
         response, status_code =  staff_profile(staff_id=staff_id)
         user = response.get_json()
-        print(f"{user}")
-        print(f"{status_code}")
+
         if status_code == 200:
             flash('User already exits', category='warning')
             return redirect(url_for('admin_views.sign_in_post'))

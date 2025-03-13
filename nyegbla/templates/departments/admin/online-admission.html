@@ -1,30 +1,31 @@
-{% extends 'base.html' %} {% block content %}
-<main style="padding-botton:15vh">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-   {% for category, message in messages %}
-  <div class="alert alert-{{ category }}">
-    {{message}}
+{% extends 'base.html' %}
+<body>
+  {% block head %}
+  <title>SOLs Online Admission</title>
+  {% endblock %} {% block content %}
 
-  </div> 
-  {% endfor %} {% endif %} {% endwith %}
-  <section class='col-lg-8 text-center pt-6'>
-    <div class="text-center">
-      <h1 >Welcome to Prampram Senior High School</h1>
-      <p class='lead'>
-        You have made a good choice for
-        coming this far and congratulations for succesfully
-        completing your Basic Education Certification Examinations. <b> To apply
-        for online admission please click on this link 
-        <button style="width: 300px; height: 70px">
-          <a style = "text-decoration: none " href="https://app.solseducation.com/account/student"
-            >Online Admission Live</a
+  <main>
+    <section style="margin-top: 10vh">
+      <div>
+        <h1>Welcome to Prampram Senior High School</h1>
+        <p style="font-size: 1.5rem">
+          You have made a good choice for coming to this far and congratulations
+          for succesfully completing your Basic Education Certification
+          Examinations. <br />
+          To apply for admission through our online process please use this
+          <a
+            style="text-decoration: none"
+            href="https://app.solseducation.com/account/student"
+            >link.</a
           >
-        </button>
-      </p>
-      
-    </div>
-   
-  </section>
-</main>
-{% endblock %}
+        </p>
+        <p>
+          Please vision our <a href="https://pramshighedu.com"> homepage</a>,
+          under Courses and read on the numerious courses we run for an informed
+          decisions.
+        </p>
+      </div>
+    </section>
+  </main>
+  {% endblock %}
+</body>

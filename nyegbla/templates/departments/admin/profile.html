@@ -1,31 +1,33 @@
 {% extends 'base.html' %} {% block content %}
-<main >
+<main>
   <!-- The dashboard of the user -->
   <div class="section1">
     <div id="div_back" class="f-center author">
       <!-- Taking user details from session pass on from sign In page -->
-  
-      <div class ='profile'>
-      
-    <input type="file" id="fileInput" style="display: none;" accept="image/*">
-    <img id="imageDisplay" alt="Profile Picture">
-    <button id="pickImageBtn">Load Picture</button>
+
+      <div class="profile">
+        <input
+          type="file"
+          id="fileInput"
+          style="display: none"
+          accept="image/*"
+        />
+        <img id="imageDisplay" alt="Profile Picture" />
+        <button id="pickImageBtn">Load Picture</button>
       </div>
       <p>Welcome {{ data['surname'] }}, {{ data.first_name }}</p>
       <div class="section1">
-    
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %} 
-        {% for category, message in messages %}
-       <div class="alert alert-{{ category }}">{{ message }}</div>
-       {% endfor %} {% endif %} {% endwith %}
-        
-          <button class="button" id="profile-btn">Personal Data</button>
-          <a class="button" id="prof-btn">Qualifications</a>
-          <a class="button" id="promote-btn"> Promotion</a>
-          <a  href="{{ url_for('crud_views.user_sign_out') }}" class="button"
-            >Logout</a>
-       
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if
+        messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %} {% endif %} {% endwith %}
+
+        <button class="button" id="profile-btn">Personal Data</button>
+        <a class="button" id="prof-btn">Qualifications</a>
+        <a class="button" id="promote-btn"> Promotion</a>
+        <a href="{{ url_for('crud_views.user_sign_out') }}" class="button"
+          >Logout</a
+        >
       </div>
     </div>
 
@@ -53,7 +55,7 @@
         </p>
       </div>
       <div class="f-center">
-        <input  type="hidden" name="_method" value="PUT"></input>
+        <input type="hidden" name="_method" value="PUT" />
         <div>
           <label for="firstName">First Name</label>
           <input
@@ -112,7 +114,6 @@
           />
         </div>
         <div>
-          
           <label for="gender">Sex</label>
           <select for="gender" required name="gender">
             <option value="{{data.gender}}"></option>
@@ -173,6 +174,7 @@
           ><label for="category">Employment Type</label>
           <select required name="category" for="category">
             <option value="{{data.category}}"></option>
+            <option value="adin">Adminstration</option>
             <option value="teaching">Teaching</option>
             <option value="non-teaching">Non-Teaching</option>
           </select>
@@ -198,12 +200,16 @@
         </div>
       </div>
       <div class="form-submit">
-        <input style="width: 40%" id='save_upt' type="submit" title="Update" value="Update" />
-        
+        <input
+          style="width: 40%"
+          id="save_upt"
+          type="submit"
+          title="Update"
+          value="Update"
+        />
       </div>
     </form>
   </div>
-
 
   <!-- THE STAFF PROFESSIONAL QUALIFICATION -->
   <div style="padding-top: 5vh">
@@ -211,18 +217,16 @@
       class="f-center"
       style="background-color: grey; text-align: center; color: white"
     >
-    <div class="f-center">
-      <h3 style="margin: auto">PROFESSIONAL QUALIFICATION</h3>
-      <button id="more_prof" style="margin-right: 20vh">Add More</button>
-    </div>
+      <div class="f-center">
+        <h3 style="margin: auto">PROFESSIONAL QUALIFICATION</h3>
+        <button id="more_prof" style="margin-right: 20vh">Add More</button>
+      </div>
       <form
         method="post"
         action="/v1/pramshigh/api/professional-qualification"
         class="profile-for"
         id="prof-form"
       >
-        
-
         <div class="f-center">
           <div>
             <label>Institution</label>
@@ -284,18 +288,20 @@
               />
             </div>
           </div>
-          
         </div>
 
         <hr />
         <div class="form-submit">
-          <input style="width: 40%" type="submit" title="Add Professional Qualification" value="Save" />
-        
+          <input
+            style="width: 40%"
+            type="submit"
+            title="Add Professional Qualification"
+            value="Save"
+          />
         </div>
       </form>
     </div>
   </div>
-
 
   <!-- THE STAFF PROMOTION FORM -->
   <div style="padding-top: 5vh">
@@ -307,7 +313,9 @@
     >
       <div class="f-center">
         <h2 style="margin: auto">STAFF PROMOTIONS</h2>
-        <button id='more_promo' style="margin-right: 20vh">Add Promotion</button>
+        <button id="more_promo" style="margin-right: 20vh">
+          Add Promotion
+        </button>
       </div>
       <div class="f-center">
         <div>
@@ -397,7 +405,6 @@
       </div>
     </form>
   </div>
-  
 </main>
 
 {% endblock %}
